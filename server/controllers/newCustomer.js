@@ -1,8 +1,8 @@
-var models = require('../models/index.js');
+var { newCustomer } = require('../models/index.js');
 
 module.exports = {
   get: (req, res) => {
-    models.newCustomer.getNewUser(req.body)
+    newCustomer.getNewUser(req.body)
       .then((data) => {
         console.log('successfull controller postNewUser')
         res.send(data.rows)
