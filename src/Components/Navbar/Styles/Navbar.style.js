@@ -18,10 +18,7 @@ export const NavbarListItem = styled.li`
   padding: 10px;
   color: white;
   font-size: 25px;
-
-  &:hover{
-    cursor: pointer;
-  }
+  cursor: pointer;
 `;
 
 export const NavbarDivButton =styled.div`
