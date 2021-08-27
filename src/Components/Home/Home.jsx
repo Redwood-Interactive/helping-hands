@@ -1,9 +1,14 @@
 import React from 'react';
+import MissionStatement from './MissionStatement/MissionStatement.jsx';
+import MapBlock from './MapBlock/MapBlock.jsx';
+import StatsBlock from './StatsBlock/StatsBlock.jsx'
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div>
-no way home
+      <MissionStatement/>
+      <MapBlock/>
+      <StatsBlock/>
     </div>
   );
 };
