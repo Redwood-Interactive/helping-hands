@@ -1,0 +1,1 @@
+exports.newCustomer = require('./newCustomer.js')
