@@ -24,3 +24,10 @@ export const NavbarListItem = styled.li`
   }
 `;
 
+export const NavbarDivButton =styled.div`
+  font-size: 25px;
+  height: 30px;
+  // width: 60px;
+  color: ${props => props.color || 'blue'};
+  background-color: white;
+`;
