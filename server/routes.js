@@ -1,11 +1,18 @@
 var { newCustomer } = require('./controllers/index.js');
 var router = require('express').Router();
+const passport = require('passport')
 
 router.get('/newcustomer', newCustomer.get);
 
 
 
 //AUTHENTICATION
-router.get('/auth/google')
+router.get('/auth/google', passport.authenticate('google', {
+  scope:['profile', 'email', 'https://www.googleapis.com/auth/user.phonenumbers.read']
+}))
+
+router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
+  res.redirect('/')
+})
 
 module.exports = router;

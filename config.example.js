@@ -14,8 +14,8 @@ module.exports.dbparams = {
 // these are for authorization.
 module.exports.optionsG = {
   callbackURL: 'callback url after successful auth',
-  clientID: 'get this from google people',
-  clientSecret: 'get this from google people'
+  clientID: 'get this from adding google people api to your library',
+  clientSecret: 'get this from adding google people api to your library'
 }
 
 module.exports.session = {
