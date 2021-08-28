@@ -1,8 +1,10 @@
-const { newCustomer } = require('./controllers/index.js');
+const { newCustomer, postFeedback, getContributions } = require('./controllers/index.js');
 const router = require('express').Router();
 const passport = require('passport')
 
 router.get('/newcustomer', newCustomer.get);
+
+router.get('/getcontributions', getContributions.get)
 
 
 
