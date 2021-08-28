@@ -5,7 +5,7 @@ import Navbar from './Components/Navbar/Navbar.jsx';
 import Home from './Components/Home/Home.jsx';
 import Contributions from './Components/Contributions/Contributions.jsx';
 import Requests from './Components/Requests/Requests.jsx';
-import Profile from './Components/Profile/Profile.jsx';
+import Settings from './Components/Profile/Settings.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 
 
@@ -21,7 +21,7 @@ const App = () => {
             <Route exact path='/' component={Home} />
             <Route exact path='/contributions' component={Contributions} />
             <Route exact path='/requests' component={Requests} />
-            <Route exact path='/profile' component={Profile} />
+            <Route exact path='/profile' component={Settings} />
           </Switch>
         </div>
         <Footer />

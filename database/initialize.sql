@@ -12,7 +12,7 @@ CREATE TABLE users (
   last_name VARCHAR(255) NOT NULL,
   current_rating INTEGER DEFAULT 0,
   email VARCHAR(255) NOT NULL,
-  phone BIGINT,
+  phone BIGINT DEFAULT NULL,
   profile_pic VARCHAR(1500) DEFAULT NULL,
   auth_id VARCHAR(30) NOT NULL,
   PRIMARY KEY (id)
@@ -69,6 +69,12 @@ CREATE TABLE locations (
   zipcode INTEGER NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE feedback (
+  id SERIAL,
+  feedback VARCHAR(500),
+  PRIMARY KEY (id)
 );
 
 CREATE INDEX users_id_idx
@@ -201,6 +207,8 @@ script: npm run buildDB to drop dabase, create the DB and insert dummy data.
 
 
 psql katielaw  -h 127.0.0.1 -d test -f database/initialize.sql
+
+psql justincase -h 127.0.0.1 -d community -f database/initialize.sql
 
 // new insert user format
 

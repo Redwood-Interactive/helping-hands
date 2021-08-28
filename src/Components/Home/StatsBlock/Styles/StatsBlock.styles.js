@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const StatsBlockContainer = styled.div`
   width: 100%;
-  height: 500px;
+  height: 300px;
   display: flex;
   justify-content: center;
-  background-color: #bf5700;
   margin: 0 auto;
 `;
 
+//leave the semicolon off of color here adding it will break something
 export const StatsBlockSection = styled.section`
   box-sizing: border-box;
   margin: 0;
@@ -29,7 +29,7 @@ export const StatsBlockTray = styled.div`
 `;
 
 export const StatsBlockCounter = styled.div`
-  color: #fff;
+  color: black;
   padding: 40px 20px;
   display: grid;
   grid-gap: 30px;
