@@ -1,5 +1,5 @@
-var { newCustomer, getContributions, postFeedback} = require('./controllers/index.js');
-var router = require('express').Router();
+const { newCustomer, getContributions, postFeedback} = require('./controllers/index.js');
+const router = require('express').Router();
 const passport = require('passport')
 
 router.get('/newcustomer', newCustomer.get);
@@ -14,6 +14,7 @@ router.get('/auth/google', passport.authenticate('google', {
 }))
 
 router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
+  // res.redirect('/')
   res.redirect('/')
 })
 

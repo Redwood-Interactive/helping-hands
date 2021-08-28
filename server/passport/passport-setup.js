@@ -12,7 +12,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   // user ID is passed in when someone who is logged in is on the page. we now need to find the user with the correct id.
-  authenticateLogin.authenticate(id)
+  authenticateLogin.deserializeAuth(id)
     .then((data)=>{
       if (data.rows) {
         done(null, data.rows[0])
@@ -25,23 +25,22 @@ passport.use(
   new GoogleStrategy(optionsG,
     (token, tokenSecret, profile, done) => {
       let { sub, given_name, family_name, picture } = profile._json
-      // here, take the googleId and search the database for it.
-      console.log('this is the googleID', sub)
       authenticateLogin.authenticate(sub)
         .then((data) => {
-          if (data.rows === 0) {
-          // route to create user: createNewUser(authid)
-          // then, call done
-          } else {
-            // call done and pass in the user returned by the db.
-            // then goes to serialize
+          if (data.rows[0]) {
             done(null, data.rows[0])
+          } else {
+            authenticateLogin.createNewUser(profile._json)
+              .then((data) => {
+                done(null, data.rows[0])})
+              .catch((err) => {console.log(err)})
           }
         })
         .catch((err) => {console.log(err)})
     }
   )
 )
+
 
 /* Profile Object:
 {
