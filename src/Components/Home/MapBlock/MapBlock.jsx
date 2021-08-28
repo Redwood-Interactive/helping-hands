@@ -1,14 +1,50 @@
-import React from 'react';
-import { MapContainer } from './Styles/MapBlock.style.js';
+import React, { useEffect } from 'react';
+import { MapContainer, MapAnchor } from './Styles/MapBlock.style.js';
+import { Loader } from '@googlemaps/js-api-loader';
 
 const MapBlock = (props) => {
 
+  useEffect(() => {
+    const loader = new Loader({
+      apiKey: 'AIzaSyAlMp4AQS5Hald642CExjB_Af6Gq_WNod8',
+    });
+    loader.load()
+    .then(() => {
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 30.2672, lng: -97.7431 },
+        zoom: 11,
+      });
+
+      const addMarker = (props) => {
+        var marker = new google.maps.Marker({
+          position: props.coords,
+          map: map,
+        })
+
+        if (props.content) {
+          var infoWindow = new google.maps.InfoWindow({
+            content: props.content
+          })
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+
+      addMarker({
+        coords:{ lat: 30.259886153922185, lng: -97.70108708137616 },
+        content: '<div>Casa Marianella</div>'
+      })
+      
+    });
+
+
+  }, [])
+
   return (
     <MapContainer>
-      <div>
-        This is this map block
-      </div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d882238.1178176565!2d-98.33157895646069!3d30.258666836646047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b5a6f356703d%3A0xfd35b832828a722c!2sFront%20Steps!5e0!3m2!1sen!2sus!4v1630080810431!5m2!1sen!2sus" width="700" height="500" loading="lazy"></iframe>
+      <h1>This is this map block</h1>
+      <MapAnchor id='map'></MapAnchor>
     </MapContainer>
   )
 }
