@@ -25,6 +25,21 @@ const [showModal, setModal] = useState(false);
             </TextDiv>
           </Item>
         )}
+        {dummyData.contributions.map((item, index) =>
+          <Item>
+            <ImageDiv>
+              <ItemImage src={item.photos} onClick={() => setModal(true)}/>
+              <CategoryDiv>
+                <CategoryIcon>∆</CategoryIcon>
+              </CategoryDiv>
+            </ImageDiv>
+            <TextDiv>
+              <Title>{item.title}</Title>
+              <Location>Location</Location>
+              <Time>5m ago</Time>
+            </TextDiv>
+          </Item>
+        )}
       </ItemsProducts>
       <ItemsModal show={showModal} onHide={() => setModal(false)}/>
 

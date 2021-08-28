@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const ItemsContainer = styled.div `
   width: 100%;
-  height: 800px;
-  /* border: 1px solid black; */
+  /* height: 800px; */
+  /* border: 3px solid black; */
   display: flex;
   justify-content: center;
+  padding: 150px 50px;
 `;
 
 export const ItemsProducts = styled.div `

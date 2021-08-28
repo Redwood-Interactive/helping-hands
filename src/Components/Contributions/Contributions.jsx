@@ -1,12 +1,12 @@
 import React from 'react';
 import { ContributionsContainer } from './Styles/Contributions.style.js'
-import Buttons from './Buttons.jsx';
+import Sidebar from './Sidebar.jsx';
 import Items from './Items.jsx';
 
 const Contributions = () => {
   return (
     <ContributionsContainer>
-      <Buttons />
+      <Sidebar />
       <Items />
     </ContributionsContainer>
   );
