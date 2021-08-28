@@ -28,7 +28,6 @@ module.exports = {
   },
 
   createNewUser: (authObject) => {
-    console.log('we are in createNewUser in authenticateLogin', authObject)
     let {sub, given_name, family_name, email, picture} = authObject
     let query = {
       text: `INSERT INTO users (first_name, last_name, email, profile_pic, auth_id) VALUES ($1, $2, $3, $4, $5) returning *`,

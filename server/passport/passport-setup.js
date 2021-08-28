@@ -30,7 +30,6 @@ passport.use(
           if (data.rows[0]) {
             done(null, data.rows[0])
           } else {
-            console.log('no users found')
             authenticateLogin.createNewUser(profile._json)
               .then((data) => {
                 done(null, data.rows[0])})
