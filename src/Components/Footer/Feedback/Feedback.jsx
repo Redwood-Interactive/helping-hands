@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { FeedbackTextArea, FeedbackForm } from './Styles/Feedback.style.js'
 import apiCalls from '../../../apiCalls.js'
 
 const Feedback = (props) => {
@@ -13,19 +14,20 @@ const Feedback = (props) => {
     e.preventDefault()
     apiCalls.postFeedback(feedback)
       .then((data) => {
-        setFeedback('')
         console.log(data)
+        setFeedback('')
       })
       .catch((err) => {
         console.log(err)
       })
-  }
+    }
 
   return (
-    <form onSubmit={submitHandler}>
-      <input onChange={changeHandler}></input>
-      <button type='submit' value={feedback}>Submit</button>
-    </form>
+    <FeedbackForm onSubmit={submitHandler}>
+      <div>Leave us some feedback!</div>
+      <FeedbackTextArea onChange={changeHandler} value={feedback}></FeedbackTextArea>
+      <button type='submit'>Submit</button>
+    </FeedbackForm>
   )
 }
 
