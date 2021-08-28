@@ -2,19 +2,25 @@ import styled from 'styled-components';
 
 export const ItemsContainer = styled.div `
   width: 100%;
-  height: 800px;
-  /* border: 1px solid black; */
   display: flex;
   justify-content: center;
+  padding-top: 25px;
+  padding-bottom: 100px;
+`;
+
+export const ContributionTitle = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-left: 15px;
+  font-size: 50px;
 `;
 
 export const ItemsProducts = styled.div `
   display: flex;
-  width: 1200px;
-  /* border: 1px solid red; */
+  width: ${props => props.width};
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `;
 
