@@ -1,4 +1,4 @@
-var { newCustomer } = require('./controllers/index.js');
+var { newCustomer, postFeedback } = require('./controllers/index.js');
 var router = require('express').Router();
 const passport = require('passport')
 
@@ -14,5 +14,7 @@ router.get('/auth/google', passport.authenticate('google', {
 router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
   res.redirect('/')
 })
+
+router.post('/feedback', postFeedback.post)
 
 module.exports = router;

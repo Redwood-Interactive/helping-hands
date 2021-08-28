@@ -63,7 +63,7 @@ module.exports = {
       date: '2021-08-20 03:14:07',
       condition: 'Used',
       available: true,
-      photos: ["https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946"],
+      photos: ["https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946", "https://www.rd.com/wp-content/uploads/2021/04/GettyImages-141809950.jpg?w=1946"],
     },
     {
       id: 2,
@@ -90,7 +90,7 @@ module.exports = {
       date: '2021-08-25 03:14:07',
       condition: 'new',
       available: true,
-      photos: ['https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'],
+      photos: ['https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946', "https://www.rd.com/wp-content/uploads/2021/04/GettyImages-141809950.jpg?w=1946"],
     },
     {
       id: 3,
@@ -117,7 +117,7 @@ module.exports = {
       date: '2021-08-22 03:14:07',
       condition: 'used',
       available: true,
-      photos: ['https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'],
+      photos: ['https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946', "https://www.rd.com/wp-content/uploads/2021/04/GettyImages-141809950.jpg?w=1946"],
       location: [
         {
           street_name: '1331 boombayah',
