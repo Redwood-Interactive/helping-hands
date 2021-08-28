@@ -7,7 +7,6 @@ router.get('/newcustomer', newCustomer.get);
 router.get('/getcontributions', getContributions.get);
 
 
-
 //AUTHENTICATION
 router.get('/auth/google', passport.authenticate('google', {
   scope: ['profile', 'email', 'https://www.googleapis.com/auth/user.phonenumbers.read']
