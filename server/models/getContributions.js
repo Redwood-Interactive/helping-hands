@@ -2,9 +2,9 @@ const db = require('../../database/index.js')
 
 
 module.exports = {
-  get16contributions: (data) => {
+  get20contributions: (data) => {
     var query = `
-      SELECT * FROM contributions limit 16
+      SELECT * FROM contributions limit 20
     `;
 
     return db.query(query)
