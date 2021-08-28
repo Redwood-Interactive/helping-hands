@@ -8,11 +8,16 @@ router.get('/newcustomer', newCustomer.get);
 
 //AUTHENTICATION
 router.get('/auth/google', passport.authenticate('google', {
-  scope:['profile', 'email', 'https://www.googleapis.com/auth/user.phonenumbers.read']
+  scope:['profile', 'email']
 }))
 
 router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
   // res.redirect('/')
+  res.redirect('/')
+})
+
+router.get('auth/logout', (req, res) => {
+  req.logout();
   res.redirect('/')
 })
 
