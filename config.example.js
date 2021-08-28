@@ -7,7 +7,7 @@ Steps to set up config.js:
 module.exports.dbparams = {
   user: 'your username here',
   host: 'your ip here',
-  database: 'community',
+  database: 'your database name here',
   port: 'your port here, delete single quotes to make this one a number',
 }
 
