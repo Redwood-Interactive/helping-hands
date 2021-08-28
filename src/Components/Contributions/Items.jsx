@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ItemsContainer, ItemsProducts, Item, ItemImage, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Title, Time } from './Styles/Items.style.js';
+import ItemsModal from './ItemsModal.jsx';
 import dummyData from '../../dummydata/dummydata.js'
 
 const Items = () => {
@@ -12,7 +13,7 @@ const [showModal, setModal] = useState(false);
         {dummyData.contributions.map((item, index) =>
           <Item>
             <ImageDiv>
-              <ItemImage src={item.photos} />
+              <ItemImage src={item.photos} onClick={() => setModal(true)}/>
               <CategoryDiv>
                 <CategoryIcon>∆</CategoryIcon>
               </CategoryDiv>
@@ -25,6 +26,7 @@ const [showModal, setModal] = useState(false);
           </Item>
         )}
       </ItemsProducts>
+      <ItemsModal show={showModal} onHide={() => setModal(false)}/>
 
     </ItemsContainer>
   );
