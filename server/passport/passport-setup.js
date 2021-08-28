@@ -25,8 +25,6 @@ passport.use(
   new GoogleStrategy(optionsG,
     (token, tokenSecret, profile, done) => {
       let { sub, given_name, family_name, picture } = profile._json
-
-      console.log('this is the profile', profile)
       authenticateLogin.authenticate(sub)
         .then((data) => {
           if (data.rows[0]) {
