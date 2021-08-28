@@ -5,8 +5,8 @@ import dummyData from '../../dummydata/dummydata.js'
 
 const Items = () => {
 
-const [showModal, setModal] = useState(false);
-const [clickedimages, setImages] = useState([]);
+const [showModal, setShowModal] = useState(false);
+const [clickedimages, setClickedImages] = useState([]);
 const [title, setTitle] = useState('');
 const [description, setDescription] = useState('');
 const [category, setCategory] = useState('');
@@ -21,8 +21,8 @@ const [location, setLocation] = useState([]);
       <ItemsProducts>
         {dummyData.contributions.map((item, index) =>
           <Item key={index} onClick={() => {
-            setModal(true)
-            setImages(item.photos)
+            setShowModal(true)
+            setClickedImages(item.photos)
             setTitle(item.title)
             setDescription(item.description)
             setCategory(item.category)
@@ -42,7 +42,7 @@ const [location, setLocation] = useState([]);
           </Item>
         )}
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location}/>
+      <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location}/>
 
     </ItemsContainer>
   );
