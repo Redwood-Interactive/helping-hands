@@ -10,7 +10,7 @@ CREATE TABLE users (
   last_name VARCHAR(255) NOT NULL,
   current_rating INTEGER DEFAULT 0,
   email VARCHAR(255) NOT NULL,
-  phone BIGINT,
+  phone BIGINT DEFAULT NULL,
   profile_pic VARCHAR(1500) DEFAULT NULL,
   auth_id VARCHAR(30) NOT NULL,
   PRIMARY KEY (id)
