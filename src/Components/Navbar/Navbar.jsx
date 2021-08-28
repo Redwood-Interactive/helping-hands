@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NavbarContainer, NavbarList, NavbarListItem, NavbarDivButton } from './Styles/Navbar.style.js'
+import { NavbarContainer, Logo, NavbarList, NavbarListItem, NavbarDivButton } from './Styles/Navbar.style.js'
 
 
 const Navbar = ({ isLoggedIn }) => {
@@ -13,6 +13,7 @@ const Navbar = ({ isLoggedIn }) => {
  // TODO: add buttons for sign up, login -> open in window
   return (
     <NavbarContainer>
+      <Logo onClick={() => window.open('/', '_self')}src='https://i1.wp.com/pcdeeprun.org/wp-content/uploads/2017/03/HelpingHands.png?fit=450%2C450&ssl=1'/>
       <NavbarList>
         <NavbarListItem>
           <Link id='link' to='/'>Home</Link>
