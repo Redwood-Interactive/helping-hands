@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap'
+import ItemsModalCarousel from './ItemsModalCarousel.jsx';
+import ItemsDetail from './ItemsDetail.jsx';
 
 
 
@@ -12,18 +14,10 @@ const ItemsModal = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
-        </Modal.Title>
-      </Modal.Header>
+
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <ItemsModalCarousel clickedImages={props.clickedImages}/>
+        <ItemsDetail title={props.title} description={props.description} category={props.category} location={props.location}/>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
