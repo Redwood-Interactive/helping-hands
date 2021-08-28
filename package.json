@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "watch": "npx webpack -w",
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/server.js",
+    "buildDB": "psql template1 < ./database/initialize.sql"
   },
   "repository": {
     "type": "git",

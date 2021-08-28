@@ -1,8 +1,10 @@
-var { newCustomer } = require('./controllers/index.js');
+var { newCustomer, getContributions} = require('./controllers/index.js');
 var router = require('express').Router();
 const passport = require('passport')
 
 router.get('/newcustomer', newCustomer.get);
+
+router.get('/getcontributions', getContributions.get)
 
 
 
