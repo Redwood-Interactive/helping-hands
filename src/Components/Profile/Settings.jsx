@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Image from 'react-bootstrap/Image';
-import { FormItem, FormRow, ImageItem, InputContainer } from './Styles/Profile.style.js'
+import { FormItem, FormRow, ImageItem, InputContainer } from './Styles/Settings.style.js'
 
 const states = [
   "AK",
@@ -60,7 +60,7 @@ const states = [
   "WY"];
 
 
-const Profile = () => {
+const Settings = () => {
   return (
     <InputContainer>
     <h1>User Settings</h1>
@@ -127,4 +127,4 @@ const Profile = () => {
   )
 };
 
-export default Profile;
+export default Settings;
