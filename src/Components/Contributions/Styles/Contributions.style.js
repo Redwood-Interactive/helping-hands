@@ -8,5 +8,5 @@ export const ContributionsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   position: relative;
+  top: 100px;
 `;
-

@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const SidebarContainer = styled.div`
   height: ${props => props.height};
-  width: 350px;
-  border: 3px solid black;
-  background-color: yellow;
+  width: 325px;
+  /* border: 3px solid black; */
+  /* background-color: yellow; */
   position: fixed;
   left: 0;
   top: 100px;
@@ -12,6 +12,8 @@ export const SidebarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
 `;
 
 export const AddBtn = styled.div`
@@ -22,6 +24,12 @@ export const AddBtn = styled.div`
   align-items: center;
   border-radius: 10px;
   border: 2px solid black;
+  font-size: 25px;
+  cursor: pointer;
+  background-color: ;
+  &:hover {
+
+  }
 `;
 
 export const SearchDiv = styled.form`
@@ -43,8 +51,9 @@ export const SearchBar = styled.input`
 `;
 
 export const SearchBtn = styled.button`
-  width: 20%;
-  border: 2px solid black;
+  width: 30%;
+  /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
+  border: 1px solid black;
   border-radius: 5px;
 `;
 
@@ -64,6 +73,7 @@ export const LocationSubDiv = styled.div`
 
 export const Label = styled.label`
   font-weight: bold;
+  margin-bottom: 5px;
 `;
 
 

@@ -1,19 +1,38 @@
-import React, { useState } from 'react';
-import { ItemsContainer, ItemsProducts, Item, ItemImage, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Title, Time } from './Styles/Items.style.js';
+import React, { useState, useEffect } from 'react';
+import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, ContributionTitle, Time } from './Styles/Items.style.js';
 import ItemsModal from './ItemsModal.jsx';
 import dummyData from '../../dummydata/dummydata.js'
 
 const Items = () => {
 
-const [showModal, setModal] = useState(false);
+  const [showModal, setModal] = useState(false);
+  const [itemsWidth, setItemsWidth] = useState('');
+
+  useEffect(() => {
+    window.addEventListener('resize', resize);
+    resize();
+  }, [])
+
+  const resize = () => {
+    const width = window.innerWidth;
+    console.log('hello')
+    if (width <= 1440) {
+      setItemsWidth('800px');
+    } else if (width <= 1690) {
+      setItemsWidth('900px');
+    } else {
+      setItemsWidth('1025px');
+    }
+  }
 
   return (
     <ItemsContainer>
-      <ItemsProducts>
+      <ItemsProducts width={itemsWidth}>
+      <ContributionTitle>Contributions</ContributionTitle>
         {dummyData.contributions.map((item, index) =>
           <Item>
             <ImageDiv>
-              <ItemImage src={item.photos} onClick={() => setModal(true)}/>
+              <ItemImage src={item.photos} onClick={() => setModal(true)} />
               <CategoryDiv>
                 <CategoryIcon>∆</CategoryIcon>
               </CategoryDiv>
@@ -28,7 +47,7 @@ const [showModal, setModal] = useState(false);
         {dummyData.contributions.map((item, index) =>
           <Item>
             <ImageDiv>
-              <ItemImage src={item.photos} onClick={() => setModal(true)}/>
+              <ItemImage src={item.photos} onClick={() => setModal(true)} />
               <CategoryDiv>
                 <CategoryIcon>∆</CategoryIcon>
               </CategoryDiv>
@@ -41,7 +60,7 @@ const [showModal, setModal] = useState(false);
           </Item>
         )}
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setModal(false)}/>
+      <ItemsModal show={showModal} onHide={() => setModal(false)} />
 
     </ItemsContainer>
   );

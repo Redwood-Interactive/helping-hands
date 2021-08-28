@@ -23,11 +23,11 @@ const Sidebar = () => {
           <Label>Radius</Label>
           <RadiusSelect>
             <option>1 mile</option>
-            <option>2 mile</option>
-            <option>5 mile</option>
-            <option>10 mile</option>
-            <option>20 mile</option>
-            <option>40 mile</option>
+            <option>2 miles</option>
+            <option>5 miles</option>
+            <option>10 miles</option>
+            <option>20 miles</option>
+            <option>40 miles</option>
           </RadiusSelect>
         </LocationSubDiv>
       </LocationDiv>
