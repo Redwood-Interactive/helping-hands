@@ -12,15 +12,23 @@ export const NavbarContainer = styled.div`
   z-index: 5;
 `;
 
+export const Logo = styled.img`
+  position: relative;
+  left: 175px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 6;
+`;
+
 export const NavbarList = styled.ul`
-  position: absolute;
+  position: relative;
   display: inline-flex;
   justify-content: flex-end;
   height: 100%;
   width: 100%;
   align-items: center;
-  top: -15px;
-  right: 100px;
+  right: 150px;
 `;
 
 export const NavbarListItem = styled.li`
@@ -35,24 +43,17 @@ export const NavbarListItem = styled.li`
 
 export const NavbarDivButton =styled.div`
   margin-right: 20px;
-  font-size: 25px;
+  font-size: 20px;
   color: black;
   /* border: 1px solid white; */
   background-color: #f7f7f7;
   padding: 5px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 2px;
   transition: 0.2s ease-in;
   &:hover {
     background-color: #e5eae5;
   }
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 `;
 
-export const Logo = styled.img`
-  position: relative;
-  left: 125px;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  z-index: 6;
-`;
