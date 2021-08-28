@@ -11,7 +11,7 @@ const StatsBlock = (props) => {
       const updateCount = () => {
         const target = +counter.getAttribute('value');
         const count = +counter.innerText;
-        const inc = target / speed;
+        const inc = Math.floor(target / speed);
         if (count < target) {
           counter.innerText = count + inc;
           setTimeout(updateCount, 1);
@@ -29,15 +29,15 @@ const StatsBlock = (props) => {
       <StatsBlockSection>
         <StatsBlockTray>
           <StatsBlockCounter>
-            <h3>requests served</h3>
+            <h3>Requests Served</h3>
             <StatsBlockNumber value='60000' className='stats-block-number'>0</StatsBlockNumber>
           </StatsBlockCounter>
           <StatsBlockCounter>
-            <h3>contributions made</h3>
+            <h3>Contributions Made</h3>
             <StatsBlockNumber value='30000' className='stats-block-number'>0</StatsBlockNumber>
           </StatsBlockCounter>
           <StatsBlockCounter>
-            <h3>users active</h3>
+            <h3>Users Active</h3>
             <StatsBlockNumber value='2500' className='stats-block-number'>0</StatsBlockNumber>
           </StatsBlockCounter>
         </StatsBlockTray>
