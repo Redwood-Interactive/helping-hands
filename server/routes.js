@@ -18,6 +18,6 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) 
   res.redirect('/')
 })
 
-//router.post('/feedback', postFeedback.post)
+router.post('/feedback', postFeedback.post)
 
 module.exports = router;
