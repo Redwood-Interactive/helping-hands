@@ -12,6 +12,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   // user ID is passed in when someone who is logged in is on the page. we now need to find the user with the correct id.
+  console.log('id')
   authenticateLogin.deserializeAuth(id)
     .then((data)=>{
       if (data.rows) {
