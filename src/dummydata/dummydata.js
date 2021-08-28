@@ -126,6 +126,181 @@ module.exports = {
           zipcode: '78751',
         }
       ],
+    },
+    {
+      id: 4,
+      user: {
+        id: 1,
+        first_name: 'Justin',
+        last_name: 'Case',
+        current_rating: 2,
+        email: 'redwoodentertainment@gmail.com',
+        phone: 2342634275,
+        location: [
+          {
+            street_name: '11403 June Dr',
+            city: 'Austin',
+            state: 'TX',
+            zipcode: 78753
+          },
+        ],
+        profile_pic: 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'
+      },
+      title: 'Canned soup',
+      description: 'Too full, couldn\'t finish',
+      category: 'Food',
+      date: '2021-08-22 03:14:07',
+      condition: 'used',
+      available: true,
+      photos: ['https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'],
+      location: [
+        {
+          street_name: '1331 boombayah',
+          city: 'Austin',
+          state: 'TX',
+          zipcode: '78751',
+        }
+      ],
+    },
+    {
+      id: 5,
+      user: {
+        id: 1,
+        first_name: 'Justin',
+        last_name: 'Case',
+        current_rating: 2,
+        email: 'redwoodentertainment@gmail.com',
+        phone: 2342634275,
+        location: [
+          {
+            street_name: '11403 June Dr',
+            city: 'Austin',
+            state: 'TX',
+            zipcode: 78753
+          },
+        ],
+        profile_pic: 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'
+      },
+      title: 'Canned soup',
+      description: 'Too full, couldn\'t finish',
+      category: 'Food',
+      date: '2021-08-22 03:14:07',
+      condition: 'used',
+      available: true,
+      photos: ['https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'],
+      location: [
+        {
+          street_name: '1331 boombayah',
+          city: 'Austin',
+          state: 'TX',
+          zipcode: '78751',
+        }
+      ],
+    },
+    {
+      id: 6,
+      user: {
+        id: 1,
+        first_name: 'Justin',
+        last_name: 'Case',
+        current_rating: 2,
+        email: 'redwoodentertainment@gmail.com',
+        phone: 2342634275,
+        location: [
+          {
+            street_name: '11403 June Dr',
+            city: 'Austin',
+            state: 'TX',
+            zipcode: 78753
+          },
+        ],
+        profile_pic: 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'
+      },
+      title: 'Canned soup',
+      description: 'Too full, couldn\'t finish',
+      category: 'Food',
+      date: '2021-08-22 03:14:07',
+      condition: 'used',
+      available: true,
+      photos: ['https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'],
+      location: [
+        {
+          street_name: '1331 boombayah',
+          city: 'Austin',
+          state: 'TX',
+          zipcode: '78751',
+        }
+      ],
+    },
+    {
+      id: 7,
+      user: {
+        id: 1,
+        first_name: 'Justin',
+        last_name: 'Case',
+        current_rating: 2,
+        email: 'redwoodentertainment@gmail.com',
+        phone: 2342634275,
+        location: [
+          {
+            street_name: '11403 June Dr',
+            city: 'Austin',
+            state: 'TX',
+            zipcode: 78753
+          },
+        ],
+        profile_pic: 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'
+      },
+      title: 'Canned soup',
+      description: 'Too full, couldn\'t finish',
+      category: 'Food',
+      date: '2021-08-22 03:14:07',
+      condition: 'used',
+      available: true,
+      photos: ['https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'],
+      location: [
+        {
+          street_name: '1331 boombayah',
+          city: 'Austin',
+          state: 'TX',
+          zipcode: '78751',
+        }
+      ],
+    },
+    {
+      id: 8,
+      user: {
+        id: 1,
+        first_name: 'Justin',
+        last_name: 'Case',
+        current_rating: 2,
+        email: 'redwoodentertainment@gmail.com',
+        phone: 2342634275,
+        location: [
+          {
+            street_name: '11403 June Dr',
+            city: 'Austin',
+            state: 'TX',
+            zipcode: 78753
+          },
+        ],
+        profile_pic: 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'
+      },
+      title: 'Canned soup',
+      description: 'Too full, couldn\'t finish',
+      category: 'Food',
+      date: '2021-08-22 03:14:07',
+      condition: 'used',
+      available: true,
+      photos: ['https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'],
+      location: [
+        {
+          street_name: '1331 boombayah',
+          city: 'Austin',
+          state: 'TX',
+          zipcode: '78751',
+        }
+      ],
     }
   ],
 
@@ -155,6 +330,7 @@ module.exports = {
       date: '2021-08-22 03:14:07',
       available: true,
     },
+
     {
       id: 2,
       user: {
@@ -164,7 +340,6 @@ module.exports = {
         current_rating: 5,
         email: 'christiangazmo@gmail.com',
         phone: 2342633225,
-        profile_pic: 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'
         location: [
           {
             street_name: '1652 Rutland Dr #46',
@@ -172,8 +347,9 @@ module.exports = {
             state: 'TX',
             zipcode: 78758
           },
-        ]
-      }
+        ],
+        profile_pic: 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946'
+      },
       title: 'Water',
       description: 'Need H2O',
       category: 'Beverage',
@@ -181,4 +357,4 @@ module.exports = {
       available: true,
     },
   ]
-}
+};

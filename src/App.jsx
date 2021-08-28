@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { AppContainer } from './App.style.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Home from './Components/Home/Home.jsx';
@@ -7,12 +8,13 @@ import Requests from './Components/Requests/Requests.jsx';
 import Profile from './Components/Profile/Profile.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 
+
 const App = () => {
   const [isLoggedIn, setLogin] = useState(false);
 
   return (
     <Router>
-      <div>
+      <AppContainer>
         <div id='main'>
           <Navbar isLoggedIn={isLoggedIn}/>
           <Switch>
@@ -23,7 +25,7 @@ const App = () => {
           </Switch>
         </div>
         <Footer />
-      </div>
+      </AppContainer>
     </Router>
   )
 }

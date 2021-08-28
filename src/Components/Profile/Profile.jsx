@@ -59,7 +59,7 @@ const states = [
   "WV",
   "WY"];
 
-  
+
 const Profile = () => {
   return (
     <InputContainer>
