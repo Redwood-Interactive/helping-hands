@@ -68,6 +68,12 @@ CREATE TABLE locations (
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+CREATE TABLE feedback (
+  id SERIAL,
+  feedback VARCHAR(500),
+  PRIMARY KEY (id)
+);
+
 CREATE INDEX users_id_idx
 ON users(id);
 
@@ -83,6 +89,8 @@ ON photos(contribution_id);
 /*
 
 psql katielaw  -h 127.0.0.1 -d test -f database/initialize.sql
+
+psql justincase -h 127.0.0.1 -d community -f database/initialize.sql
 
 // new insert user format
 
