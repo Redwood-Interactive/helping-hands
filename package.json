@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Redwood-Interactive/helping-hands#readme",
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.12.2",
     "axios": "^0.21.1",
     "cookie-session": "^1.4.0",
     "enzyme": "^3.11.0",
