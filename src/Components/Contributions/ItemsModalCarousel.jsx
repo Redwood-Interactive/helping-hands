@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
+import { ItemsModalImages, ItemsImageContainer } from './Styles/ItemsModal.style.js';
 
 const ItemsModalCarousel = ({ clickedImages }) => {
 
@@ -9,15 +10,19 @@ const ItemsModalCarousel = ({ clickedImages }) => {
     setIndex(selectedIndex);
   };
 
+
+
   return (
+
     <Carousel activeIndex={index} onSelect={handleSelect}>
-      {clickedImages.map((image, index) =>
-        <Carousel.Item key={index}>
-          <img
-            className="d-block w-100"
-            src={image}
-            alt="First slide"
-          />
+      {clickedImages.map((image, order) =>
+        <Carousel.Item key={order}>
+          <ItemsImageContainer>
+            <ItemsModalImages
+              className="d-block w-100"
+              src={image}
+            />
+          </ItemsImageContainer>
           <Carousel.Caption>
             <h3>First slide label</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -26,6 +31,13 @@ const ItemsModalCarousel = ({ clickedImages }) => {
       )}
 
     </Carousel>
+
+
+
+
   );
+
+
+
 }
 export default ItemsModalCarousel

@@ -7,6 +7,13 @@ const Items = () => {
 
 const [showModal, setModal] = useState(false);
 const [clickedImages, setImages] = useState([]);
+const [title, setTitle] = useState('');
+const [description, setDescription] = useState('');
+const [category, setCategory] = useState('');
+const [location, setLocation] = useState([]);
+
+
+
 
 
   return (
@@ -16,6 +23,10 @@ const [clickedImages, setImages] = useState([]);
           <Item key={index} onClick={() => {
             setModal(true)
             setImages(item.photos)
+            setTitle(item.title)
+            setDescription(item.description)
+            setCategory(item.category)
+            setLocation(item.user.location[0].city)
             }}>
             <ImageDiv>
               <ItemImage src={item.photos} />
@@ -31,7 +42,7 @@ const [clickedImages, setImages] = useState([]);
           </Item>
         )}
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setModal(false)} clickedImages={clickedImages}/>
+      <ItemsModal show={showModal} onHide={() => setModal(false)} clickedImages={clickedImages} title={title} description={description} category={category} location={location}/>
 
     </ItemsContainer>
   );
