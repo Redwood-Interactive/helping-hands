@@ -16,7 +16,7 @@ const ItemsModal = (props) => {
     >
 
       <Modal.Body>
-        <ItemsModalCarousel clickedImages={props.clickedImages}/>
+        <ItemsModalCarousel clickedimages={props.clickedimages}/>
         <ItemsDetail title={props.title} description={props.description} category={props.category} location={props.location}/>
       </Modal.Body>
       <Modal.Footer>
