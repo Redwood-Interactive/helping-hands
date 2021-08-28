@@ -34,23 +34,23 @@ const Sidebar = () => {
       <CheckboxDiv>
         <Label>Category</Label>
         <Checkboxes>
-          <CheckSubDiv><Checkbox type="checkbox" id='category1' name='food'/><CheckLabel for='category1'>Food</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category2' name='drink'/><CheckLabel for='category2'>Drink</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category3' name='clothing'/><CheckLabel for='category3'>Clothing</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category4' name='service'/><CheckLabel for='category4'>Service</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category5' name='furniture'/><CheckLabel for='category5'>Furniture</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category6' name='electronic'/><CheckLabel for='category6'>Electronic</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category7' name='hobby'/><CheckLabel for='category7'>Hobby</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category8' name='miscellaneous'/><CheckLabel for='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category1' name='food'/><CheckLabel htmlFor='category1'>Food</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category2' name='drink'/><CheckLabel htmlFor='category2'>Drink</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category3' name='clothing'/><CheckLabel htmlFor='category3'>Clothing</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category4' name='service'/><CheckLabel htmlFor='category4'>Service</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category5' name='furniture'/><CheckLabel htmlFor='category5'>Furniture</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category6' name='electronic'/><CheckLabel htmlFor='category6'>Electronic</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category7' name='hobby'/><CheckLabel htmlFor='category7'>Hobby</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category8' name='miscellaneous'/><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
       <CheckboxDiv>
         <Label>Condition</Label>
         <Checkboxes>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition1' name='new'/><CheckLabel for='condition1'>New</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition2' name='likeNew'/><CheckLabel for='condition2'>Like new</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition3' name='used'/><CheckLabel for='condition3'>Used</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition4' name='worn'/><CheckLabel for='condition4'>Worn</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='condition1' name='new'/><CheckLabel htmlFor='condition1'>New</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='condition2' name='likeNew'/><CheckLabel htmlFor='condition2'>Like new</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='condition3' name='used'/><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='condition4' name='worn'/><CheckLabel htmlFor='condition4'>Worn</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
     </SidebarContainer>
