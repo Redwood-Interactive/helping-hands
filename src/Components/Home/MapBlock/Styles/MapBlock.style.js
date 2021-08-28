@@ -7,3 +7,8 @@ export const MapContainer = styled.div`
   margin-bottom: 30px;
 `;
 
+export const MapAnchor = styled.div`
+  height: 400px;
+  width: 70%;
+`;
+
