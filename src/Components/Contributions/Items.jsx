@@ -6,7 +6,7 @@ import dummyData from '../../dummydata/dummydata.js'
 const Items = () => {
 
 const [showModal, setModal] = useState(false);
-const [clickedImages, setImages] = useState([]);
+const [clickedimages, setImages] = useState([]);
 const [title, setTitle] = useState('');
 const [description, setDescription] = useState('');
 const [category, setCategory] = useState('');
@@ -42,7 +42,7 @@ const [location, setLocation] = useState([]);
           </Item>
         )}
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setModal(false)} clickedImages={clickedImages} title={title} description={description} category={category} location={location}/>
+      <ItemsModal show={showModal} onHide={() => setModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location}/>
 
     </ItemsContainer>
   );

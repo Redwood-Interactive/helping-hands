@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 import { ItemsModalImages, ItemsImageContainer } from './Styles/ItemsModal.style.js';
 
-const ItemsModalCarousel = ({ clickedImages }) => {
+const ItemsModalCarousel = ({ clickedimages }) => {
 
   const [index, setIndex] = useState(0);
 
@@ -15,7 +15,7 @@ const ItemsModalCarousel = ({ clickedImages }) => {
   return (
 
     <Carousel activeIndex={index} onSelect={handleSelect}>
-      {clickedImages.map((image, order) =>
+      {clickedimages.map((image, order) =>
         <Carousel.Item key={order}>
           <ItemsImageContainer>
             <ItemsModalImages
