@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Redwood-Interactive/helping-hands#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "bootstrap": "^5.1.0",
     "enzyme": "^3.11.0",
     "express": "^4.17.1",
     "jest": "^27.0.6",
