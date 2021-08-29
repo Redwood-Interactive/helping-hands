@@ -1,9 +1,11 @@
 const { newCustomer, postFeedback } = require('./controllers/index.js');
+const { newCustomer, postFeedback, getContributions } = require('./controllers/index.js');
 const router = require('express').Router();
 const passport = require('passport');
 
 router.get('/newcustomer', newCustomer.get);
 
+router.get('/getcontributions', getContributions.get);
 
 
 //AUTHENTICATION
@@ -20,6 +22,7 @@ router.get('/logout', (req, res) => {
   req.logOut();
   res.redirect('/');
 });
+
 
 router.post('/feedback', postFeedback.post);
 

@@ -1,4 +1,4 @@
-const db = require('../../database/index.js')
+const db = require('../../database/index.js');
 
 module.exports = {
   authenticate: (authid) => {
@@ -10,8 +10,8 @@ module.exports = {
       values: [authid]
     };
     return db.query(query.text, query.values)
-      .then((data) => {return data})
-      .catch((err) => {console.log(err)})
+      .then((data) => { return data; })
+      .catch((err) => { console.log(err); });
   },
 
   deserializeAuth: (userid) => {
@@ -23,8 +23,8 @@ module.exports = {
       values: [userid]
     };
     return db.query(query.text, query.values)
-      .then((data) => {return data})
-      .catch((err) => {console.log(err)})
+      .then((data) => { return data; })
+      .catch((err) => { console.log(err); });
   },
 
   createNewUser: (authObject) => {
@@ -34,7 +34,7 @@ module.exports = {
       values: [given_name, family_name, email, picture, sub]
     };
     return db.query(query.text, query.values)
-    .then((data) => {return data})
-    .catch((err) => {console.log(err)})
+      .then((data) => { return data; })
+      .catch((err) => { console.log(err); });
   }
-}
+};

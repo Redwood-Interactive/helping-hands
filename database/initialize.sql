@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS community;
+
 CREATE DATABASE community;
 
 \c community
@@ -27,6 +29,7 @@ CREATE TABLE contributions (
   c_date TIMESTAMP NOT NULL,
   condition VARCHAR(50) NOT NULL,
   available BOOLEAN NOT NULL,
+  for_free BOOLEAN NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id)
     REFERENCES users(id)
@@ -86,7 +89,122 @@ ON contributions(user_id);
 CREATE INDEX photos_contributions_id_idx
 ON photos(contribution_id);
 
+
+-- dummy data:
+
+INSERT INTO users
+(first_name,
+  last_name,
+  current_rating,
+  email,
+  phone,
+  profile_pic,
+  auth_id
+) VALUES (
+  'lost',
+  'soul',
+  5,
+  'lostsoul25@gmail.com',
+  7862501234,
+  'https://images.unsplash.com/photo-1518398046578-8cca57782e17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80',
+  'thisisdummyauth'
+);
+
+
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Truck Tire',
+  'I will let go my favorite truck tire to someone who will better use it',
+  'furniture',
+  CURRENT_TIMESTAMP,
+  'used',
+  TRUE,
+  TRUE
+);
+
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Truck Tire',
+  'I will let go my favorite truck tire to someone who will better use it',
+  'furniture',
+  CURRENT_TIMESTAMP,
+  'used',
+  TRUE,
+  TRUE
+);
+
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Truck Tire',
+  'I will let go my favorite truck tire to someone who will better use it',
+  'furniture',
+  CURRENT_TIMESTAMP,
+  'used',
+  TRUE,
+  TRUE
+);
+
+
+INSERT INTO photos
+(
+  contribution_id,
+  photo_url
+) VALUES (
+  1,
+  'https://www.macanforum.com/cdn-cgi/image/format=auto,onerror=redirect,width=1920,height=1920,fit=scale-down/https://www.macanforum.com/attachments/1-jpg.235664/'
+);
+
+INSERT INTO photos
+(
+  contribution_id,
+  photo_url
+) VALUES (
+  2,
+  'https://www.macanforum.com/cdn-cgi/image/format=auto,onerror=redirect,width=1920,height=1920,fit=scale-down/https://www.macanforum.com/attachments/1-jpg.235664/'
+);
+
+INSERT INTO photos
+(
+  contribution_id,
+  photo_url
+) VALUES (
+  3,
+  'https://www.macanforum.com/cdn-cgi/image/format=auto,onerror=redirect,width=1920,height=1920,fit=scale-down/https://www.macanforum.com/attachments/1-jpg.235664/'
+);
+
+
+
 /*
+
+script: npm run buildDB to drop dabase, create the DB and insert dummy data.
+
 
 psql katielaw  -h 127.0.0.1 -d test -f database/initialize.sql
 
