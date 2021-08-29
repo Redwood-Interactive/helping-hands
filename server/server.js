@@ -20,6 +20,14 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', router);
 
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../public/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
