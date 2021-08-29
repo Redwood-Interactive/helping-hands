@@ -7,7 +7,7 @@ const cookieSession = require('cookie-session')
 const port = 3000
 const path = require('path')
 const db = require('../database/index.js')
-var router = require('./routes.js')
+const router = require('./routes.js')
 
 app.use(express.json());
 app.use(cookieSession({
