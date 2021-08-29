@@ -8,3 +8,8 @@ html, body {
   color: white;
   text-decoration: none;
 }
+
+.settingsWrapper {
+  align-self: baseline;
+  padding-right: 150px;
+}
