@@ -1,27 +1,19 @@
 import styled from 'styled-components';
 
 export const ItemsContainer = styled.div `
-  width: 100%;
+  width: 83%;
   display: flex;
-  justify-content: center;
-  padding-top: 25px;
-  padding-bottom: 100px;
-`;
-
-export const ContributionTitle = styled.div`
-  width: 100%;
-  text-align: center;
-  margin-left: 15px;
-  font-size: 50px;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  left: 20px;
 `;
 
 export const ItemsProducts = styled.div `
   display: flex;
-  width: ${props => props.width};
+  width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export const Item = styled.div `

@@ -2,18 +2,14 @@ import styled from 'styled-components';
 
 export const SidebarContainer = styled.div`
   height: ${props => props.height};
-  width: 325px;
-  /* border: 3px solid black; */
-  /* background-color: yellow; */
-  position: fixed;
+  width: 15%;
+  position: relative;
   left: 0;
-  top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-
+  top: -10px;
 `;
 
 export const AddBtn = styled.div`
@@ -24,11 +20,11 @@ export const AddBtn = styled.div`
   align-items: center;
   border-radius: 10px;
   border: 2px solid black;
-  font-size: 25px;
+  font-size: 20px;
   cursor: pointer;
-  background-color: ;
+  background-color: #f7f7f7;
   &:hover {
-
+    background-color: #e5eae5;
   }
 `;
 
@@ -42,24 +38,25 @@ export const SearchDiv = styled.form`
 export const SearchSubDiv = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `;
 
 export const SearchBar = styled.input`
-  width: 70%;
+  width: 100%;
   margin-right: 5px;
 `;
 
 export const SearchBtn = styled.button`
-  width: 30%;
+  width: 100%;
   /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
   border: 1px solid black;
   border-radius: 5px;
+  margin-top: 5px;
 `;
 
 export const LocationDiv = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   width: 100%;
   margin-bottom: 25px;
@@ -69,6 +66,8 @@ export const LocationSubDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 5px;
+  width: 100%;
+  flex-wrap: wrap;
 `;
 
 export const Label = styled.label`
@@ -78,11 +77,12 @@ export const Label = styled.label`
 
 
 export const ZipInput = styled.input`
-
+  width: 100%;
 `;
 
 export const RadiusSelect = styled.select`
   height: 30px;
+  width: 100%;
 `;
 
 export const CheckboxDiv = styled.div`
