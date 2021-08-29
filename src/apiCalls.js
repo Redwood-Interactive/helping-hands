@@ -1,6 +1,6 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://localhost:3000';
 
 const postFeedback = (feedback) => {
   var data = JSON.stringify({
@@ -16,7 +16,7 @@ const postFeedback = (feedback) => {
     data : data
   };
 
-  return axios(config)
+  return axios(config);
 }
 
 const apiCalls = {
