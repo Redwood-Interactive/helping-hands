@@ -6,6 +6,7 @@ width: 100%;
 display: flex;
 flex-direction: column;
 
+
 `;
 
 
@@ -13,6 +14,8 @@ flex-direction: column;
 export const UpperHalf = styled.div `
 display: flex;
 flex-direction: row;
+justify-content: space-between;
+
 
 `;
 
@@ -31,6 +34,10 @@ export const RightSide = styled.div `
 
 
 export const LowerHalf = styled.div `
+
+
+
+
 
 
 `;

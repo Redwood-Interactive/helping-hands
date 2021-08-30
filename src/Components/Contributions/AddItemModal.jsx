@@ -4,6 +4,10 @@ import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf } from './Styl
 
 const AddItemModal = (props) => {
 
+  const submitItem = () => {
+    
+  }
+
 
   return (
 
@@ -23,19 +27,30 @@ const AddItemModal = (props) => {
                 <Form.Group className="mb-3" controlId="formBasicTitle">
                   <Form.Label>Title</Form.Label>
                   <Form.Control type="title" placeholder="Enter title" />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicCategory">
+                <Form.Group className="mb-3">
                   <Form.Label>Category</Form.Label>
-                  <Form.Control type="Category" placeholder="Category" />
+                  <Form.Select aria-label="Default select example">
+
+                    <option value="" disabled selected>Category</option>
+                    <option value="1">Food</option>
+                    <option value="2">Beverage</option>
+                    <option value="3">Fur</option>
+                  </Form.Select>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicCondition">
-                  <Form.Label>Condition</Form.Label>
-                  <Form.Control type="Condition" placeholder="Condition" />
+                <Form.Group className="mb-3">
+                  <Form.Label>Category</Form.Label>
+
+                  <Form.Select aria-label="Default select example">
+                    <Form.Label>Condition</Form.Label>
+                    <option value="" disabled selected>Condition</option>
+                    <option value="1">New</option>
+                    <option value="2">Awesome</option>
+                    <option value="3">GREAT</option>
+                    <option value="4">meh</option>
+                  </Form.Select>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicLocation">
@@ -48,7 +63,7 @@ const AddItemModal = (props) => {
               <RightSide>
                 <Form.Group controlId="formFileLg" className="mb-3">
                   <Form.Label>Upload your images here</Form.Label>
-                  <Form.Control type="file" size="lg" />
+                  <Form.Control type="file" size="sm" />
                 </Form.Group>
 
               </RightSide>
@@ -56,12 +71,12 @@ const AddItemModal = (props) => {
             <LowerHalf>
               <Form.Group className="mb-3" controlId="formBasicDescription">
                 <Form.Label>Description</Form.Label>
-                <Form.Control as="textarea" type="Description" placeholder="Description" style={{ height: '100px'}}/>
+                <Form.Control as="textarea" type="Description" placeholder="Description" style={{ height: '100px' }} />
               </Form.Group>
 
             </LowerHalf>
           </FormContainer>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" style={{float: 'right'}}>
             Submit
           </Button>
         </Form>
