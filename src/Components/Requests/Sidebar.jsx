@@ -52,7 +52,6 @@ const Sidebar = () => {
           <CheckSubDiv><Checkbox type="checkbox" id='condition1' name='new'/><CheckLabel htmlFor='condition1'>New</CheckLabel></CheckSubDiv>
           <CheckSubDiv><Checkbox type="checkbox" id='condition2' name='likeNew'/><CheckLabel htmlFor='condition2'>Like new</CheckLabel></CheckSubDiv>
           <CheckSubDiv><Checkbox type="checkbox" id='condition3' name='used'/><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition4' name='worn'/><CheckLabel htmlFor='condition4'>Worn</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
       <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} />
