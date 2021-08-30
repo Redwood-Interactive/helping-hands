@@ -186,6 +186,15 @@ INSERT INTO photos
   contribution_id,
   photo_url
 ) VALUES (
+  1,
+  'https://images.unsplash.com/photo-1518398046578-8cca57782e17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80'
+);
+
+INSERT INTO photos
+(
+  contribution_id,
+  photo_url
+) VALUES (
   2,
   'https://www.macanforum.com/cdn-cgi/image/format=auto,onerror=redirect,width=1920,height=1920,fit=scale-down/https://www.macanforum.com/attachments/1-jpg.235664/'
 );
@@ -199,7 +208,20 @@ INSERT INTO photos
   'https://www.macanforum.com/cdn-cgi/image/format=auto,onerror=redirect,width=1920,height=1920,fit=scale-down/https://www.macanforum.com/attachments/1-jpg.235664/'
 );
 
-
+INSERT INTO locations
+(
+  user_id,
+  street_name,
+  city,
+  state,
+  zipcode
+) VALUES (
+  1,
+  '1100 Congress Ave',
+  'Austin',
+  'TX',
+  78701
+);
 
 /*
 
@@ -220,5 +242,10 @@ WITH userid AS (
   INSERT INTO locations (user_id, street_name, city, state, zipcode)
   SELECT id, '567 sahara avenue', 'oasis city', 'DS', 47749
   FROM userid
+
+
+
+
+INSERT INTO photos (contribution_id, photo_url) VALUES (2, 'https://images.unsplash.com/photo-1518398046578-8cca57782e17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80')
 
 */
