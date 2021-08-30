@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from './Styles/Sidebar.style.js';
+import AddItemModal from './AddItemModal.jsx'
 
 const Sidebar = () => {
   const [height, setHeight] = useState((window.innerHeight - 100).toString() + 'px');
+  const [addItemModal, setAddItemModal] = useState(false);
 
   return (
     <SidebarContainer height={height}>
-      <AddBtn>Add Item +</AddBtn>
+      <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
       <SearchDiv>
         <Label>Search</Label>
         <SearchSubDiv>
@@ -53,6 +55,7 @@ const Sidebar = () => {
           <CheckSubDiv><Checkbox type="checkbox" id='condition4' name='worn'/><CheckLabel htmlFor='condition4'>Worn</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
+      <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} />
     </SidebarContainer>
   );
 };
