@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { NavbarContainer, Logo, NavbarList, NavbarListItem, NavbarDivButton } from './Styles/Navbar.style.js'
 
 
 var windowFeatures = "height=972,width=660, modal=yes, alwaysRaised=yes";
-
-const Navbar = ({ isLoggedIn }) => {
+const Navbar = ({isLoggedIn}) => {
 
   return (
     <NavbarContainer>
@@ -21,10 +20,11 @@ const Navbar = ({ isLoggedIn }) => {
         {isLoggedIn ?
         <NavbarListItem>
           <Link id='link' to='/profile'>Profile</Link>
+          <NavbarDivButton onClick={()=>{window.location = '/logout'}}>Logout</NavbarDivButton>
         </NavbarListItem> :
         <NavbarListItem>
-          <NavbarDivButton onClick={()=>{window.open('/auth/google')}} color={'red'}>Sign up</NavbarDivButton>
-          <NavbarDivButton onClick={()=>{window.open('/auth/google')}}>Login</NavbarDivButton>
+          <NavbarDivButton onClick={()=>{window.location = '/auth/google'}} color={'red'}>Sign up</NavbarDivButton>
+          <NavbarDivButton onClick={()=>{window.location = '/auth/google'}}>Login</NavbarDivButton>
         </NavbarListItem>
         }
       </NavbarList>
