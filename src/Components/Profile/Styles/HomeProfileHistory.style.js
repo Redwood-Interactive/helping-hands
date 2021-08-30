@@ -14,7 +14,6 @@ export const HistoryContainer = styled.div`
   border-radius: 10px;
   width: 70%;
   margin: auto;
-  height: 900px;
 `;
 
 export const ButtonWrapper = styled.div`
