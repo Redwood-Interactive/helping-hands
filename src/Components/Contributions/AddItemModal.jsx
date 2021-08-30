@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap'
-import { AddItemModalContainer, UpperHalf, LowerHalf } from './Styles/AddItemModal.style.js';
+import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap'
+import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf } from './Styles/AddItemModal.style.js';
 
 const AddItemModal = (props) => {
 
@@ -13,50 +13,66 @@ const AddItemModal = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <AddItemModalContainer>
 
-        <Modal.Body>
-          <UpperHalf>
-            <LeftSide>
-              <Title>
+      <Modal.Body>
 
-              </Title>
-              <Category>
+        <Form>
+          <FormContainer>
+            <UpperHalf>
+              <LeftSide>
+                <Form.Group className="mb-3" controlId="formBasicTitle">
+                  <Form.Label>Title</Form.Label>
+                  <Form.Control type="title" placeholder="Enter title" />
+                  <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                  </Form.Text>
+                </Form.Group>
 
-              </Category>
-              <Condition>
+                <Form.Group className="mb-3" controlId="formBasicCategory">
+                  <Form.Label>Category</Form.Label>
+                  <Form.Control type="Category" placeholder="Category" />
+                </Form.Group>
 
-              </Condition>
-              <Location>
+                <Form.Group className="mb-3" controlId="formBasicCondition">
+                  <Form.Label>Condition</Form.Label>
+                  <Form.Control type="Condition" placeholder="Condition" />
+                </Form.Group>
 
-              </Location>
-            </LeftSide>
-            <RightSide>
-              <Image/>
-              <AddImageBtn>
+                <Form.Group className="mb-3" controlId="formBasicLocation">
+                  <Form.Label>Location</Form.Label>
+                  <Form.Control type="Location" placeholder="Location" />
+                </Form.Group>
 
-              </AddImageBtn>
-            </RightSide>
 
-          </UpperHalf>
-          <LowerHalf>
-            <Description>
+              </LeftSide>
+              <RightSide>
+                <Form.Group controlId="formFileLg" className="mb-3">
+                  <Form.Label>Upload your images here</Form.Label>
+                  <Form.Control type="file" size="lg" />
+                </Form.Group>
 
-            </Description>
-            <Submit>
+              </RightSide>
+            </UpperHalf>
+            <LowerHalf>
+              <Form.Group className="mb-3" controlId="formBasicDescription">
+                <Form.Label>Description</Form.Label>
+                <Form.Control as="textarea" type="Description" placeholder="Description" style={{ height: '100px'}}/>
+              </Form.Group>
 
-            </Submit>
-            <Cancel>
+            </LowerHalf>
+          </FormContainer>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
 
-            </Cancel>
 
-          </LowerHalf>
 
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
-      </AddItemModalContainer>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+
     </Modal>
   );
 }
