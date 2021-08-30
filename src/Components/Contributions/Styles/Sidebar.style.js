@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
 export const SidebarContainer = styled.div`
-  height: ${props => props.height};
-  width: 15%;
+  width: 250px;
   position: relative;
   left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
-  top: -10px;
+  padding: 20px;
 `;
 
 export const AddBtn = styled.div`
@@ -20,7 +18,7 @@ export const AddBtn = styled.div`
   align-items: center;
   border-radius: 10px;
   border: 2px solid black;
-  font-size: 20px;
+  font-size: ${props => props.font};
   cursor: pointer;
   background-color: #f7f7f7;
   &:hover {
