@@ -7,6 +7,7 @@ export const ContributionsContainer = styled.div`
   flex-direction: column;
   position: relative;
   top: 100px;
+  margin-bottom: 150px;
 `;
 
 export const ContributionTitle = styled.div`
@@ -22,4 +23,23 @@ export const ContributionTitle = styled.div`
 export const ContainerDiv = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+export const ButtonsDiv = styled.div`
+  position: relative;
+  width: 100%;
+  /* top: 50px; */
+  display: inline-flex;
+  justify-content: center;
+  /* border: 1px solid black; */
+`;
+
+export const Button = styled.div`
+  position: relative;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
 `;
