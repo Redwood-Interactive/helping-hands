@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { MapContainer, MapAnchor } from './Styles/MapBlock.style.js';
 import { Loader } from '@googlemaps/js-api-loader';
+import { googleKey } from '../../../../config.js'
 
 const MapBlock = (props) => {
 
   useEffect(() => {
     const loader = new Loader({
-      apiKey: 'AIzaSyAlMp4AQS5Hald642CExjB_Af6Gq_WNod8',
+      apiKey: googleKey.key,
     });
     loader.load()
     .then(() => {
@@ -35,7 +36,7 @@ const MapBlock = (props) => {
         coords:{ lat: 30.259886153922185, lng: -97.70108708137616 },
         content: '<div>Casa Marianella</div>'
       })
-      
+
     });
 
 
