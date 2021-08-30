@@ -41,7 +41,7 @@ const Sidebar = () => {
           <CheckSubDiv><Checkbox type="checkbox" id='category4' name='service'/><CheckLabel htmlFor='category4'>Service</CheckLabel></CheckSubDiv>
           <CheckSubDiv><Checkbox type="checkbox" id='category5' name='furniture'/><CheckLabel htmlFor='category5'>Furniture</CheckLabel></CheckSubDiv>
           <CheckSubDiv><Checkbox type="checkbox" id='category6' name='electronic'/><CheckLabel htmlFor='category6'>Electronic</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category7' name='hobby'/><CheckLabel htmlFor='category7'>Hobby</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category7' name='toy'/><CheckLabel htmlFor='category7'>Toy</CheckLabel></CheckSubDiv>
           <CheckSubDiv><Checkbox type="checkbox" id='category8' name='miscellaneous'/><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
