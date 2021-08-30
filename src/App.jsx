@@ -11,7 +11,7 @@ import Footer from './Components/Footer/Footer.jsx';
 
 
 const App = () => {
-  const [isLoggedIn, setLogin] = useState(false);
+  const [isLoggedIn, setLogin] = useState(true);
 
   return (
     <Router>
