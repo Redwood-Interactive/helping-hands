@@ -9,6 +9,7 @@ const path = require('path');
 const db = require('../database/index.js');
 var router = require('./routes.js');
 
+
 app.use(express.json());
 app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000,
