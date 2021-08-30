@@ -1,11 +1,28 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap'
 import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf } from './Styles/AddItemModal.style.js';
 
 const AddItemModal = (props) => {
+  const [title, setTitle] = useState('')
+  const [category, setCategory] = useState('')
+  const [condition, setCondition] = useState('')
+  const [location, setLocation] = useState('')
+  const [description, setDescription] = useState('')
 
   const submitItem = () => {
-    
+    let form = {
+      title: title,
+      category: category,
+      condition: condition,
+      location: location,
+      description: description,
+
+    }
+    axios.post('something', form)
+         .then((res) => {
+           console.log(res)
+         })
   }
 
 
@@ -26,30 +43,28 @@ const AddItemModal = (props) => {
               <LeftSide>
                 <Form.Group className="mb-3" controlId="formBasicTitle">
                   <Form.Label>Title</Form.Label>
-                  <Form.Control type="title" placeholder="Enter title" />
+                  <Form.Control onChange={(e) => setTitle(e.target.value)} type="title" placeholder="Enter title" />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                   <Form.Label>Category</Form.Label>
-                  <Form.Select aria-label="Default select example">
+                  <Form.Select onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
 
-                    <option value="" disabled selected>Category</option>
-                    <option value="1">Food</option>
-                    <option value="2">Beverage</option>
-                    <option value="3">Fur</option>
+                    <option value="" hidden>Category</option>
+                    <option value="Food">Food</option>
+                    <option value="Beverage">Beverage</option>
+                    <option value="Fur">Fur</option>
                   </Form.Select>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Label>Category</Form.Label>
-
-                  <Form.Select aria-label="Default select example">
-                    <Form.Label>Condition</Form.Label>
-                    <option value="" disabled selected>Condition</option>
-                    <option value="1">New</option>
-                    <option value="2">Awesome</option>
-                    <option value="3">GREAT</option>
-                    <option value="4">meh</option>
+                  <Form.Label>Condition</Form.Label>
+                  <Form.Select onChange={(e) => setCondition(e.target.value)} aria-label="Default select example">
+                    <option value="" hidden>Condition</option>
+                    <option value="New">New</option>
+                    <option value="Awesome">Awesome</option>
+                    <option value="GREAT">GREAT</option>
+                    <option value="meh">meh</option>
                   </Form.Select>
                 </Form.Group>
 
@@ -76,7 +91,7 @@ const AddItemModal = (props) => {
 
             </LowerHalf>
           </FormContainer>
-          <Button variant="primary" type="submit" style={{float: 'right'}}>
+          <Button variant="primary" type="submit" style={{float: 'right'}} onClick={submitItem}>
             Submit
           </Button>
         </Form>
