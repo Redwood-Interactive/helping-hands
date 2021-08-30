@@ -6,7 +6,8 @@ import axios from 'axios';
 import dummyData from '../../dummydata/dummydata.js'
 
 const Contributions = () => {
-  const [data, setData] = useState(dummyData.contributions);
+  const [data, setData] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     getContributions();
@@ -22,9 +23,15 @@ const Contributions = () => {
 
   const transformData = (contributions) => {
     // Here we can transform any data to the proper format
-    console.log('Contributions', contributions);
+    // console.log('Contributions', contributions);
     setData(contributions);
   }
+
+  useEffect(() => {
+    if (data) {
+      setIsLoaded(true);
+    }
+  }, [data])
 
   const loadMore = () => {
     // console.log('Load more 20 more items');
@@ -35,7 +42,7 @@ const Contributions = () => {
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
         <Sidebar />
-        <Items data={data}/>
+        {isLoaded ? <Items data={data}/> : null}
       </ContainerDiv>
       <ButtonsDiv>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>

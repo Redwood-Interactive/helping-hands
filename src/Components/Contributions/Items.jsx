@@ -35,17 +35,15 @@ const Items = (props) => {
             setCategory(item.category)
             setLocation(item.user.location[0].city)
           }}>
-            {console.log(item.location)}
             <ImageDiv>
               <ItemImage src={item.photos[0]} />
-              <CategoryDiv>
-                <CategoryIcon className={icons[item.category]}></CategoryIcon>
-              </CategoryDiv>
+              <CategoryDiv></CategoryDiv>
+              <CategoryIcon className={icons[item.category]}></CategoryIcon>
             </ImageDiv>
             <TextDiv>
               <Title>{item.title}</Title>
               <AnotherDiv>
-                <Location>{}</Location>
+                <Location>{item.location.city}, {item.location.state}</Location>
                 <BottomRow>
                   <Time>5m ago</Time>
                   <CategoryName>{item.category}</CategoryName>
