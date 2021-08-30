@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, AnotherDiv, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time, ButtonsDiv, Button, BottomRow, CategoryName } from './Styles/Items.style.js';
+import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, AnotherDiv, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time, ItemIconDiv, ItemIcon, BottomRow, CategoryName} from '../Contributions/Styles/Items.style.js';
 import ItemsModal from './ItemsModal.jsx';
-// import dummyData from '../../dummydata/dummydata.js'
+import dummyData from '../../dummydata/dummydata.js'
 
 const Items = (props) => {
 
@@ -11,6 +11,7 @@ const Items = (props) => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [location, setLocation] = useState([]);
+
 
   const icons = {
     Food: 'fas fa-utensils',
@@ -26,7 +27,7 @@ const Items = (props) => {
   return (
     <ItemsContainer>
       <ItemsProducts>
-        {props.data ? props.data.map((item, index) =>
+        {dummyData.contributions.map((item, index) =>
           <Item key={index} onClick={() => {
             setShowModal(true)
             setClickedImages(item.photos)
@@ -36,10 +37,10 @@ const Items = (props) => {
             setLocation(item.user.location[0].city)
             }}>
             <ImageDiv>
-              <ItemImage src={item.photos} />
-              <CategoryDiv>
-                <CategoryIcon className={icons[item.category]}></CategoryIcon>
-              </CategoryDiv>
+              {/* <ItemImage src={item.photos} /> */}
+              <ItemIconDiv>
+                <ItemIcon className={icons[item.category]}></ItemIcon>
+              </ItemIconDiv>
             </ImageDiv>
             <TextDiv>
               <Title>{item.title}</Title>
@@ -52,7 +53,7 @@ const Items = (props) => {
               </AnotherDiv>
             </TextDiv>
           </Item>
-        ) : null}
+        )}
       </ItemsProducts>
       <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location}/>
     </ItemsContainer>
