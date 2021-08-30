@@ -14,7 +14,7 @@ const Contributions = () => {
   const getContributions = () => {
     axios.get('/getcontributions')
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
       })
   }
 
