@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time } from './Styles/Items.style.js';
+import React, { useState, useEffect, useRef } from 'react';
+import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, AnotherDiv, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time, ButtonsDiv, Button } from './Styles/Items.style.js';
 import ItemsModal from './ItemsModal.jsx';
 import dummyData from '../../dummydata/dummydata.js'
 
 const Items = () => {
-
   const [showModal, setShowModal] = useState(false);
   const [clickedimages, setClickedImages] = useState([]);
   const [title, setTitle] = useState('');
@@ -32,13 +31,19 @@ const Items = () => {
             </ImageDiv>
             <TextDiv>
               <Title>{item.title}</Title>
-              <Location>Location</Location>
-              <Time>5m ago</Time>
+              <AnotherDiv>
+                <Location>Location</Location>
+                <Time>5m ago</Time>
+              </AnotherDiv>
             </TextDiv>
           </Item>
         )}
       </ItemsProducts>
       <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location}/>
+      <ButtonsDiv>
+        <Button>Load more</Button>
+        <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>
+      </ButtonsDiv>
     </ItemsContainer>
   );
 };
