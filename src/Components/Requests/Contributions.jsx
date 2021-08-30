@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { ContributionsContainer, ContributionTitle, ContainerDiv } from '../Contributions/Styles/Contributions.style.js';
+import { ContributionsContainer, ContributionTitle, ContainerDiv } from '../Contributions/Styles/Contributions.style.js'
 import Sidebar from './Sidebar.jsx';
 import Items from './Items.jsx';
 import axios from 'axios';
 
-const Requests = () => {
+const Contributions = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Requests = () => {
 
   return (
     <ContributionsContainer>
-      <ContributionTitle>Requests</ContributionTitle>
+      <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
         <Sidebar />
         <Items />
@@ -29,4 +29,4 @@ const Requests = () => {
   );
 };
 
-export default Requests;
+export default Contributions;

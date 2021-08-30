@@ -23,7 +23,7 @@ const Contributions = () => {
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
         <Sidebar />
-        <Items />
+        <Items/>
       </ContainerDiv>
     </ContributionsContainer>
   );
