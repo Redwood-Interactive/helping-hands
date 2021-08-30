@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 import { ItemsModalImages, ItemsImageContainer } from './Styles/ItemsModal.style.js';
 
@@ -11,9 +11,7 @@ const ItemsModalCarousel = ({ clickedimages }) => {
   };
 
 
-
   return (
-
     <Carousel activeIndex={index} onSelect={handleSelect}>
       {clickedimages.map((image, order) =>
         <Carousel.Item key={order}>
@@ -29,14 +27,10 @@ const ItemsModalCarousel = ({ clickedimages }) => {
           </Carousel.Caption>
         </Carousel.Item>
       )}
-
     </Carousel>
 
 
-
-
   );
-
 
 
 }

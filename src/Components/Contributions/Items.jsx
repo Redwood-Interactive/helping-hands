@@ -3,7 +3,8 @@ import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, AnotherDiv, Text
 import ItemsModal from './ItemsModal.jsx';
 import dummyData from '../../dummydata/dummydata.js'
 
-const Items = () => {
+const Items = (props) => {
+
   const [showModal, setShowModal] = useState(false);
   const [clickedimages, setClickedImages] = useState([]);
   const [title, setTitle] = useState('');
@@ -24,7 +25,7 @@ const Items = () => {
             setLocation(item.user.location[0].city)
             }}>
             <ImageDiv>
-              <ItemImage src={item.photos} onClick={() => setShowModal(true)} />
+              <ItemImage src={item.photos} />
               <CategoryDiv>
                 <CategoryIcon>∆</CategoryIcon>
               </CategoryDiv>
