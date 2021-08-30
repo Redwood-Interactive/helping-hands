@@ -10,5 +10,7 @@ export const MapContainer = styled.div`
 export const MapAnchor = styled.div`
   height: 400px;
   width: 70%;
+  position: absolute;
+  right: 30px;
 `;
 

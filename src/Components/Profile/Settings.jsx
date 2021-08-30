@@ -8,8 +8,9 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import PreSettings from './PreSettings.jsx'
-import {  useLocation } from 'react-router-dom';
-import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu, ImageRow, EmailItem } from './Styles/Settings.style.js'
+import { Link, useLocation } from 'react-router-dom';
+
+import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu, ImageRow, EmailItem, ProfileIcon } from './Styles/Settings.style.js'
 
 const states = [
   "AK",
@@ -89,7 +90,7 @@ const Settings = () => {
       )
     } else {
       return (
-        <Button  style={{ "height": "40px"}} variant="secondary" onClick={() => { setEdit(false) }}>
+        <Button style={{ "height": "40px" }} variant="secondary" onClick={() => { setEdit(false) }}>
           X
         </Button>
       )
@@ -98,11 +99,16 @@ const Settings = () => {
   const renderSettings = () => {
     return (
       <InputContainer>
+        <Link id='link' to='/profile'>
+          <ProfileIcon>
+            <img style={{ "heigth": "50px", "width": "50px" }} src='https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/512x512/plain/id_badge.png'></img>
+          </ProfileIcon>
+        </Link>
         <h1>User Settings</h1>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <ImageRow>
             <Image
-              style={{ "height": "100px", "width": "100px"}}
+              style={{ "height": "100px", "width": "100px" }}
               src="https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946" roundedCircle />
             {editCheck()}
           </ImageRow>
@@ -134,7 +140,7 @@ const Settings = () => {
           </FormItem>
           <FormItem>
             <Form.Label>Address 2</Form.Label>
-            <Form.Control size='sm' placeholder="Apartment, Studio, Floor" disabled={!edit}/>
+            <Form.Control size='sm' placeholder="Apartment, Studio, Floor" disabled={!edit} />
           </FormItem>
           <FormRow>
             <FormItem>
@@ -147,11 +153,11 @@ const Settings = () => {
                 <Dropdown.Toggle size='sm' variant="outline-secondary" disabled={!edit}>
                   State
                 </Dropdown.Toggle>
-                  <Dropdown.Menu style={{ "height": "100px", "overflowY": "scroll" }}>
-                    {states.map((state) => (
-                      <Dropdown.Item value={state}>{state}</Dropdown.Item>
-                    ))}
-                  </Dropdown.Menu>
+                <Dropdown.Menu style={{ "height": "100px", "overflowY": "scroll" }}>
+                  {states.map((state) => (
+                    <Dropdown.Item value={state}>{state}</Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
               </Dropdown>
             </FormItem>
             <FormItem>
@@ -160,9 +166,9 @@ const Settings = () => {
             </FormItem>
           </FormRow>
           <FormItem>
-          <Button size='sm' variant="primary" type="submit">
-            Submit
-          </Button>
+            <Button size='sm' variant="primary" type="submit">
+              Submit
+            </Button>
           </FormItem>
         </Form>
       </InputContainer>
