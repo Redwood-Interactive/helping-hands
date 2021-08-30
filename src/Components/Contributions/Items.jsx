@@ -1,38 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, ContributionTitle, Time } from './Styles/Items.style.js';
+import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time } from './Styles/Items.style.js';
 import ItemsModal from './ItemsModal.jsx';
 import dummyData from '../../dummydata/dummydata.js'
 
 const Items = () => {
 
   const [showModal, setShowModal] = useState(false);
-  const [itemsWidth, setItemsWidth] = useState('');
   const [clickedimages, setClickedImages] = useState([]);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [location, setLocation] = useState([]);
 
-  useEffect(() => {
-    window.addEventListener('resize', resize);
-    resize();
-  }, [])
-
-  const resize = () => {
-    const width = window.innerWidth;
-    if (width <= 1440) {
-      setItemsWidth('800px');
-    } else if (width <= 1690) {
-      setItemsWidth('900px');
-    } else {
-      setItemsWidth('1025px');
-    }
-  }
-
   return (
     <ItemsContainer>
-      <ItemsProducts width={itemsWidth}>
-      <ContributionTitle>Contributions</ContributionTitle>
+      <ItemsProducts>
         {dummyData.contributions.map((item, index) =>
           <Item key={index} onClick={() => {
             setShowModal(true)
