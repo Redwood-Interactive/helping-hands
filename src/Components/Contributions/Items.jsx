@@ -26,7 +26,7 @@ const Items = (props) => {
   return (
     <ItemsContainer>
       <ItemsProducts>
-        {props.data ? props.data.map((item, index) =>
+        { props.data ? props.data.map((item, index) =>
           <Item key={index} onClick={() => {
             setShowModal(true)
             setClickedImages(item.photos)
@@ -34,9 +34,10 @@ const Items = (props) => {
             setDescription(item.description)
             setCategory(item.category)
             setLocation(item.user.location[0].city)
-            }}>
+          }}>
+            {console.log(item.location)}
             <ImageDiv>
-              <ItemImage src={item.photos} />
+              <ItemImage src={item.photos[0]} />
               <CategoryDiv>
                 <CategoryIcon className={icons[item.category]}></CategoryIcon>
               </CategoryDiv>
@@ -44,15 +45,15 @@ const Items = (props) => {
             <TextDiv>
               <Title>{item.title}</Title>
               <AnotherDiv>
-                <Location>Location</Location>
+                <Location>{}</Location>
                 <BottomRow>
                   <Time>5m ago</Time>
-                  <CategoryName>Category</CategoryName>
+                  <CategoryName>{item.category}</CategoryName>
                 </BottomRow>
               </AnotherDiv>
             </TextDiv>
           </Item>
-        ) : null}
+        ) : null }
       </ItemsProducts>
       <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location}/>
     </ItemsContainer>
