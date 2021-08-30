@@ -12,7 +12,7 @@ import Footer from './Components/Footer/Footer.jsx';
 
 const App = () => {
   const [isLoggedIn, setLogin] = useState(true);
-
+  // state userInfo
   return (
     <Router>
       <AppContainer>

@@ -7,9 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
-import PreSettings from './PreSettings.jsx'
 import { Link, useLocation } from 'react-router-dom';
-
 import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu, ImageRow, EmailItem, ProfileIcon } from './Styles/Settings.style.js'
 
 const states = [
@@ -69,7 +67,7 @@ const Settings = () => {
   // change zipcode positioning
   const [validated, setValidated] = useState(false);
   const [edit, setEdit] = useState(false);
-  const location = useLocation()
+  const location = useLocation();
   const { user } = location.state;
 
   const handleSubmit = (event) => {
@@ -99,12 +97,12 @@ const Settings = () => {
   const renderSettings = () => {
     return (
       <InputContainer>
-        <Link id='link' to='/profile'>
-          <ProfileIcon>
-            <img style={{ "heigth": "50px", "width": "50px" }} src='https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/512x512/plain/id_badge.png'></img>
-          </ProfileIcon>
-        </Link>
-        <h1>User Settings</h1>
+        <ImageRow>
+          <h1>User Settings</h1>
+          <Link id='link' to='/profile'>
+            <img style={{ "heigth": "50px", "width": "50px", "postion": "relative" }} src='https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/512x512/plain/id_badge.png'></img>
+          </Link>
+        </ImageRow>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <ImageRow>
             <Image
@@ -166,7 +164,7 @@ const Settings = () => {
             </FormItem>
           </FormRow>
           <FormItem>
-            <Button size='sm' variant="primary" type="submit">
+            <Button style={{ "width": "20%" }} size='sm' variant="primary" type="submit">
               Submit
             </Button>
           </FormItem>
@@ -175,7 +173,9 @@ const Settings = () => {
     )
   }
   return (
-    renderSettings()
+    <React.Fragment>
+      {renderSettings()}
+    </React.Fragment>
   )
 };
 

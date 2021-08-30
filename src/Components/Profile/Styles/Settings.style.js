@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const InputContainer = styled.div`
+padding-top: 150px;
 position: relative;
 width: 40%;
 top: 20%;
