@@ -243,6 +243,7 @@ WITH userid AS (
   SELECT id, '567 sahara avenue', 'oasis city', 'DS', 47749
   FROM userid
 
+UPDATE users SET first_name = cactus WHERE id = 5
 
 
 
