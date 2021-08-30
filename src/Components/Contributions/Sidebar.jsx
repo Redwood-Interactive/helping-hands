@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from './Styles/Sidebar.style.js';
+import AddItemModal from './AddItemModal.jsx'
 
 const Sidebar = () => {
+  const [addItemModal, setAddItemModal] = useState(false);
+
   return (
     <SidebarContainer>
-      <AddBtn>Add Item +</AddBtn>
+      <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
       <SearchDiv>
         <Label>Search</Label>
         <SearchSubDiv>
@@ -51,6 +54,7 @@ const Sidebar = () => {
           <CheckSubDiv><Checkbox type="checkbox" id='condition4' name='worn'/><CheckLabel htmlFor='condition4'>Worn</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
+      <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} />
     </SidebarContainer>
   );
 };

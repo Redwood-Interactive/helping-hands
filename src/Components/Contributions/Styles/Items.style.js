@@ -6,7 +6,7 @@ export const ItemsContainer = styled.div `
   flex-direction: column;
   align-items: center;
   position: relative;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 
 export const ItemsProducts = styled.div `
