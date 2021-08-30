@@ -65,6 +65,8 @@ export const CategoryIcon = styled.div`
   opacity: 1;
 `;
 
+export const AnotherDiv = styled.div``;
+
 export const TextDiv = styled.div `
   position: relative;
   height: 100px;
@@ -72,16 +74,32 @@ export const TextDiv = styled.div `
   display: flex;
   flex-direction: column;
   margin: 8px;
+  justify-content: space-between;
 `;
 
 export const Title = styled.div `
   font-size: 20px;
 `;
 
-export const Location = styled.div `
+export const Location = styled.div ``;
 
+export const Time = styled.div ``;
+
+export const ButtonsDiv = styled.div`
+  position: relative;
+  width: 100%;
+  top: 50px;
+  display: inline-flex;
+  justify-content: center;
 `;
 
-export const Time = styled.div `
-
+export const Button = styled.div`
+  position: relative;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+  left: -125px;
+  cursor: pointer;
 `;

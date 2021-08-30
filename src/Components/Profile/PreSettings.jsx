@@ -8,14 +8,16 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Link } from 'react-router-dom';
-import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu } from './Styles/Settings.style.js'
+import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu, ProfileIcon, ImageRow} from './Styles/Settings.style.js'
 
 const PreSettings = () => {
   return (
     <InputContainer>
       <h1>User Settings</h1>
       <Link id='link' to='/profile'>
-      <img src='https://image.shutterstock.com/image-vector/passport-drivers-license-flat-icon-260nw-1927066082.jpg'></img>
+      <ProfileIcon>
+      <img style={{"heigth": "50px", "width": "50px"}} src='https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/512x512/plain/id_badge.png'></img>
+      </ProfileIcon>
       </Link>
       <Form>
           <ImageItem>

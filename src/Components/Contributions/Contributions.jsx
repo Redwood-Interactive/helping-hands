@@ -11,7 +11,6 @@ const Contributions = () => {
         <Sidebar />
         <Items />
       </ContainerDiv>
-
     </ContributionsContainer>
   );
 };

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const HomeProfileContainer = styled.div`
+  position: relative;
   width: 100%;
-  height: 1100px;
   margin-top: 160px;
   margin-bottom: 50px;
 `;

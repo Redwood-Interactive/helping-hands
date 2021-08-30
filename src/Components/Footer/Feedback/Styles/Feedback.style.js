@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FeedbackTextArea = styled.textarea`
-height: 200px;
+height: 20px;
 width: 200px;
 font-size: 14px;
 `;
