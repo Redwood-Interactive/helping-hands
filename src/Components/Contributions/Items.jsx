@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, AnotherDiv, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time, ButtonsDiv, Button, BottomRow, CategoryName } from './Styles/Items.style.js';
 import ItemsModal from './ItemsModal.jsx';
-import dummyData from '../../dummydata/dummydata.js'
+// import dummyData from '../../dummydata/dummydata.js'
 
 const Items = (props) => {
 
@@ -26,7 +26,7 @@ const Items = (props) => {
   return (
     <ItemsContainer>
       <ItemsProducts>
-        {dummyData.contributions.map((item, index) =>
+        {props.data ? props.data.map((item, index) =>
           <Item key={index} onClick={() => {
             setShowModal(true)
             setClickedImages(item.photos)
@@ -52,13 +52,9 @@ const Items = (props) => {
               </AnotherDiv>
             </TextDiv>
           </Item>
-        )}
+        ) : null}
       </ItemsProducts>
       <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location}/>
-      <ButtonsDiv>
-        <Button>Load more</Button>
-        <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>
-      </ButtonsDiv>
     </ItemsContainer>
   );
 };

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const ItemsContainer = styled.div `
-  width: 83%;
+  /* width: 83%; */
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  left: 20px;
+  /* border: 1px solid black; */
 `;
 
 export const ItemsProducts = styled.div `
@@ -67,17 +67,18 @@ export const CategoryDiv = styled.div `
   right: 0;
   width: 0;
   height: 0;
-  border-bottom: 50px solid black;
-  border-left: 50px solid transparent;
+  border-bottom: 70px solid black;
+  border-left: 70px solid transparent;
   opacity: .5;
 `;
 
 export const CategoryIcon = styled.i`
   position: absolute;
-  bottom: -40px;
-  right: 10px;
+  bottom: -60px;
+  right: 15px;
   color: white;
   opacity: 1;
+  font-size: 20px;
 `;
 
 export const AnotherDiv = styled.div``;
@@ -109,21 +110,3 @@ export const CategoryName = styled.div``;
 
 export const Time = styled.div ``;
 
-export const ButtonsDiv = styled.div`
-  position: relative;
-  width: 100%;
-  top: 50px;
-  display: inline-flex;
-  justify-content: center;
-`;
-
-export const Button = styled.div`
-  position: relative;
-  height: 50px;
-  border: 2px solid black;
-  border-radius: 25px;
-  padding: 10px;
-  margin: 10px;
-  left: -125px;
-  cursor: pointer;
-`;
