@@ -801,11 +801,6 @@ INSERT INTO photos
 
 
 
-
-
-
-
-
 INSERT INTO locations
 (
   user_id,
