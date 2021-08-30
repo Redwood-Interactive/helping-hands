@@ -8,7 +8,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import PreSettings from './PreSettings.jsx'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, Redirect } from 'react-router-dom';
 
 import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu, ImageRow, EmailItem, ProfileIcon } from './Styles/Settings.style.js'
 
@@ -65,12 +65,14 @@ const states = [
   "WY"];
 
 
-const Settings = () => {
+const Settings = ({userInfo, isLoggedIn}) => {
   // change zipcode positioning
   const [validated, setValidated] = useState(false);
   const [edit, setEdit] = useState(false);
   const location = useLocation()
-  const { user } = location.state;
+  // const { user } = location.state;
+  const user = userInfo;
+
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -81,6 +83,8 @@ const Settings = () => {
 
     setValidated(true);
   };
+
+
   const editCheck = () => {
     if (!edit) {
       return (
@@ -109,7 +113,7 @@ const Settings = () => {
           <ImageRow>
             <Image
               style={{ "height": "100px", "width": "100px" }}
-              src="https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1070837284-e1611613819374.jpg?w=1946" roundedCircle />
+              src={user.profile_pic} roundedCircle />
             {editCheck()}
           </ImageRow>
           <FormItem>
@@ -136,7 +140,7 @@ const Settings = () => {
           </FormItem>
           <FormItem>
             <Form.Label>Address</Form.Label>
-            <Form.Control size='sm' placeholder="1234 Main St" defaultValue={user.location[0].street_name} required disabled={!edit} />
+            <Form.Control size='sm' placeholder="1234 Main St" defaultValue={user.locations[0].street_name} required disabled={!edit} />
           </FormItem>
           <FormItem>
             <Form.Label>Address 2</Form.Label>
@@ -145,7 +149,7 @@ const Settings = () => {
           <FormRow>
             <FormItem>
               <Form.Label>City</Form.Label>
-              <Form.Control size='sm' defaultValue={user.location[0].city} required disabled={!edit} />
+              <Form.Control size='sm' defaultValue={user.locations[0].city} required disabled={!edit} />
             </FormItem>
             <FormItem>
               <Form.Label>State</Form.Label>
@@ -162,7 +166,7 @@ const Settings = () => {
             </FormItem>
             <FormItem>
               <Form.Label>Zipcode</Form.Label>
-              <Form.Control size='sm' defaultValue={user.location[0].zipcode} required disabled={!edit} />
+              <Form.Control size='sm' defaultValue={user.locations[0].zipcode} required disabled={!edit} />
             </FormItem>
           </FormRow>
           <FormItem>
@@ -174,9 +178,13 @@ const Settings = () => {
       </InputContainer>
     )
   }
+  if (Object.keys(user).length === 0) {
+    return null;
+  } else {
   return (
     renderSettings()
   )
+  }
 };
 
 export default Settings;

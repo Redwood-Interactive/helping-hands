@@ -49,11 +49,15 @@ const AddItemModal = (props) => {
                 <Form.Group className="mb-3">
                   <Form.Label>Category</Form.Label>
                   <Form.Select onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
-
                     <option value="" hidden>Category</option>
                     <option value="Food">Food</option>
-                    <option value="Beverage">Beverage</option>
-                    <option value="Fur">Fur</option>
+                    <option value="Beverage">Drink</option>
+                    <option value="Fur">Clothing</option>
+                    <option value="Service">Service</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value='Electronic'>Electronic</option>
+                    <option value='Toy'>Toy</option>
+                    <option value='Miscellaneous'>Miscellaneous</option>
                   </Form.Select>
                 </Form.Group>
 
@@ -62,9 +66,8 @@ const AddItemModal = (props) => {
                   <Form.Select onChange={(e) => setCondition(e.target.value)} aria-label="Default select example">
                     <option value="" hidden>Condition</option>
                     <option value="New">New</option>
-                    <option value="Awesome">Awesome</option>
-                    <option value="GREAT">GREAT</option>
-                    <option value="meh">meh</option>
+                    <option value="Awesome">Like Used</option>
+                    <option value="GREAT">Used</option>
                   </Form.Select>
                 </Form.Group>
 
