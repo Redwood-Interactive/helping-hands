@@ -1,13 +1,16 @@
 import React from 'react';
-import { ContributionsContainer } from './Styles/Contributions.style.js'
+import { ContributionsContainer, ContributionTitle, ContainerDiv } from './Styles/Contributions.style.js'
 import Sidebar from './Sidebar.jsx';
 import Items from './Items.jsx';
 
 const Contributions = () => {
   return (
     <ContributionsContainer>
-      <Sidebar />
-      <Items />
+      <ContributionTitle>Contributions</ContributionTitle>
+      <ContainerDiv>
+        <Sidebar />
+        <Items />
+      </ContainerDiv>
     </ContributionsContainer>
   );
 };

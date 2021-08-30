@@ -1,27 +1,19 @@
 import styled from 'styled-components';
 
 export const ItemsContainer = styled.div `
-  width: 100%;
+  width: 83%;
   display: flex;
-  justify-content: center;
-  padding-top: 25px;
-  padding-bottom: 100px;
-`;
-
-export const ContributionTitle = styled.div`
-  width: 100%;
-  text-align: center;
-  margin-left: 15px;
-  font-size: 50px;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  left: 20px;
 `;
 
 export const ItemsProducts = styled.div `
   display: flex;
-  width: ${props => props.width};
+  width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export const Item = styled.div `
@@ -73,6 +65,8 @@ export const CategoryIcon = styled.div`
   opacity: 1;
 `;
 
+export const AnotherDiv = styled.div``;
+
 export const TextDiv = styled.div `
   position: relative;
   height: 100px;
@@ -80,16 +74,32 @@ export const TextDiv = styled.div `
   display: flex;
   flex-direction: column;
   margin: 8px;
+  justify-content: space-between;
 `;
 
 export const Title = styled.div `
   font-size: 20px;
 `;
 
-export const Location = styled.div `
+export const Location = styled.div ``;
 
+export const Time = styled.div ``;
+
+export const ButtonsDiv = styled.div`
+  position: relative;
+  width: 100%;
+  top: 50px;
+  display: inline-flex;
+  justify-content: center;
 `;
 
-export const Time = styled.div `
-
+export const Button = styled.div`
+  position: relative;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+  left: -125px;
+  cursor: pointer;
 `;

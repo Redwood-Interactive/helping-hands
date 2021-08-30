@@ -4,10 +4,10 @@ module.exports = {
   post: (req, res) => {
     postFeedback.postFeedback(req.body)
       .then((data) => {
-        res.send(data)
+        res.send(data);
       })
       .catch((err) => {
-        console.log(err)
-      })
+        console.log(err);
+      });
   }
-}
+};

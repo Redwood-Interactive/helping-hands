@@ -1,4 +1,4 @@
-const db = require('../../database/index.js')
+const db = require('../../database/index.js');
 
 
 module.exports = {
@@ -12,11 +12,11 @@ module.exports = {
     `;
 
     return db.query(query)
-    .then((data) => {
-      return data
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+      .then((data) => {
+        return data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-}
+};
