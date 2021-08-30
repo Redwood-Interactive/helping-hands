@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from './Styles/Sidebar.style.js';
 
 const Sidebar = () => {
-  const [height, setHeight] = useState((window.innerHeight - 100).toString() + 'px');
-
   return (
-    <SidebarContainer height={height}>
+    <SidebarContainer>
       <AddBtn>Add Item +</AddBtn>
       <SearchDiv>
         <Label>Search</Label>
