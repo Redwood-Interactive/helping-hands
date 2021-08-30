@@ -15,7 +15,7 @@ module.exports = {
           city: 'Austin',
           state: 'TX',
           zipcode: 78753
-        },
+        }
       ]
     },
     {
