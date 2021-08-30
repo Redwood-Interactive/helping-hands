@@ -3,14 +3,10 @@ import { Link } from 'react-router-dom';
 import { NavbarContainer, Logo, NavbarList, NavbarListItem, NavbarDivButton } from './Styles/Navbar.style.js'
 
 
+var windowFeatures = "height=972,width=660, modal=yes, alwaysRaised=yes";
+
 const Navbar = ({ isLoggedIn }) => {
 
-  const login = () => {
-    // LOGIN OR SIGN UP WITH GOOGLE
-      // sign in / register with google
-        // -> new window.location
-  }
- // TODO: add buttons for sign up, login -> open in window
   return (
     <NavbarContainer>
       <Logo onClick={() => window.open('/', '_self')}src='https://i1.wp.com/pcdeeprun.org/wp-content/uploads/2017/03/HelpingHands.png?fit=450%2C450&ssl=1'/>
@@ -26,9 +22,9 @@ const Navbar = ({ isLoggedIn }) => {
         <NavbarListItem>
           <Link id='link' to='/profile'>Profile</Link>
         </NavbarListItem> :
-        <NavbarListItem onClick={()=>{login()}}>
-          <NavbarDivButton color={'red'}>Sign up</NavbarDivButton>
-          <NavbarDivButton>Login</NavbarDivButton>
+        <NavbarListItem>
+          <NavbarDivButton onClick={()=>{window.open('/auth/google')}} color={'red'}>Sign up</NavbarDivButton>
+          <NavbarDivButton onClick={()=>{window.open('/auth/google')}}>Login</NavbarDivButton>
         </NavbarListItem>
         }
       </NavbarList>
