@@ -5,7 +5,7 @@ import Items from './Items.jsx';
 import axios from 'axios';
 import dummyData from '../../dummydata/dummydata.js'
 
-const Contributions = ({ isLoggedIn }) => {
+const Contributions = ({ isLoggedIn, userInfo }) => {
   const [data, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -42,7 +42,7 @@ const Contributions = ({ isLoggedIn }) => {
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
         <Sidebar isLoggedIn={isLoggedIn}/>
-        {isLoaded ? <Items data={data}/> : null}
+        {isLoaded ? <Items data={data} userinfo={userInfo}/> : null}
       </ContainerDiv>
       <ButtonsDiv>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>
