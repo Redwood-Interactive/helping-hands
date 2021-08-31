@@ -32,11 +32,36 @@ const postContribution = (contribution) => {
   return axios(config);
 }
 
+const getAllUsers = () => {
+  var config = {
+    method: 'get',
+    url: `${baseUrl}/getAllUsers`,
+  }
+  return axios(config);
+}
 
+const getAllReqCount = () => {
+  var config = {
+    method: 'get',
+    url: `${baseUrl}/getAllReqCount`,
+  }
+  return axios(config);
+}
+
+const getAllContriCount = () => {
+  var config = {
+    method: 'get',
+    url: `${baseUrl}/getAllContriCount`,
+  }
+  return axios(config);
+}
 
 const apiCalls = {
   postFeedback: postFeedback,
   postContribution: postContribution,
+  getAllUsers: getAllUsers,
+  getAllReqCount: getAllReqCount,
+  getAllContriCount: getAllContriCount,
 }
 
 export default apiCalls;

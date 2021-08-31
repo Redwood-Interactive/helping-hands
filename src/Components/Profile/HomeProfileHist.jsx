@@ -24,7 +24,7 @@ const HomeProfileHist = ({ userInfo }) => {
     function requests() {
       axios.get(`/getAllReqForOneUser?user_id=${userInfo.id}`)
       .then((res) => {
-        setAllContributions(res.data);
+        setAllRequests(res.data);
       })
       .catch((err) => {
         console.log('there was an error!: ', err)
