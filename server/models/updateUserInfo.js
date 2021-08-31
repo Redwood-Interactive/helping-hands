@@ -17,7 +17,7 @@ module.exports = {
       values: [user.first_name, user.last_name, user.email, user.phone, user.profile_pic, user.id, street_name, city, state, zipcode]
     }
     return db.query(query.text, query.values)
-      .then((data) => {console.log(data)})
+      .then((data) => {return data})
       .catch((err) => {console.log(err)})
   }
 }
