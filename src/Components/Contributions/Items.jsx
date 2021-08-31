@@ -24,6 +24,12 @@ const Items = (props) => {
     Miscellaneous: 'fas fa-ellipsis-h'
   }
 
+  useEffect(() => {
+    if (props.userInfo) {
+      console.log(props.userInfo);
+    }
+  }, [props.userInfo])
+
   return (
     <ItemsContainer>
       <ItemsProducts>
@@ -55,7 +61,7 @@ const Items = (props) => {
           </Item>
         ) : null }
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location} iconclass={iconClass}/>
+      <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location} iconclass={iconClass} userInfo={props.userInfo}/>
     </ItemsContainer>
   );
 };
