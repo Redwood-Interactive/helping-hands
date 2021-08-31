@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, AnotherDiv, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time, ItemIconDiv, ItemIcon, BottomRow, CategoryName} from '../Contributions/Styles/Items.style.js';
+import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, AnotherDiv, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time, ItemIconDiv, ItemIcon, BottomRow, CategoryName } from '../Contributions/Styles/Items.style.js';
 import ItemsModal from './ItemsModal.jsx';
-// import dummyData from '../../dummydata/dummydata.js'
 
 const Items = (props) => {
 
@@ -11,6 +10,7 @@ const Items = (props) => {
   const [category, setCategory] = useState('');
   const [location, setLocation] = useState([]);
   const [iconClass, setClass] = useState('');
+  const [user, setUser] = useState({});
   const [condition, setCondition] = useState('');
 
   const icons = {
@@ -26,7 +26,7 @@ const Items = (props) => {
 
   useEffect(() => {
     if (props.userInfo) {
-      console.log(props.userInfo);
+      // console.log(props.userInfo);
     }
   }, [props.userInfo])
 
@@ -41,8 +41,10 @@ const Items = (props) => {
             setCategory(item.category)
             setLocation(item.location.city + ', ' + item.location.state)
             setClass(icons[item.category])
+            setUser(item.user)
             setCondition(item.condition)
           }}>
+            {/* {console.log(item.user)} */}
             <ImageDiv>
               <ItemIconDiv>
                 <ItemIcon className={icons[item.category]}></ItemIcon>
@@ -61,7 +63,7 @@ const Items = (props) => {
           </Item>
         ): null}
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setShowModal(false)} title={title} description={description} category={category} location={location} iconclass={iconClass} condition={condition} userinfo={props.userinfo}/>
+      <ItemsModal show={showModal} onHide={() => setShowModal(false)} title={title} description={description} category={category} location={location} iconclass={iconClass} user={user} condition={condition}/>
     </ItemsContainer>
   );
 };
