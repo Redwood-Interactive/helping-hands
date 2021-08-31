@@ -1,35 +1,33 @@
 import React, { useState } from 'react';
-import { User, Information, ItemsDetailContainer, UpperInformationContainer, Title, Profile, CategoryLocationContainer, Category, Location, Description } from '../Contributions/Styles/ItemsModal.style.js';
+import { UserContainer, ContactUser, Information, ItemsDetailContainer, UpperInformationContainer, Title, Profile, CategoryLocationContainer, Category, Location, Description } from '../Contributions/Styles/ItemsModal.style.js';
 
-const ItemsDetail = ({ title, description, category, location}) => {
+const ItemsDetail = ({ title, description, category, location, iconclass, condition, userinfo}) => {
 
   return (
     <ItemsDetailContainer>
-    <User>
-      <Profile>
-        Profile
-      </Profile>
-    </User>
+     <UserContainer>
+      <Profile>Profile</Profile>
+      <ContactUser variant='secondary'>Contact</ContactUser>
+    </UserContainer>
     <Information>
       <UpperInformationContainer>
         <Title>
-          {title}
+          [{condition}] {title}
         </Title>
-
         <CategoryLocationContainer>
           <Category>
-            {category}
+            <i className={iconclass}/> {category}
           </Category>
           <Location>
-            {location}
+          <i className="fas fa-map-marker-alt" /> {location}
           </Location>
         </CategoryLocationContainer>
-
       </UpperInformationContainer>
       <Description>
+        Description:
+        <br />
         {description}
       </Description>
-
     </Information>
     </ItemsDetailContainer>
 

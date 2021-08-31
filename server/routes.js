@@ -15,9 +15,9 @@ router.get('/getAllReqForOneUser', getReqForOneUser.get);
 
 router.post('/getcontributions', getContributions.post)
 
-router.get('/requests', requests.get)
+router.get('/requestsAll', requests.get)
 
-router.post('/requests', requests.post)
+router.post('/requestsAll', requests.post)
 
 
 

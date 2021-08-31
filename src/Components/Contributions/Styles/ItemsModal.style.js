@@ -78,6 +78,8 @@ export const CategoryLocationContainer = styled.div `
   /* border: 1px red solid; */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding-right: 10px;
   padding-left: 10px;
   border-left: 1px solid black;
