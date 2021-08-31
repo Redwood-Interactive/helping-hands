@@ -5,7 +5,7 @@ import Items from './Items.jsx';
 import axios from 'axios';
 import dummyData from '../../dummydata/dummydata.js'
 
-const Contributions = () => {
+const Contributions = ({ isLoggedIn }) => {
   const [data, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -41,7 +41,7 @@ const Contributions = () => {
     <ContributionsContainer>
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
-        <Sidebar />
+        <Sidebar isLoggedIn={isLoggedIn}/>
         {isLoaded ? <Items data={data}/> : null}
       </ContainerDiv>
       <ButtonsDiv>
