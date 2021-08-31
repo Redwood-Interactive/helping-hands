@@ -4,26 +4,34 @@ import Sidebar from './Sidebar.jsx';
 import Items from './Items.jsx';
 import axios from 'axios';
 
-const Requests = () => {
+const Requests = ({ isLoggedIn, userInfo }) => {
   const [data, setData] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    getContributions();
+    getRequests();
   }, [])
 
-  const getContributions = () => {
-    axios.get('/getcontributions')
+  const getRequests = () => {
+    axios.get('/requestsAll')
       .then(res => {
         // console.log(res.data);
+        setData(res.data);
       })
   }
+
+  useEffect(() => {
+    if (data) {
+      setIsLoaded(true);
+    }
+  }, [data])
 
   return (
     <ContributionsContainer>
       <ContributionTitle>Requests</ContributionTitle>
       <ContainerDiv>
         <Sidebar />
-        <Items />
+        {isLoaded ? <Items data={data} userinfo={userInfo}/> : null }
       </ContainerDiv>
       <ButtonsDiv>
         <Button>Load more</Button>

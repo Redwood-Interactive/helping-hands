@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import { AppContainer } from './App.style.js';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Home from './Components/Home/Home.jsx';
 import Contributions from './Components/Contributions/Contributions.jsx';
@@ -8,8 +9,6 @@ import Requests from './Components/Requests/Requests.jsx';
 import HomeProfile from './Components/Profile/HomeProfile.jsx';
 import Settings from './Components/Profile/Settings.jsx';
 import Footer from './Components/Footer/Footer.jsx';
-import axios from 'axios';
-
 
 
 const App = () => {
@@ -35,7 +34,7 @@ const App = () => {
     <Router>
       <AppContainer>
         <div id='main'>
-          <Navbar isLoggedIn={isLoggedIn} />
+          <Navbar isLoggedIn={isLoggedIn}/>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path="/contributions">
@@ -48,11 +47,12 @@ const App = () => {
               <HomeProfile isLoggedIn={isLoggedIn} userInfo={userInfo} />
             </Route>
             <Route exact path="/settings">
-              <Settings isLoggedIn={isLoggedIn} userInfo={userInfo} />
+              <Settings isLoggedIn={isLoggedIn} userInfo={userInfo}
+              />
             </Route>
           </Switch>
-          <Footer />
         </div>
+        <Footer />
       </AppContainer>
     </Router>
   )

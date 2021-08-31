@@ -45,16 +45,16 @@ export const NavbarListItem = styled.li`
 export const NavbarDivButton =styled.div`
   margin-right: 20px;
   font-size: 20px;
-  color: black;
-  /* border: 1px solid white; */
-  background-color: #f7f7f7;
-  padding: 5px;
+  color: white;
+  background-color: #EB6A00;
+  border-radius: 2px;
+  padding: 7px;
   cursor: pointer;
   border-radius: 2px;
   transition: 0.2s ease-in;
   &:hover {
-    background-color: #e5eae5;
+    background-color: #FF811A;
   }
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 `;
 

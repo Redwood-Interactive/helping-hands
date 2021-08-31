@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const InputContainer = styled.div`
+margin: 175px 0 75px;
+border-radius: 5px;
+border: 1px solid black;
 position: relative;
 width: 40%;
 top: 20%;
@@ -18,6 +21,17 @@ export const FormRow = styled.div`
   display: flex;
 `;
 
+export const SmallRow = styled.div`
+  display: flex;
+  width: 66%;
+`;
+
+export const AddrRow = styled.div`
+  display: flex;
+  align-items:
+  justify-content: center;
+`;
+
 export const ImageItem = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,17 +40,22 @@ export const ImageItem = styled.div`
   padding: 10px;
 `;
 
-export const EmailItem = styled.div`
+export const ImageRow = styled.div`
   display: flex;
-  flex-direction: column;
-  height: 50%;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 60%;
   padding: 10px;
 `;
 
-export const ImageRow = styled.div`
+export const SettingRow = styled.div`
   display: flex;
-  align-items: flex-end;
+  flex-direction: row-reverse;
+  align-items: center;
   justify-content: space-between;
+  width: 72%;
+  padding: 10px;
 `;
 
 export const ProfileIcon = styled.div`
