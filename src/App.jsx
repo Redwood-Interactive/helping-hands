@@ -23,12 +23,20 @@ const App = () => {
     axios.get('/user')
       .then((response) => {
         if (response.data) {
-          setLogin(true);
-          setUser(response.data)
+          getUpdatedUser(response.data.id)
         }
       })
       .catch((err) => { console.log(err) })
   }, [])
+
+  const getUpdatedUser = (userID) => {
+    axios.get(`/userInfo/${userID}`, )
+          .then((response) => {
+            setLogin(true);
+            setUser(response.data);
+          })
+          .catch((err) => { console.log(err) })
+  }
 
   return (
     <Router>
