@@ -20,7 +20,7 @@ const App = () => {
       .then((response) => {
         if (response.data) {
           setLogin(true);
-          setUser(response.data)
+          setUser(response.data);
         }
       })
       .catch((err) => { console.log(err) })

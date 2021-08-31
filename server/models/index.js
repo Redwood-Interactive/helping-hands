@@ -7,3 +7,4 @@ exports.postFeedback = require('./postFeedback.js');
 exports.updateUserInfo = require('./updateUserInfo.js');
 exports.requests = require('./requests.js');
 
+exports.getUserInfo = require('./getUserInfo.js');
