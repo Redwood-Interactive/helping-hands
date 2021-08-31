@@ -857,8 +857,7 @@ INSERT INTO requests
   category,
   condition,
   r_date,
-  available,
-  condition
+  available
 ) VALUES (
   1,
   'Need ski boots',
@@ -926,8 +925,7 @@ INSERT INTO requests
   'Clothing',
   'Used',
   CURRENT_TIMESTAMP,
-  'true',
-  'new'
+  'true'
 
 );
 
