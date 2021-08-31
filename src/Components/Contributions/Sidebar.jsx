@@ -14,8 +14,9 @@ const Sidebar = ({ isLoggedIn, userInfo }) => {
 
 
   const modalRender = () => {
-    if (isLoggedIn && userInfo.locations[0].street_name) {
-      return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} />
+    // change this back to isLoggedIn && userInfo.locations[0].street_name
+    if (isLoggedIn) {
+      return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
     } else if (!isLoggedIn) {
       return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
     } else if (userInfo.locations[0].street_name === undefined || userInfo.locations[0].street_name === null) {

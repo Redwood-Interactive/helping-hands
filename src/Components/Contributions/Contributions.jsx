@@ -12,7 +12,7 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
   useEffect(() => {
     getContributions();
     // transformData(dummyData.contributions);
-  }, [])
+  }, [userInfo])
 
   const getContributions = () => {
     axios.get('/getcontributions')
