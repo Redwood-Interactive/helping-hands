@@ -1,10 +1,19 @@
-const { newCustomer, postFeedback, getContributions, getUser } = require('./controllers/index.js');
+const { newCustomer, postFeedback, getContributions, getUser, requests } = require('./controllers/index.js');
 const router = require('express').Router();
 const passport = require('passport');
 
+
+
+// Database Endpoints:
 router.get('/newcustomer', newCustomer.get);
 
 router.get('/getcontributions', getContributions.get);
+
+router.post('/getcontributions', getContributions.post)
+
+router.get('/requests', requests.get)
+
+router.post('/requests', requests.post)
 
 
 //AUTHENTICATION

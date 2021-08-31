@@ -23,5 +23,46 @@ module.exports = {
       .catch((err) => {
         console.log(err);
       });
+  },
+  postContributions: (data) =>{
+  var user_id = data.user_id;
+  var title = data.title;
+  var c_description = data.c_description;
+  var category = data.category;
+  var condition = data.condition;
+  var available = data.available;
+  var for_free = data.for_free;
+
+  var query = `
+  INSERT INTO contributions
+    (user_id,
+    title,
+    c_description,
+    category,
+    c_date,
+    condition,
+    available,
+    for_free
+  ) VALUES (
+      ${user_id},
+      '${title}',
+      '${c_description}',
+      '${category}',
+      CURRENT_TIMESTAMP,
+      '${condition}',
+      ${available},
+      ${for_free}
+  );
+  `;
+
+  return db.query(query)
+  .then((data) => {
+    return data;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+
   }
 };
