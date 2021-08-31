@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { User, Information, ItemsDetailContainer, UpperInformationContainer, Title, Profile, CategoryLocationContainer, Category, Location, Description } from '../Contributions/Styles/ItemsModal.style.js';
+import { Information, ItemsDetailContainer, UpperInformationContainer, Title, Profile, CategoryLocationContainer, Category, Location, Description, UserContainer } from '../Contributions/Styles/ItemsModal.style.js';
 
 const ItemsDetail = ({ title, description, category, location}) => {
 
   return (
     <ItemsDetailContainer>
-    <User>
+    <UserContainer>
       <Profile>
         Profile
       </Profile>
-    </User>
+    </UserContainer>
     <Information>
       <UpperInformationContainer>
         <Title>

@@ -2,9 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from './Styles/Sidebar.style.js';
 import AddItemModal from './AddItemModal.jsx'
 import LoginPage from '../LoginPage/LoginPage.jsx'
+import LocationPage from '../LoginPage/LocationPage.jsx'
 
-const Sidebar = ({isLoggedIn}) => {
+const Sidebar = ({ isLoggedIn, userInfo }) => {
+
   const [addItemModal, setAddItemModal] = useState(false);
+
+  useEffect(() => {
+    console.log(userInfo)
+  }, [userInfo])
+
+
+  const modalRender = () => {
+    if (isLoggedIn && userInfo.locations[0].street_name) {
+      return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} />
+    } else if (!isLoggedIn) {
+      return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
+    } else if (userInfo.locations[0].street_name === undefined || userInfo.locations[0].street_name === null) {
+      return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
+    }
+  }
+
+
 
   return (
     <SidebarContainer>
@@ -36,14 +55,14 @@ const Sidebar = ({isLoggedIn}) => {
       <CheckboxDiv>
         <Label>Category</Label>
         <Checkboxes>
-          <CheckSubDiv><Checkbox type="checkbox" id='category1' name='food'/><CheckLabel htmlFor='category1'>Food</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category2' name='drink'/><CheckLabel htmlFor='category2'>Drink</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category3' name='clothing'/><CheckLabel htmlFor='category3'>Clothing</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category4' name='service'/><CheckLabel htmlFor='category4'>Service</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category5' name='furniture'/><CheckLabel htmlFor='category5'>Furniture</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category6' name='electronic'/><CheckLabel htmlFor='category6'>Electronic</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category7' name='toy'/><CheckLabel htmlFor='category7'>Toy</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category8' name='miscellaneous'/><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category1' name='food' /><CheckLabel htmlFor='category1'>Food</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category2' name='drink' /><CheckLabel htmlFor='category2'>Drink</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category3' name='clothing' /><CheckLabel htmlFor='category3'>Clothing</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category4' name='service' /><CheckLabel htmlFor='category4'>Service</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category5' name='furniture' /><CheckLabel htmlFor='category5'>Furniture</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category6' name='electronic' /><CheckLabel htmlFor='category6'>Electronic</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category7' name='toy' /><CheckLabel htmlFor='category7'>Toy</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category8' name='miscellaneous' /><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
       <CheckboxDiv>
@@ -54,11 +73,20 @@ const Sidebar = ({isLoggedIn}) => {
           <CheckSubDiv><Checkbox type="checkbox" id='condition3' name='used' /><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
-      { isLoggedIn ? <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} /> : <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
-
-      }
+      {modalRender()}
     </SidebarContainer>
   );
 };
 
 export default Sidebar;
+
+/*
+if user logged in && has location data
+  display modal
+if user is not logged in
+  display login modal
+if user does not have location data
+  display add lcoation info modal
+
+
+*/
