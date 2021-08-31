@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const { newCustomer, postFeedback, getContributions, getUser, requests, getContriForOneUser, getReqForOneUser, getAllUsers, getAllReqCount, getAllContriCount } = require('./controllers/index.js');
+=======
+const { newCustomer, postFeedback, getContributions, getUser, requests, getContriForOneUser, getReqForOneUser, updateUserInfo } = require('./controllers/index.js');
+>>>>>>> 67447b48748ba4533a4c785647b1bd1fe542f0ac
 const router = require('express').Router();
 const passport = require('passport');
 
@@ -6,6 +10,8 @@ const passport = require('passport');
 
 // Database Endpoints:
 router.get('/newcustomer', newCustomer.get);
+
+router.put('/updateUserInfo', updateUserInfo.put);
 
 router.get('/getcontributions', getContributions.get);
 
@@ -24,6 +30,9 @@ router.get('/getAllUsers', getAllUsers.get);
 router.get('/getAllReqCount', getAllReqCount.get);
 
 router.get('/getAllContriCount', getAllContriCount.get);
+router.get('/requestsAll', requests.get)
+
+router.post('/requestsAll', requests.post)
 
 
 

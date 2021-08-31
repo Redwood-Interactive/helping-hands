@@ -8,3 +8,4 @@ exports.requests = require('./requests.js')
 exports.getAllUsers = require('./getAllUsers.js');
 exports.getAllReqCount = require('./getAllReqCount.js');
 exports.getAllContriCount = require('./getAllContriCount.js');
+exports.updateUserInfo = require('./updateUserInfo.js')

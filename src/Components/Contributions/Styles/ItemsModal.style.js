@@ -30,12 +30,49 @@ export const Profile = styled.div `
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   border-radius: 10px;
   height: 170px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+`;
+
+export const TopRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+`;
+
+export const UserPic = styled.img`
+  width: 95px;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 10px;
+`;
+
+export const NameCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  justify-content: center;
+  font-size: 20px;
+`;
+
+export const BottomRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  font-size: 15px;
+`;
+
+export const ContactUserDiv = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export const ContactUser = styled.button`
   position: relative;
   height: 70px;
-  width: 100%;
+  width: 50%;
   border: 1px solid black;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   border-radius: 10px;
@@ -45,6 +82,7 @@ export const ContactUser = styled.button`
   &:hover {
     background-color: #e2e0e0;
   }
+  margin-right: ${props => props.margin || '0'};
 `;
 
 export const Information = styled.div`
@@ -78,6 +116,8 @@ export const CategoryLocationContainer = styled.div `
   /* border: 1px red solid; */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding-right: 10px;
   padding-left: 10px;
   border-left: 1px solid black;
