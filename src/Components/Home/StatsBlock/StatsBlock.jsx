@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
 import { StatsBlockContainer, StatsBlockSection, StatsBlockTray, StatsBlockCounter, StatsBlockNumber } from './Styles/StatsBlock.styles.js'
+import axios from 'axios';
 
 const StatsBlock = (props) => {
 

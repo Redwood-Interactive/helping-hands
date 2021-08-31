@@ -1,4 +1,4 @@
-const { newCustomer, postFeedback, getContributions, getUser, requests, getContriForOneUser, getReqForOneUser } = require('./controllers/index.js');
+const { newCustomer, postFeedback, getContributions, getUser, requests, getContriForOneUser, getReqForOneUser, getAllUsers, getAllReqCount, getAllContriCount } = require('./controllers/index.js');
 const router = require('express').Router();
 const passport = require('passport');
 
@@ -13,11 +13,17 @@ router.get('/getAllContriForOneUser', getContriForOneUser.get);
 
 router.get('/getAllReqForOneUser', getReqForOneUser.get);
 
-router.post('/getcontributions', getContributions.post)
+router.post('/getcontributions', getContributions.post);
 
-router.get('/requests', requests.get)
+router.get('/requests', requests.get);
 
-router.post('/requests', requests.post)
+router.post('/requests', requests.post);
+
+router.get('/getAllUsers', getAllUsers.get);
+
+router.get('/getAllReqCount', getAllReqCount.get);
+
+router.get('/getAllContriCount', getAllContriCount.get);
 
 
 
