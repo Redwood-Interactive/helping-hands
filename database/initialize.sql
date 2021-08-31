@@ -43,6 +43,7 @@ CREATE TABLE requests (
   title VARCHAR(255) NOT NULL,
   r_description VARCHAR(1500) NOT NULL,
   category VARCHAR(100) NOT NULL,
+  condition VARCHAR(50) NOT NULL,
   r_date TIMESTAMP NOT NULL,
   available BOOLEAN NOT NULL,
   PRIMARY KEY (id),
@@ -855,14 +856,16 @@ INSERT INTO requests
   r_description,
   category,
   r_date,
-  available
+  available,
+  condition
 ) VALUES (
   1,
   'Need ski boots',
   'mine are really bad',
   'Electronic',
   CURRENT_TIMESTAMP,
-  'true'
+  'true',
+  'new'
 
 );
 
