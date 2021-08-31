@@ -9,7 +9,7 @@ import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Link, useLocation, Redirect } from 'react-router-dom';
 
-import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu, ImageRow, EmailItem, ProfileIcon } from './Styles/Settings.style.js'
+import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu, ImageRow, ProfileIcon, AddrRow, SettingRow, SmallRow} from './Styles/Settings.style.js'
 
 const states = [
   "AK",
@@ -64,14 +64,20 @@ const states = [
   "WY"];
 
 
-const Settings = ({userInfo, isLoggedIn}) => {
+const Settings = ({ userInfo, isLoggedIn }) => {
   // change zipcode positioning
+  const user = userInfo;
   const [validated, setValidated] = useState(false);
   const [edit, setEdit] = useState(false);
-  const location = useLocation()
+  const [firstName, setFirstName] = useState(user.first_name);
+  const [lastName, setLastName] = useState(user.last_name);
+  const [email, setEmail] = useState(user.email);
+  const [phone, setPhone] = useState (user.phone);
+  const [streetName, setStreetName] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zipcode, setZipcode] = useState('');
   // const { user } = location.state;
-  const user = userInfo;
-
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -79,11 +85,19 @@ const Settings = ({userInfo, isLoggedIn}) => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    
     setValidated(true);
   };
 
-
+  const submitCheck = () => {
+    if (!edit) {
+      return (<FormItem>
+            <Button style={{ "width": "25%" }} size='sm' variant="primary" type="submit">
+              Submit
+            </Button>
+          </FormItem>)
+    }
+  }
   const editCheck = () => {
     if (!edit) {
       return (
@@ -99,15 +113,16 @@ const Settings = ({userInfo, isLoggedIn}) => {
       )
     }
   }
+
   const renderSettings = () => {
     return (
       <InputContainer>
-        <ImageRow>
+        <SettingRow>
           <h1>User Settings</h1>
           <Link id='link' to='/profile'>
             <img style={{ "heigth": "50px", "width": "50px", "postion": "relative" }} src='https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/512x512/plain/id_badge.png'></img>
           </Link>
-        </ImageRow>
+        </SettingRow>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <ImageRow>
             <Image
@@ -115,37 +130,31 @@ const Settings = ({userInfo, isLoggedIn}) => {
               src={user.profile_pic} roundedCircle />
             {editCheck()}
           </ImageRow>
-          <FormItem>
-            <Form.Label>Profile Pic</Form.Label>
-            <Form.Control type="file" />
-          </FormItem>
           <FormRow>
             <FormItem>
               <Form.Label>First Name</Form.Label>
-              <Form.Control size='sm' defaultValue={user.first_name} required disabled={!edit} />
+              <Form.Control size='sm' defaultValue={user.first_name} required disabled={!edit} onChange={(e) => setFirstName(e.target.value)}/>
             </FormItem>
             <FormItem>
               <Form.Label>Last Name</Form.Label>
               <Form.Control size='sm' defaultValue={user.last_name} required disabled={!edit} />
             </FormItem>
           </FormRow>
-          <EmailItem>
-            <Form.Label>Email</Form.Label>
-            <Form.Control size='sm' type="email" defaultValue={user.email} placeholder="Enter email" required disabled={!edit} />
-          </EmailItem>
-          <FormItem>
-            <Form.Label>Phone Number</Form.Label>
-            <Form.Control size='sm' placeholder="(888) 123-4567" defaultValue={user.phone} required disabled={!edit} />
-          </FormItem>
-          <FormItem>
-            <Form.Label>Address</Form.Label>
-            <Form.Control size='sm' placeholder="1234 Main St" defaultValue={user.locations[0].street_name} required disabled={!edit} />
-          </FormItem>
-          <FormItem>
-            <Form.Label>Address 2</Form.Label>
-            <Form.Control size='sm' placeholder="Apartment, Studio, Floor" disabled={!edit} />
-          </FormItem>
           <FormRow>
+            <FormItem>
+              <Form.Label>Email</Form.Label>
+              <Form.Control size='sm' type="email" defaultValue={user.email} placeholder="Enter email" required disabled={!edit} />
+            </FormItem>
+            <FormItem>
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control size='sm' placeholder="(888) 123-4567" defaultValue={user.phone} required disabled={!edit} />
+            </FormItem>
+          </FormRow>
+          <AddrRow>
+            <FormItem>
+              <Form.Label>Address</Form.Label>
+              <Form.Control size='sm' placeholder="1234 Main St" defaultValue={user.locations[0].street_name} required disabled={!edit} />
+            </FormItem>
             <FormItem>
               <Form.Label>City</Form.Label>
               <Form.Control size='sm' defaultValue={user.locations[0].city} required disabled={!edit} />
@@ -156,20 +165,26 @@ const Settings = ({userInfo, isLoggedIn}) => {
                 <Dropdown.Toggle size='sm' variant="outline-secondary" disabled={!edit}>
                   State
                 </Dropdown.Toggle>
-                <Dropdown.Menu style={{ "height": "100px", "overflowY": "scroll" }}>
+                <Dropdown.Menu style={{ "height": "140px", "overflowY": "scroll" }}>
                   {states.map((state) => (
                     <Dropdown.Item value={state}>{state}</Dropdown.Item>
                   ))}
                 </Dropdown.Menu>
               </Dropdown>
             </FormItem>
+          </AddrRow>
+          <SmallRow>
+          <FormItem>
+            <Form.Label>Address 2</Form.Label>
+            <Form.Control size='sm' placeholder="Apartment, Studio, Floor" disabled={!edit} />
+          </FormItem>
             <FormItem>
               <Form.Label>Zipcode</Form.Label>
               <Form.Control size='sm' defaultValue={user.locations[0].zipcode} required disabled={!edit} />
             </FormItem>
-          </FormRow>
+          </SmallRow>
           <FormItem>
-            <Button style={{ "width": "20%" }} size='sm' variant="primary" type="submit">
+            <Button style={{ "width": "40%" }} size='sm' variant="primary" type="submit" disabled={!edit}>
               Submit
             </Button>
           </FormItem>
@@ -177,14 +192,16 @@ const Settings = ({userInfo, isLoggedIn}) => {
       </InputContainer>
     )
   }
+
+
   if (Object.keys(user).length === 0) {
     return null;
   } else {
-  return (
-    <React.Fragment>
-      {renderSettings()}
-    </React.Fragment>
-  )
+    return (
+      <React.Fragment>
+        {renderSettings()}
+      </React.Fragment>
+    )
   }
 };
 
