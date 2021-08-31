@@ -11,6 +11,7 @@ const Items = (props) => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [location, setLocation] = useState([]);
+  const [iconClass, setClass] = useState('');
 
   const icons = {
     Food: 'fas fa-utensils',
@@ -23,6 +24,12 @@ const Items = (props) => {
     Miscellaneous: 'fas fa-ellipsis-h'
   }
 
+  useEffect(() => {
+    if (props.userInfo) {
+      console.log(props.userInfo);
+    }
+  }, [props.userInfo])
+
   return (
     <ItemsContainer>
       <ItemsProducts>
@@ -31,9 +38,10 @@ const Items = (props) => {
             setShowModal(true)
             setClickedImages(item.photos)
             setTitle(item.title)
-            setDescription(item.description)
+            setDescription(item.c_description)
             setCategory(item.category)
-            setLocation(item.user.location[0].city)
+            setLocation(item.location.city + ', ' + item.location.state)
+            setClass(icons[item.category])
           }}>
             <ImageDiv>
               <ItemImage src={item.photos[0]} />
@@ -53,7 +61,7 @@ const Items = (props) => {
           </Item>
         ) : null }
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location}/>
+      <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location} iconclass={iconClass} userinfo={props.userinfo}/>
     </ItemsContainer>
   );
 };
