@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UserContainer, ContactUser, Information, ItemsDetailContainer, UpperInformationContainer, Title, Profile, CategoryLocationContainer, Category, Location, Description } from './Styles/ItemsModal.style.js';
 
-const ItemsDetail = ({ title, description, category, location, iconclass, userInfo }) => {
+const ItemsDetail = ({ title, description, category, location, iconclass, userinfo }) => {
 
   return (
     <ItemsDetailContainer>

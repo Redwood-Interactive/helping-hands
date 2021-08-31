@@ -61,7 +61,7 @@ const Items = (props) => {
           </Item>
         ) : null }
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location} iconclass={iconClass} userInfo={props.userInfo}/>
+      <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location} iconclass={iconClass} userinfo={props.userinfo}/>
     </ItemsContainer>
   );
 };

@@ -42,7 +42,7 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
         <Sidebar isLoggedIn={isLoggedIn}/>
-        {isLoaded ? <Items data={data} userInfo={userInfo}/> : null}
+        {isLoaded ? <Items data={data} userinfo={userInfo}/> : null}
       </ContainerDiv>
       <ButtonsDiv>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>
