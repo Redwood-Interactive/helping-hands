@@ -43,12 +43,12 @@ const AddItemModal = (props) => {
               <LeftSide>
                 <Form.Group className="mb-3" controlId="formBasicTitle">
                   <Form.Label>Title</Form.Label>
-                  <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' placeholder="Enter title" />
+                  <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' required placeholder="Enter title" />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                   <Form.Label>Category</Form.Label>
-                  <Form.Select onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
+                  <Form.Select onChange={(e) => setCategory(e.target.value)} required aria-label="Default select example">
 
                     <option value="" hidden>Category</option>
                     <option value="Food">Food</option>
@@ -59,7 +59,7 @@ const AddItemModal = (props) => {
 
                 <Form.Group className="mb-3">
                   <Form.Label>Condition</Form.Label>
-                  <Form.Select onChange={(e) => setCondition(e.target.value)} aria-label="Default select example">
+                  <Form.Select onChange={(e) => setCondition(e.target.value)} required aria-label="Default select example">
                     <option value="" hidden>Condition</option>
                     <option value="New">New</option>
                     <option value="Awesome">Awesome</option>
@@ -70,7 +70,7 @@ const AddItemModal = (props) => {
 
                 <Form.Group className="mb-3" controlId="formBasicLocation">
                   <Form.Label>Location</Form.Label>
-                  <Form.Control type="Location" placeholder="Location" />
+                  <Form.Control type="text"  placeholder="Location" required/>
                 </Form.Group>
 
 
@@ -86,7 +86,7 @@ const AddItemModal = (props) => {
             <LowerHalf>
               <Form.Group className="mb-3" controlId="formBasicDescription">
                 <Form.Label>Description</Form.Label>
-                <Form.Control as="textarea" type="Description" placeholder="Description" style={{ height: '100px' }} />
+                <Form.Control as="textarea" type="Description" required placeholder="Description" style={{ height: '100px' }} />
               </Form.Group>
 
             </LowerHalf>

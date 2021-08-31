@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from './Styles/Sidebar.style.js';
 import AddItemModal from './AddItemModal.jsx'
+import LoginPage from '../LoginPage/LoginPage.jsx'
 
-const Sidebar = () => {
+const Sidebar = ({isLoggedIn}) => {
   const [addItemModal, setAddItemModal] = useState(false);
 
   return (
@@ -41,19 +42,21 @@ const Sidebar = () => {
           <CheckSubDiv><Checkbox type="checkbox" id='category4' name='service'/><CheckLabel htmlFor='category4'>Service</CheckLabel></CheckSubDiv>
           <CheckSubDiv><Checkbox type="checkbox" id='category5' name='furniture'/><CheckLabel htmlFor='category5'>Furniture</CheckLabel></CheckSubDiv>
           <CheckSubDiv><Checkbox type="checkbox" id='category6' name='electronic'/><CheckLabel htmlFor='category6'>Electronic</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category7' name='hobby'/><CheckLabel htmlFor='category7'>Hobby</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='category7' name='toy'/><CheckLabel htmlFor='category7'>Toy</CheckLabel></CheckSubDiv>
           <CheckSubDiv><Checkbox type="checkbox" id='category8' name='miscellaneous'/><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
       <CheckboxDiv>
         <Label>Condition</Label>
         <Checkboxes>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition1' name='new'/><CheckLabel htmlFor='condition1'>New</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition2' name='likeNew'/><CheckLabel htmlFor='condition2'>Like new</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition3' name='used'/><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='condition1' name='new' /><CheckLabel htmlFor='condition1'>New</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='condition2' name='likeNew' /><CheckLabel htmlFor='condition2'>Like new</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox type="checkbox" id='condition3' name='used' /><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
-      <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} />
+      { isLoggedIn ? <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} /> : <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
+
+      }
     </SidebarContainer>
   );
 };

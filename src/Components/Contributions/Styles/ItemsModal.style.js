@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ItemsImageContainer = styled.div`
   background: black;
-
 `;
 
 export const ItemsModalImages = styled.img`
@@ -12,73 +11,92 @@ export const ItemsModalImages = styled.img`
 `;
 
 export const ItemsDetailContainer = styled.div`
-display: flex;
-margin-top: 10px;
-flex-direction: row;
-justify-content: space-evenly;
-
+  display: flex;
+  margin-top: 10px;
+  flex-direction: row;
+  justify-content: space-evenly;
 `;
 
-
-export const User = styled.div`
-border: 1px black solid;
-width: 30%;
-height: 250px;
-
+export const UserContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 250px;
 `;
 
 export const Profile = styled.div `
-border: 1px red solid;
-text-align: center;
+  text-align: center;
+  border: 1px black solid;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 10px;
+  height: 170px;
 `;
 
-
+export const ContactUser = styled.button`
+  position: relative;
+  height: 70px;
+  width: 100%;
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 10px;
+  top: 10px;
+  font-size: 20px;
+  transition: 0.1s ease-in;
+  &:hover {
+    background-color: #e2e0e0;
+  }
+`;
 
 export const Information = styled.div`
-border: 1px red solid;
-width: 65%;
-height: 250px;
-display: flex;
-flex-direction: column;
-
+  border: 1px black solid;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 10px;
+  width: 65%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const UpperInformationContainer = styled.div`
-border: 1px black solid;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
+  border-bottom: 1px black solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const Title = styled.div `
-border: 1px red solid;
-width: 70%;
-text-align: center;
+  /* border: 1px red solid; */
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  padding-left: 10px;
 `;
 
 export const CategoryLocationContainer = styled.div `
-border: 1px red solid;
-display: flex;
-flex-direction: column;
-width: 25%;
+  /* border: 1px red solid; */
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-left: 1px solid black;
 `;
 
 export const Category = styled.div `
-border: 1px red solid;
-text-align: center;
-
+  border-bottom: 1px black solid;
+  text-align: center;
 `;
 
 export const Location = styled.div `
-border: 1px red solid;
-text-align: center;
-
+  /* border: 1px red solid; */
+  text-align: center;
 `;
 
 export const Description = styled.div `
-border: 1px red solid;
-width: 100%;
-height: 100%;
-text-align: center;
-
+  /* border: 1px red solid; */
+  text-align: left;
+  margin: 15px;
+  margin-top: 10px;
+  font-size: 18px;
 `;
