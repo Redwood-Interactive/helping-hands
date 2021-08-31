@@ -7,7 +7,7 @@ const passport = require('passport');
 // Database Endpoints:
 router.get('/newcustomer', newCustomer.get);
 
-router.get('/userInfo', getUserInfo.get);
+router.get('/userInfo/:id', getUserInfo.get);
 
 router.put('/updateUserInfo', updateUserInfo.put);
 

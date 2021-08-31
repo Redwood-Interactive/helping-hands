@@ -2,7 +2,8 @@ var { getUserInfo } = require('../models/getUserInfo.js');
 
 module.exports = {
   get: (req, res) => {
-    getUserInfo(req.body.id)
+    console.log(req.params)
+    getUserInfo(req.params.id)
       .then((response) => {
         res.send(response)
       })
