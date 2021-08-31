@@ -26,7 +26,7 @@ const Items = (props) => {
 
   useEffect(() => {
     if (props.userInfo) {
-      console.log(props.userInfo);
+      // console.log(props.userInfo);
     }
   }, [props.userInfo])
 
@@ -44,7 +44,7 @@ const Items = (props) => {
             setUser(item.user)
             setCondition(item.condition)
           }}>
-            {console.log(item.user)}
+            {/* {console.log(item.user)} */}
             <ImageDiv>
               <ItemIconDiv>
                 <ItemIcon className={icons[item.category]}></ItemIcon>

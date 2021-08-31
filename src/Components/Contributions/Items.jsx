@@ -27,7 +27,7 @@ const Items = (props) => {
 
   useEffect(() => {
     if (props.userInfo) {
-      console.log(props.userInfo);
+      // console.log(props.userInfo);
     }
   }, [props.userInfo])
 
