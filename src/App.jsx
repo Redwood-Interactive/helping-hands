@@ -16,10 +16,7 @@ const App = () => {
   const [isLoggedIn, setLogin] = useState(false);
   const [userInfo, setUser] = useState({})
 
-  useEffect(() => {
-    console.log(userInfo)
-  }, [userInfo])
-
+ 
   useEffect(() => {
     axios.get('/user')
       .then((response) => {
