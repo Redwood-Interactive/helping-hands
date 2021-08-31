@@ -3,19 +3,36 @@ import { ProfileHistContainer, Text, HistoryContainer, ButtonWrapper, ContriButt
 import dummyData from '../../dummydata/dummydata.js'
 import AllUserContri from './AllUserContri.jsx';
 import AllUserReqs from './AllUserReqs.jsx';
+import axios from 'axios';
 
-const HomeProfileHist = () => {
+const HomeProfileHist = ({ userInfo }) => {
   const [showContributions, setContributions] = useState(true);
   const [allContributions, setAllContributions] = useState([]);
   const [allRequests, setAllRequests] = useState([]);
 
   useEffect(() => {
-    // get req to DB, given User Name/ ID - get all current & past contributions and requests
-      // once data is back
-      // setAllRequests
-      // setAllContributions
-    setAllContributions(dummyData.contributions);
-    setAllRequests(dummyData.requests);
+    function contributions() {
+      axios.get(`/getAllContriForOneUser?user_id=${userInfo.id}`)
+      .then((res) => {
+        setAllContributions(res.data);
+      })
+      .catch((err) => {
+        console.log('there was an error!: ', err)
+      })
+    }
+
+    function requests() {
+      axios.get(`/getAllReqForOneUser?user_id=${userInfo.id}`)
+      .then((res) => {
+        setAllContributions(res.data);
+      })
+      .catch((err) => {
+        console.log('there was an error!: ', err)
+      })
+    }
+
+    requests();
+    contributions();
   }, [])
 
   const showContri = () => {
