@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, AnotherDiv, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time, ButtonsDiv, Button, BottomRow, CategoryName } from './Styles/Items.style.js';
 import ItemsModal from './ItemsModal.jsx';
-// import dummyData from '../../dummydata/dummydata.js'
 
 const Items = (props) => {
 
