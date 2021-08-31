@@ -41,8 +41,8 @@ export const ImageDiv = styled.div`
 
 export const ItemImage = styled.img `
   position: relative;
+  height: 225px;
   width: 100%;
-  height: 100%;
   object-fit: cover;
 `;
 
@@ -69,15 +69,14 @@ export const CategoryDiv = styled.div `
   height: 0;
   border-bottom: 70px solid black;
   border-left: 70px solid transparent;
-  opacity: .5;
+  opacity: .7;
 `;
 
 export const CategoryIcon = styled.i`
   position: absolute;
-  bottom: -60px;
-  right: 15px;
+  bottom: 7px;
+  right: 10px;
   color: white;
-  opacity: 1;
   font-size: 20px;
 `;
 
@@ -86,7 +85,7 @@ export const AnotherDiv = styled.div``;
 export const TextDiv = styled.div `
   position: relative;
   height: 100px;
-  width: 100%;
+  width: 215px;
   display: flex;
   flex-direction: column;
   margin: 8px;
@@ -94,16 +93,20 @@ export const TextDiv = styled.div `
 `;
 
 export const Title = styled.div `
-  font-size: 20px;
+  font-size: 17px;
 `;
 
-export const Location = styled.div ``;
+export const Location = styled.div `
+  font-size: 13px;
+`;
 
 export const BottomRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 93%;
+  font-size: 13px;
+
 `;
 
 export const CategoryName = styled.div``;

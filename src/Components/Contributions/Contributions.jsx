@@ -7,23 +7,31 @@ import dummyData from '../../dummydata/dummydata.js'
 
 const Contributions = ({ isLoggedIn }) => {
   const [data, setData] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // getContributions();
-    transformData(dummyData.contributions);
+    getContributions();
+    // transformData(dummyData.contributions);
   }, [])
 
   const getContributions = () => {
     axios.get('/getcontributions')
       .then(res => {
-        // console.log(res.data);
+        transformData(res.data);
       })
   }
 
-  const transformData = (data) => {
+  const transformData = (contributions) => {
     // Here we can transform any data to the proper format
-    setData(data);
+    // console.log('Contributions', contributions);
+    setData(contributions);
   }
+
+  useEffect(() => {
+    if (data) {
+      setIsLoaded(true);
+    }
+  }, [data])
 
   const loadMore = () => {
     // console.log('Load more 20 more items');
@@ -34,8 +42,7 @@ const Contributions = ({ isLoggedIn }) => {
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
         <Sidebar isLoggedIn={isLoggedIn}/>
-        <Items data={data} isLoggedIn={isLoggedIn}/>
-
+        {isLoaded ? <Items data={data}/> : null}
       </ContainerDiv>
       <ButtonsDiv>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>
