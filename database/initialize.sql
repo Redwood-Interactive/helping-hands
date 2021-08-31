@@ -42,7 +42,7 @@ CREATE TABLE requests (
   user_id INTEGER NOT NULL,
   title VARCHAR(255) NOT NULL,
   r_description VARCHAR(1500) NOT NULL,
-  category INTEGER NOT NULL,
+  category VARCHAR(100) NOT NULL,
   r_date TIMESTAMP NOT NULL,
   available BOOLEAN NOT NULL,
   PRIMARY KEY (id),
@@ -163,7 +163,7 @@ for_free
   1,
   'Truck Tire',
   'I will let go my favorite truck tire to someone who will better use it',
-  'furniture',
+  'Furniture',
   CURRENT_TIMESTAMP,
   'used',
   TRUE,
@@ -184,7 +184,7 @@ for_free
   1,
   'Truck Tire',
   'I will let go my favorite truck tire to someone who will better use it',
-  'furniture',
+  'Furniture',
   CURRENT_TIMESTAMP,
   'used',
   TRUE,
@@ -204,7 +204,7 @@ for_free
   1,
   'Truck Tire',
   'I will let go my favorite truck tire to someone who will better use it',
-  'furniture',
+  'Furniture',
   CURRENT_TIMESTAMP,
   'used',
   TRUE,
@@ -243,7 +243,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  1,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -264,7 +264,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  1,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -285,7 +285,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  1,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -307,7 +307,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  1,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -328,7 +328,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  1,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -349,7 +349,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  1,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -370,7 +370,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  1,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -391,7 +391,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  1,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -433,7 +433,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  2,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -475,7 +475,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  2,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -517,7 +517,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  2,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -538,7 +538,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  1,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -559,7 +559,7 @@ condition,
 available,
 for_free
 ) VALUES (
-  3,
+  1,
   'Old ship, some minor dents',
   'Runs like a charm, never laser damaged',
   'Electronic',
@@ -815,6 +815,62 @@ INSERT INTO locations
   'TX',
   78701
 );
+
+INSERT INTO locations
+(
+  user_id,
+  street_name,
+  city,
+  state,
+  zipcode
+) VALUES (
+  2,
+  '1540 Broadway',
+  'New York',
+  'NY',
+  10036
+);
+
+INSERT INTO locations
+(
+  user_id,
+  street_name,
+  city,
+  state,
+  zipcode
+) VALUES (
+  3,
+  '3504 34th St',
+  'Lubbock',
+  'TX',
+  79410
+);
+
+
+
+INSERT INTO requests
+(
+  user_id,
+  title,
+  r_description,
+  category,
+  r_date,
+  available
+) VALUES (
+  1,
+  'Need ski boots',
+  'mine are really bad',
+  'Electronic',
+  CURRENT_TIMESTAMP,
+  'true'
+
+);
+
+
+
+
+
+
 
 /*
 
