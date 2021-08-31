@@ -12,9 +12,8 @@ export const Text = styled.div`
 export const HistoryContainer = styled.div`
   border: 2px solid black;
   border-radius: 10px;
-  width: 70%;
+  width: 60%;
   margin: auto;
-  height: 900px;
 `;
 
 export const ButtonWrapper = styled.div`
