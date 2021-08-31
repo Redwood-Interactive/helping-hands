@@ -1,10 +1,14 @@
-const { newCustomer, postFeedback, getContributions, getUser } = require('./controllers/index.js');
+const { newCustomer, postFeedback, getContributions, getUser, getContriForOneUser, getReqForOneUser } = require('./controllers/index.js');
 const router = require('express').Router();
 const passport = require('passport');
 
 router.get('/newcustomer', newCustomer.get);
 
 router.get('/getcontributions', getContributions.get);
+
+router.get('/getAllContriForOneUser', getContriForOneUser.get);
+
+router.get('/getAllReqForOneUser', getReqForOneUser.get);
 
 
 //AUTHENTICATION
