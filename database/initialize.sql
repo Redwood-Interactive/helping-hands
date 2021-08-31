@@ -26,7 +26,7 @@ CREATE TABLE contributions (
   title VARCHAR(200) NOT NULL,
   c_description VARCHAR(1500) NOT NULL,
   category VARCHAR(100) NOT NULL,
-  c_date TIMESTAMP NOT NULL,
+  c_date TIMESTAMP NOT NULL DEFAULT current_timestamp,
   condition VARCHAR(50) NOT NULL,
   available BOOLEAN NOT NULL,
   for_free BOOLEAN NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE requests (
   r_description VARCHAR(1500) NOT NULL,
   category VARCHAR(100) NOT NULL,
   condition VARCHAR(50) NOT NULL,
-  r_date TIMESTAMP NOT NULL,
+  r_date TIMESTAMP DEFAULT current_timestamp,
   available BOOLEAN NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id)
