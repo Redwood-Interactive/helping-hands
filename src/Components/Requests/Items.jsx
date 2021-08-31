@@ -11,6 +11,7 @@ const Items = (props) => {
   const [category, setCategory] = useState('');
   const [location, setLocation] = useState([]);
   const [iconClass, setClass] = useState('');
+  const [condition, setCondition] = useState('');
 
   const icons = {
     Food: 'fas fa-utensils',
@@ -40,6 +41,7 @@ const Items = (props) => {
             setCategory(item.category)
             setLocation(item.location.city + ', ' + item.location.state)
             setClass(icons[item.category])
+            setCondition(item.condition)
           }}>
             <ImageDiv>
               <ItemIconDiv>
@@ -59,7 +61,7 @@ const Items = (props) => {
           </Item>
         ): null}
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setShowModal(false)} title={title} description={description} category={category} location={location} iconclass={iconClass} userinfo={props.userinfo}/>
+      <ItemsModal show={showModal} onHide={() => setShowModal(false)} title={title} description={description} category={category} location={location} iconclass={iconClass} condition={condition} userinfo={props.userinfo}/>
     </ItemsContainer>
   );
 };

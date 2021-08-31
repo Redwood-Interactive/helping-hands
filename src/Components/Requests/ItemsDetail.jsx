@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UserContainer, ContactUser, Information, ItemsDetailContainer, UpperInformationContainer, Title, Profile, CategoryLocationContainer, Category, Location, Description } from '../Contributions/Styles/ItemsModal.style.js';
 
-const ItemsDetail = ({ title, description, category, location, iconclass, userinfo}) => {
+const ItemsDetail = ({ title, description, category, location, iconclass, condition, userinfo}) => {
 
   return (
     <ItemsDetailContainer>
@@ -12,7 +12,7 @@ const ItemsDetail = ({ title, description, category, location, iconclass, userin
     <Information>
       <UpperInformationContainer>
         <Title>
-          {title}
+          [{condition}] {title}
         </Title>
         <CategoryLocationContainer>
           <Category>
