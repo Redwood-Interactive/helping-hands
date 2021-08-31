@@ -17,7 +17,7 @@ const ItemsModal = (props) => {
 
       <Modal.Body>
         <ItemsModalCarousel clickedimages={props.clickedimages}/>
-        <ItemsDetail title={props.title} description={props.description} category={props.category} location={props.location} iconclass={props.iconclass} userinfo={props.userinfo}/>
+        <ItemsDetail title={props.title} description={props.description} category={props.category} location={props.location} iconclass={props.iconclass} user={props.user} condition={props.condition}/>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
