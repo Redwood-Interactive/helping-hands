@@ -50,7 +50,6 @@ export const NavbarDivButton =styled.div`
   border-radius: 2px;
   padding: 7px;
   cursor: pointer;
-  border-radius: 2px;
   transition: 0.2s ease-in;
   &:hover {
     background-color: #FF811A;
