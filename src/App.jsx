@@ -17,13 +17,16 @@ const App = () => {
   const [userInfo, setUser] = useState({})
 
   useEffect(() => {
+    console.log(userInfo)
+  }, [userInfo])
+
+  useEffect(() => {
     axios.get('/user')
       .then((response) => {
         if (response.data) {
           setLogin(true);
           setUser(response.data)
         }
-
       })
       .catch((err) => { console.log(err) })
   }, [])
@@ -35,8 +38,12 @@ const App = () => {
           <Navbar isLoggedIn={isLoggedIn} />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/contributions' component={Contributions} />
-            <Route exact path='/requests' component={Requests} />
+            <Route exact path="/contributions">
+              <Contributions isLoggedIn={isLoggedIn} userInfo={userInfo} />
+            </Route>
+            <Route exact path="/requests">
+              <Requests isLoggedIn={isLoggedIn} userInfo={userInfo} />
+            </Route>
             <Route exact path="/profile">
               <HomeProfile isLoggedIn={isLoggedIn} userInfo={userInfo} />
             </Route>

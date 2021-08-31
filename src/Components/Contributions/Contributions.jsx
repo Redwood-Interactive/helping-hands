@@ -5,7 +5,7 @@ import Items from './Items.jsx';
 import axios from 'axios';
 import dummyData from '../../dummydata/dummydata.js'
 
-const Contributions = () => {
+const Contributions = ({ isLoggedIn }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -33,8 +33,8 @@ const Contributions = () => {
     <ContributionsContainer>
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
-        <Sidebar />
-        <Items data={data}/>
+        <Sidebar isLoggedIn={isLoggedIn}/>
+        <Items data={data} isLoggedIn={isLoggedIn}/>
 
       </ContainerDiv>
       <ButtonsDiv>
