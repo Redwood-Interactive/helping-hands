@@ -42,7 +42,7 @@ CREATE TABLE requests (
   user_id INTEGER NOT NULL,
   title VARCHAR(255) NOT NULL,
   r_description VARCHAR(1500) NOT NULL,
-  category INTEGER NOT NULL,
+  category VARCHAR(100) NOT NULL,
   r_date TIMESTAMP NOT NULL,
   available BOOLEAN NOT NULL,
   PRIMARY KEY (id),
@@ -799,6 +799,8 @@ INSERT INTO photos
 );
 
 
+
+
 INSERT INTO locations
 (
   user_id,
@@ -843,6 +845,33 @@ INSERT INTO locations
   'TX',
   79410
 );
+
+
+
+INSERT INTO requests
+(
+  user_id,
+  title,
+  r_description,
+  category,
+  r_date,
+  available
+) VALUES (
+  1,
+  'Need ski boots',
+  'mine are really bad',
+  'Electronic',
+  CURRENT_TIMESTAMP,
+  'true'
+
+);
+
+
+
+
+
+
+
 /*
 
 script: npm run buildDB to drop dabase, create the DB and insert dummy data.

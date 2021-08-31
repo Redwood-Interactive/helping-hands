@@ -10,5 +10,16 @@ module.exports = {
       .catch((err) => {
         console.log(err);
       });
+  },
+  post: (req, res) => {
+
+    getContributions.postContributions(req.body)
+      .then(()=>{
+
+
+        res.sendStatus(200)
+
+      })
+      .catch((error)=>{console.log('postRequest error', error)})
   }
 }
