@@ -5,4 +5,4 @@ exports.getUser = require('./getUser.js');
 exports.getContriForOneUser = require('./getContriForOneUser.js');
 exports.getReqForOneUser = require('./getReqForOneUser.js');
 exports.requests = require('./requests.js')
-
+exports.updateUserInfo = require('./updateUserInfo.js')

@@ -16,10 +16,11 @@ const Navbar = ({isLoggedIn}) => {
         <NavbarListItem>
           <Link id='link' to='/contributions'>Contributions</Link></NavbarListItem>
         <NavbarListItem>
-          <Link id='link' to='/requests'>Requests</Link></NavbarListItem>
+          <Link id='link' to='/requests'>Requests</Link>
+        </NavbarListItem>
         {isLoggedIn ?
         <NavbarListItem>
-          <Link id='link' to='/profile'>Profile</Link>
+          <Link id='profile' to='/profile'>Profile</Link>
           <NavbarDivButton onClick={()=>{window.location = '/logout'}}>Logout</NavbarDivButton>
         </NavbarListItem> :
         <NavbarListItem>

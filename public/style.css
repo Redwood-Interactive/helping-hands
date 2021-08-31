@@ -13,3 +13,21 @@ html, body {
   align-self: baseline;
   padding-right: 150px;
 }
+
+#profile {
+  margin-right: 20px;
+  font-size: 20px;
+  color: white;
+  border: 1px solid #D45F00;
+  background-color: #EB6A00;
+  border-radius: 2px;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: 0.2s ease-in;
+  text-decoration: none;
+
+}
+#profile:hover {
+  background-color: #FF811A;
+}
