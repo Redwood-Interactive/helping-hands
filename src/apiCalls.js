@@ -13,14 +13,30 @@ const postFeedback = (feedback) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    data : data
+    data: data
   };
-
   return axios(config);
 }
 
+const postContribution = (contribution) => {
+  var data = JSON.stringify(contribution)
+
+  var config = {
+    method: 'post',
+    url: `${baseUrl}/getcontributions`,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: data
+  };
+  return axios(config);
+}
+
+
+
 const apiCalls = {
-  postFeedback: postFeedback
+  postFeedback: postFeedback,
+  postContribution: postContribution,
 }
 
 export default apiCalls;

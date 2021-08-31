@@ -16,6 +16,10 @@ const App = () => {
   const [userInfo, setUser] = useState({})
 
   useEffect(() => {
+    console.log(userInfo)
+  }, [userInfo])
+
+  useEffect(() => {
     axios.get('/user')
       .then((response) => {
         if (response.data) {
@@ -43,7 +47,8 @@ const App = () => {
               <HomeProfile isLoggedIn={isLoggedIn} userInfo={userInfo} />
             </Route>
             <Route exact path="/settings">
-              <Settings isLoggedIn={isLoggedIn} userInfo={userInfo} />
+              <Settings isLoggedIn={isLoggedIn} userInfo={userInfo}
+              />
             </Route>
           </Switch>
         </div>

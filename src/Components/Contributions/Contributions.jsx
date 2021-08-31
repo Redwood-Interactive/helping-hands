@@ -12,7 +12,7 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
   useEffect(() => {
     getContributions();
     // transformData(dummyData.contributions);
-  }, [])
+  }, [userInfo])
 
   const getContributions = () => {
     axios.get('/getcontributions')
@@ -41,8 +41,8 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
     <ContributionsContainer>
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
-        <Sidebar isLoggedIn={isLoggedIn}/>
-        {isLoaded ? <Items data={data} userinfo={userInfo}/> : null}
+        <Sidebar isLoggedIn={isLoggedIn} userInfo={userInfo}/>
+        {isLoaded ? <Items data={data} userInfo={userInfo}/> : null}
       </ContainerDiv>
       <ButtonsDiv>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>

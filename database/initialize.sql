@@ -26,7 +26,7 @@ CREATE TABLE contributions (
   title VARCHAR(200) NOT NULL,
   c_description VARCHAR(1500) NOT NULL,
   category VARCHAR(100) NOT NULL,
-  c_date TIMESTAMP NOT NULL,
+  c_date TIMESTAMP NOT NULL DEFAULT current_timestamp,
   condition VARCHAR(50) NOT NULL,
   available BOOLEAN NOT NULL,
   for_free BOOLEAN NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE requests (
   r_description VARCHAR(1500) NOT NULL,
   category VARCHAR(100) NOT NULL,
   condition VARCHAR(50) NOT NULL,
-  r_date TIMESTAMP NOT NULL,
+  r_date TIMESTAMP DEFAULT current_timestamp,
   available BOOLEAN NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id)
@@ -895,9 +895,29 @@ WITH userid AS (
   SELECT id, '567 sahara avenue', 'oasis city', 'DS', 47749
   FROM userid
 
+UPDATE users SET first_name = cactus WHERE id = 5
 
 
 
 INSERT INTO photos (contribution_id, photo_url) VALUES (2, 'https://images.unsplash.com/photo-1518398046578-8cca57782e17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80')
 
+
+
+`WITH ins AS (UPDATE users
+        SET first_name = ($1)
+            last_name = ($2)
+            email = ($3)
+            phone = ($4)
+            profile_pic = ($5)
+        WHERE id = ($6)
+        )
+        INSERT INTO locations (user_id, street_name, city, state, zipcode) VALUES ($6, $7, $8, $9, $10)
+        ON CONFLICT (user_id)
+        DO
+        UPDATE SET user_id = ($6)
+                   street_name = ($7)
+                   city = ($8)
+                   state = ($9)
+                   zipcode = ($10)
+        `
 */
