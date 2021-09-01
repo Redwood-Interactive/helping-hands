@@ -11,8 +11,8 @@ const MissionStatement = (props) => {
           src="hppic1.png"
           alt="First slide"
         />
-        <Carousel.Caption>
-          <h3>Neighbors Helping Neighbors</h3>
+        <Carousel.Caption className='carousel-text'>
+          <h1>Neighbors Helping Neighbors</h1>
           <p>Give back to your community, make a donation today</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -23,8 +23,8 @@ const MissionStatement = (props) => {
           alt="Second slide"
         />
 
-        <Carousel.Caption>
-          <h3>Change The Narrative</h3>
+        <Carousel.Caption className='carousel-text'>
+          <h1>Change The Narrative</h1>
           <p>Here at Helping Hands we believe that small acts of kindness can make a big difference</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -35,8 +35,8 @@ const MissionStatement = (props) => {
           alt="Third slide"
         />
 
-        <Carousel.Caption>
-          <h3>Sign Up Today</h3>
+        <Carousel.Caption className='carousel-text'>
+          <h1>Sign Up Today</h1>
           <p>Donate or trade in your area</p>
         </Carousel.Caption>
       </Carousel.Item>
