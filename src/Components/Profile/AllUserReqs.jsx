@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, AnotherDiv, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time, ItemIconDiv, ItemIcon, BottomRow, CategoryName } from '../Contributions/Styles/Items.style.js';
-import { RemoveIcon } from './Styles/HomeProfile.style.js';
+import { RemoveIcon, StatusContainer, Active, Fulfilled } from './Styles/HomeProfile.style.js';
+import moment from 'moment';
 
 const AllUserRequests = ( { requests, removeReq } ) => {
   const icons = {
@@ -32,11 +33,14 @@ const AllUserRequests = ( { requests, removeReq } ) => {
                 <AnotherDiv>
                   <Location>{item.location.city}, {item.location.state}</Location>
                   <BottomRow>
-                    <Time>{item.r_date.slice(0, 10)}</Time>
+                    <Time>{moment(item.r_date).fromNow()}</Time>
                     <CategoryName>{item.category}</CategoryName>
                   </BottomRow>
                 </AnotherDiv>
-                <div>Status: Active</div>
+                <StatusContainer>
+                  <div>Status: </div>
+                  <Active>Active</Active>
+                </StatusContainer>
               </TextDiv>
             </Item> )
           } else {
@@ -52,11 +56,14 @@ const AllUserRequests = ( { requests, removeReq } ) => {
                   <AnotherDiv>
                     <Location>{item.location.city}, {item.location.state}</Location>
                     <BottomRow>
-                      <Time>{item.r_date.slice(0, 10)}</Time>
+                      <Time>{moment(item.r_date).fromNow()}</Time>
                       <CategoryName>{item.category}</CategoryName>
                     </BottomRow>
                   </AnotherDiv>
-                  <div>Status: Fulfilled</div>
+                  <StatusContainer>
+                  <div>Status: </div>
+                  <Fulfilled>Fulfilled</Fulfilled>
+                </StatusContainer>
                 </TextDiv>
               </Item> )
           }
