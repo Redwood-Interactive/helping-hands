@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from '../Contributions/Styles/Sidebar.style.js';
-import AddItemModal from './AddItemModal.jsx'
+import AddItemModal from './AddItemModal.jsx';
+import LoginPage from '../LoginPage/LoginPage.jsx';
+import LocationPage from '../LoginPage/LocationPage.jsx';
 
 const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories }) => {
-  const [height, setHeight] = useState((window.innerHeight - 100).toString() + 'px');
   const [addItemModal, setAddItemModal] = useState(false);
 
   const handleCategoryChange = (e) => {
@@ -17,8 +18,19 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories }) => {
     }
   }
 
+  const modalRender = () => {
+    // change this back to isLoggedIn && userInfo.locations[0].street_name
+    if (isLoggedIn) {
+      return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
+    } else if (!isLoggedIn) {
+      return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
+    } else if (userInfo.locations[0].street_name === undefined || userInfo.locations[0].street_name === null) {
+      return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
+    }
+  }
+
   return (
-    <SidebarContainer height={height}>
+    <SidebarContainer>
       <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
       <SearchDiv>
         <Label>Search</Label>
@@ -55,7 +67,6 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories }) => {
           <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category6' name='Electronic' /><CheckLabel htmlFor='category6'>Electronic</CheckLabel></CheckSubDiv>
           <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category7' name='Toy' /><CheckLabel htmlFor='category7'>Toy</CheckLabel></CheckSubDiv>
           <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category8' name='Miscellaneous' /><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category8' name='miscellaneous' /><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
       <CheckboxDiv>
@@ -66,7 +77,8 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories }) => {
           <CheckSubDiv><Checkbox type="checkbox" id='condition3' name='used' /><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
-      <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} />
+      {/* <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} /> */}
+      {modalRender()}
     </SidebarContainer>
   );
 };
