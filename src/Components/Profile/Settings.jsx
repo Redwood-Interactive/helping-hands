@@ -8,6 +8,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Link, useLocation, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu, ImageRow, ProfileIcon, AddrRow, SettingRow, SmallRow } from './Styles/Settings.style.js'
 
@@ -65,35 +66,30 @@ const states = [
 
 
 const Settings = ({ userInfo, isLoggedIn }) => {
-  // change zipcode positioning
-  const user = userInfo;
-  console.log(userInfo);
     const [validated, setValidated] = useState(false);
     const [edit, setEdit] = useState(false);
     const [check, setCheck] = useState(false);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('1');
+    const [phone, setPhone] = useState(0);
     const [streetName, setStreetName] = useState('');
     const [city, setCity] = useState('');
-    const [state, setState] = useState('AK');
-    const [zipcode, setZipcode] = useState('');
-  // const { user } = location.state;
+    const [state, setState] = useState('State');
+    const [zipcode, setZipcode] = useState(0);
+
   useEffect (() => {
-    var loc = userInfo.locations;
-    console.log(loc);
     setFirstName(userInfo.first_name);
     setLastName(userInfo.last_name);
     setEmail(userInfo.email);
-    setPhone('1');
+    setPhone(userInfo.phone);
     if (userInfo.locations) {
     setStreetName(userInfo.locations[0].street_name);
     setCity(userInfo.locations[0].city);
     setState(userInfo.locations[0].state);
     setZipcode(userInfo.locations[0].zipcode);
     }
-  }, userInfo)
+  }, [userInfo])
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -105,7 +101,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
       first_name: firstName,
       last_name: lastName,
       email: email,
-      phone: parseInt(phone),
+      phone: phone,
       profile_pic: userInfo.profile_pic,
       location: {
         user_id: userInfo.id,
@@ -115,7 +111,10 @@ const Settings = ({ userInfo, isLoggedIn }) => {
         zipcode: zipcode
       }
     }
-    console.log('BODY', body);
+    axios.put('/updateUserInfo', body)
+    .then((data) => {
+      alert('Submission successful, have fun trading!');
+    })
   }
     event.preventDefault();
     setValidated(true);
@@ -159,7 +158,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
           <ImageRow>
             <Image
               style={{ "height": "100px", "width": "100px" }}
-              src={user.profile_pic} roundedCircle />
+              src={userInfo.profile_pic} roundedCircle />
             {editCheck()}
           </ImageRow>
           <FormRow>
@@ -177,7 +176,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
               <Form.Label>Last Name</Form.Label>
               <Form.Control
               size='sm'
-              value={lastName}
+              defaultValue={lastName}
               required
               disabled={!edit}
               onChange={(e) => setLastName(e.target.value)} />
@@ -189,7 +188,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
               <Form.Control
               size='sm'
               type="email"
-              value={email}
+              defaultValue={email}
               placeholder="Enter email"
               required
               disabled={!edit}
@@ -200,7 +199,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
               <Form.Control
               size='sm'
               placeholder="(888) 123-4567"
-              value={phone}
+              defaultValue={phone}
               required
               disabled={!edit}
               onChange={(e) => setPhone(e.target.value)}/>
@@ -212,7 +211,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
               <Form.Control
               size='sm'
               placeholder="1234 Main St"
-              value={streetName}
+              defaultValue={streetName}
               required
               disabled={!edit}
               onChange={(e) => setStreetName(e.target.value)}/>
@@ -221,7 +220,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
               <Form.Label>City</Form.Label>
               <Form.Control
               size='sm'
-              value={city}
+              defaultValue={city}
               required
               disabled={!edit}
               onChange={(e) => setCity(e.target.value)} />
@@ -255,7 +254,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
               <Form.Label>Zipcode</Form.Label>
               <Form.Control
                 size='sm'
-                value={zipcode}
+                defaultValue={zipcode}
                 required
                 disabled={!edit}
                 onChange={(e) => setZipcode(e.target.value)}/>
