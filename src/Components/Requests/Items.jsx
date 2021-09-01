@@ -12,7 +12,6 @@ const Items = (props) => {
   const [location, setLocation] = useState([]);
   const [iconClass, setClass] = useState('');
   const [user, setUser] = useState({});
-  const [condition, setCondition] = useState('');
   const [newData, setNewData] = useState([]);
 
   const icons = {
@@ -44,7 +43,7 @@ const Items = (props) => {
     <ItemsContainer>
       <ItemsProducts>
         {props.data ?
-          !props.categories.length && !props.conditions.length ? newData.map((item, index) => {
+          !props.categories.length ? newData.map((item, index) => {
             return (
               <Item key={index} onClick={() => {
                 setShowModal(true)
@@ -54,7 +53,6 @@ const Items = (props) => {
                 setLocation(item.location.city + ', ' + item.location.state)
                 setClass(icons[item.category])
                 setUser(item.user)
-                setCondition(item.condition)
               }}>
                 <ImageDiv>
                   <ItemIconDiv>
@@ -74,74 +72,40 @@ const Items = (props) => {
               </Item>
             )
           }) :
-            props.categories.length && props.conditions.length ?
-              newData.data.map((item, index) => {
-                if (props.categories.indexOf(item.category) !== -1 && props.conditions.indexOf(item.condition) !== -1) {
-                  return (
-                    <Item key={index} onClick={() => {
-                      setShowModal(true)
-                      setTitle(item.title)
-                      setDescription(item.r_description)
-                      setCategory(item.category)
-                      setLocation(item.location.city + ', ' + item.location.state)
-                      setClass(icons[item.category])
-                      setUser(item.user)
-                      setCondition(item.condition)
-                    }}>
-                      <ImageDiv>
-                        <ItemIconDiv>
-                          <ItemIcon className={icons[item.category]}></ItemIcon>
-                        </ItemIconDiv>
-                      </ImageDiv>
-                      <TextDiv>
-                        <Title>{item.title}</Title>
-                        <AnotherDiv>
-                          <Location>{item.location.city}, {item.location.state}</Location>
-                          <BottomRow>
-                            <Time>{moment(item.r_date).fromNow()}</Time>
-                            <CategoryName>{item.category}</CategoryName>
-                          </BottomRow>
-                        </AnotherDiv>
-                      </TextDiv>
-                    </Item>
-                  )
-                }
-              }) :
-              newData.data.map((item, index) => {
-                if (props.categories.indexOf(item.category) !== -1 || props.conditions.indexOf(item.condition) !== -1) {
-                  return (
-                    <Item key={index} onClick={() => {
-                      setShowModal(true)
-                      setTitle(item.title)
-                      setDescription(item.r_description)
-                      setCategory(item.category)
-                      setLocation(item.location.city + ', ' + item.location.state)
-                      setClass(icons[item.category])
-                      setUser(item.user)
-                      setCondition(item.condition)
-                    }}>
-                      <ImageDiv>
-                        <ItemIconDiv>
-                          <ItemIcon className={icons[item.category]}></ItemIcon>
-                        </ItemIconDiv>
-                      </ImageDiv>
-                      <TextDiv>
-                        <Title>{item.title}</Title>
-                        <AnotherDiv>
-                          <Location>{item.location.city}, {item.location.state}</Location>
-                          <BottomRow>
-                            <Time>{moment(item.r_date).fromNow()}</Time>
-                            <CategoryName>{item.category}</CategoryName>
-                          </BottomRow>
-                        </AnotherDiv>
-                      </TextDiv>
-                    </Item>
-                  )
-                }
-              })
+            newData.data.map((item, index) => {
+              if (props.categories.indexOf(item.category) !== -1) {
+                return (
+                  <Item key={index} onClick={() => {
+                    setShowModal(true)
+                    setTitle(item.title)
+                    setDescription(item.r_description)
+                    setCategory(item.category)
+                    setLocation(item.location.city + ', ' + item.location.state)
+                    setClass(icons[item.category])
+                    setUser(item.user)
+                  }}>
+                    <ImageDiv>
+                      <ItemIconDiv>
+                        <ItemIcon className={icons[item.category]}></ItemIcon>
+                      </ItemIconDiv>
+                    </ImageDiv>
+                    <TextDiv>
+                      <Title>{item.title}</Title>
+                      <AnotherDiv>
+                        <Location>{item.location.city}, {item.location.state}</Location>
+                        <BottomRow>
+                          <Time>{moment(item.r_date).fromNow()}</Time>
+                          <CategoryName>{item.category}</CategoryName>
+                        </BottomRow>
+                      </AnotherDiv>
+                    </TextDiv>
+                  </Item>
+                )
+              }
+            })
           : null}
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setShowModal(false)} title={title} description={description} category={category} location={location} iconclass={iconClass} user={user} condition={condition}/>
+      <ItemsModal show={showModal} onHide={() => setShowModal(false)} title={title} description={description} category={category} location={location} iconclass={iconClass} user={user} />
     </ItemsContainer>
   );
 };
