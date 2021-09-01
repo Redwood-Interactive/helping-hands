@@ -5,8 +5,10 @@ const AllUserContributions = ( { contributions } ) => {
   return (
     <ItemsContainer>
       <ItemsProducts>
-        {contributions.map((item, index) =>
-          <Item key={index}>
+        {contributions.map((item, index) => {
+
+          console.log('item', item)
+          return ( <Item key={index}>
             <ImageDiv>
               <ItemImage src={item.photos}/>
               <CategoryDiv>
@@ -18,7 +20,8 @@ const AllUserContributions = ( { contributions } ) => {
               <Location>Location</Location>
               <Time>5m ago</Time>
             </TextDiv>
-          </Item>
+          </Item> )
+        }
         )}
       </ItemsProducts>
     </ItemsContainer>
