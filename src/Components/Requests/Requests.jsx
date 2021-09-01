@@ -8,6 +8,7 @@ const Requests = ({ isLoggedIn, userInfo }) => {
   const [data, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [conditions, setConditions] = useState([]);
 
   useEffect(() => {
     getRequests();
@@ -16,7 +17,6 @@ const Requests = ({ isLoggedIn, userInfo }) => {
   const getRequests = () => {
     axios.get('/requestsAll')
       .then(res => {
-        // console.log(res.data);
         transformData(res.data);
       })
   }
@@ -40,12 +40,12 @@ const Requests = ({ isLoggedIn, userInfo }) => {
     <ContributionsContainer>
       <ContributionTitle>Requests</ContributionTitle>
       <ContainerDiv>
-        <Sidebar setCategories={setCategories} categories={categories} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
-        {isLoaded ? <Items data={data} userinfo={userInfo} categories={categories}/>: null}
+        <Sidebar setCategories={setCategories} categories={categories} setConditions={setConditions} conditions={conditions} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
+        {isLoaded ? <Items data={data} userinfo={userInfo} categories={categories} conditions={conditions}/>: null}
       </ContainerDiv>
       <ButtonsDiv>
-        <Button onClick={loadMore}>Load more</Button>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>
+        <Button onClick={loadMore}>Load more</Button>
       </ButtonsDiv>
     </ContributionsContainer>
   );
