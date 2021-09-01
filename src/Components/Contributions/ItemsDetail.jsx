@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { UserContainer, ContactUser, ContactUserDiv, Information, ItemsDetailContainer, UpperInformationContainer, Title, Profile, TopRow, NameCol, UserPic, BottomRow, CategoryLocationContainer, Category, Location, Description } from './Styles/ItemsModal.style.js';
 
 const ItemsDetail = ({ title, description, category, location, iconclass, user, condition}) => {
-  var phone = user.phone.toString();
-  phone = '(' + phone.slice(0, 3) + ') ' + phone.slice(3, 7) + '-' + phone.slice(7);
+  var phone;
+  if (user.phone) {
+    user.phone.toString();
+    phone = '(' + phone.slice(0, 3) + ') ' + phone.slice(3, 7) + '-' + phone.slice(7);
+  }
 
   const email = () => {
     window.open(`mailto:${user.email}?subject=[Helping Hands] Inquiry for: ${title}`, '_blank');

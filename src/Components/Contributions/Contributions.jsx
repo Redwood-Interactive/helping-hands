@@ -14,10 +14,6 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
     getContributions();
   }, [])
 
-  useEffect(() => {
-    console.log('Updated categories:', categories);
-  }, [categories])
-
   const getContributions = () => {
     axios.get('/getcontributions')
       .then(res => {
@@ -44,7 +40,7 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
     <ContributionsContainer>
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
-        <Sidebar setCategories={setCategories} categories={categories} isLoggedIn={isLoggedIn}/>
+        <Sidebar setCategories={setCategories} categories={categories} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
         {isLoaded ? <Items data={data} userinfo={userInfo} categories={categories}/>: null}
       </ContainerDiv>
       <ButtonsDiv>

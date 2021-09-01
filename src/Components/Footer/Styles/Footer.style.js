@@ -11,5 +11,4 @@ export const FooterContainer = styled.div`
   align-items: center;
   background-color: #bf5700;
   padding: 40px;
-  z-index: -1;
 `;

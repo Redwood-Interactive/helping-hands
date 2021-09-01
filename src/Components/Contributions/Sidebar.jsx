@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from './Styles/Sidebar.style.js';
 import AddItemModal from './AddItemModal.jsx'
 import LoginPage from '../LoginPage/LoginPage.jsx'
+import LocationPage from '../LoginPage/LocationPage.jsx'
 
 const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories}) => {
   const [addItemModal, setAddItemModal] = useState(false);
@@ -14,6 +15,17 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories}) => {
       setCategories(newState);
     } else { // check
       setCategories(prevCategories => [...prevCategories, category]);
+    }
+  }
+
+  const modalRender = () => {
+    // change this back to isLoggedIn && userInfo.locations[0].street_name
+    if (isLoggedIn) {
+      return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
+    } else if (!isLoggedIn) {
+      return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
+    } else if (userInfo.locations[0].street_name === undefined || userInfo.locations[0].street_name === null) {
+      return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
     }
   }
 
@@ -65,9 +77,7 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories}) => {
           <CheckSubDiv><Checkbox type="checkbox" id='condition3' name='used' /><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
-      { isLoggedIn ? <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} /> : <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
-
-      }
+      {modalRender()}
     </SidebarContainer>
   );
 };
