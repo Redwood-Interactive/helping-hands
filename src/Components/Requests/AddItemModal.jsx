@@ -44,7 +44,7 @@ const AddItemModal = (props) => {
                   <Title>
                     <Form.Group className="mb-3" controlId="formBasicTitle">
                       <Form.Label>Title</Form.Label>
-                      <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' required placeholder="Enter title" />
+                      <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' placeholder="Enter title" required/>
                     </Form.Group>
                   </Title>
                 </TitleContainer>
