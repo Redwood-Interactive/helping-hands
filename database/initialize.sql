@@ -1701,7 +1701,7 @@ INSERT INTO requests
   'Electronic',
   'Used',
   CURRENT_TIMESTAMP,
-  'true'
+  TRUE
 
 );
 
@@ -1721,7 +1721,7 @@ INSERT INTO requests
   'Drink',
   'Like new',
   CURRENT_TIMESTAMP,
-  'true'
+  TRUE
 
 );
 
@@ -1741,7 +1741,7 @@ INSERT INTO requests
   'Clothing',
   'Used',
   CURRENT_TIMESTAMP,
-  'true'
+  TRUE
 
 );
 
@@ -1761,7 +1761,7 @@ INSERT INTO requests
   'Clothing',
   'Used',
   CURRENT_TIMESTAMP,
-  'true'
+  TRUE
 
 );
 
@@ -1781,7 +1781,7 @@ INSERT INTO requests
   'Clothing',
   'Like new',
   CURRENT_TIMESTAMP,
-  'true'
+  TRUE
 
 );
 
@@ -1801,7 +1801,7 @@ INSERT INTO requests
   'Food',
   'Used',
   CURRENT_TIMESTAMP,
-  'true'
+  TRUE
 
 );
 
@@ -1821,7 +1821,7 @@ INSERT INTO requests
   'Service',
   'New',
   CURRENT_TIMESTAMP,
-  'true'
+  TRUE
 );
 
 
