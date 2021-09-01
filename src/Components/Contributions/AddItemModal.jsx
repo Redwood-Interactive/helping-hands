@@ -112,8 +112,8 @@ return (
                 <Form.Select onChange={(e) => setCondition(e.target.value)} aria-label="Default select example" required>
                   <option value="" hidden>Condition</option>
                   <option value="New">New</option>
-                  <option value="Awesome">Like New</option>
-                  <option value="GREAT">Used</option>
+                  <option value="Like new">Like new</option>
+                  <option value="Used">Used</option>
                 </Form.Select>
               </Form.Group>
 
@@ -134,12 +134,14 @@ return (
                 <Form.Control type="text" defaultValue={props.userInfo.locations[0].street_name} disabled/>
               </Form.Group>
             </MainAddress>
+
             <City>
               <Form.Group className="mb-3" controlId="City">
                 <Form.Label>City</Form.Label>
                 <Form.Control type="text" defaultValue={props.userInfo.locations[0].city} disabled/>
               </Form.Group>
             </City>
+
             <State>
               <Form.Group className="mb-3" controlId="State">
                 <Form.Label>State</Form.Label>
