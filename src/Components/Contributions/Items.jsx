@@ -29,7 +29,7 @@ const Items = (props) => {
     <ItemsContainer>
       <ItemsProducts>
         {props.data ? // show everything!!
-          props.categories.length === 0 ? props.data.map((item, index) => {
+          !props.categories.length && !props.conditions.length ? props.data.map((item, index) => {
             return (
               <Item key={index} onClick={() => {
                 setShowModal(true)

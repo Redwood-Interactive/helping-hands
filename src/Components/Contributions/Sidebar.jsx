@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from './Styles/Sidebar.style.js';
-import AddItemModal from './AddItemModal.jsx'
-import LoginPage from '../LoginPage/LoginPage.jsx'
-import LocationPage from '../LoginPage/LocationPage.jsx'
+import AddItemModal from './AddItemModal.jsx';
+import LoginPage from '../LoginPage/LoginPage.jsx';
+import LocationPage from '../LoginPage/LocationPage.jsx';
 
-const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories}) => {
+const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, setConditions}) => {
   const [addItemModal, setAddItemModal] = useState(false);
 
   const handleCategoryChange = (e) => {
@@ -15,6 +15,17 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories}) => {
       setCategories(newState);
     } else { // check
       setCategories(prevCategories => [...prevCategories, category]);
+    }
+  }
+
+  const handleConditionChange = (e) => {
+    const condition = e.target.name;
+    if (conditions.includes(condition)) { // uncheck
+      let newState = [...conditions];
+      newState.splice(newState.indexOf(condition), 1);
+      setConditions(newState);
+    } else { // check
+      setConditions(prevConditions => [...prevConditions, condition]);
     }
   }
 
@@ -72,11 +83,12 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories}) => {
       <CheckboxDiv>
         <Label>Condition</Label>
         <Checkboxes>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition1' name='new' /><CheckLabel htmlFor='condition1'>New</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition2' name='likeNew' /><CheckLabel htmlFor='condition2'>Like new</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='condition3' name='used' /><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleConditionChange} type="checkbox" id='condition1' name='new' /><CheckLabel htmlFor='condition1'>New</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleConditionChange} type="checkbox" id='condition2' name='likeNew' /><CheckLabel htmlFor='condition2'>Like new</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleConditionChange} type="checkbox" id='condition3' name='used' /><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
+      {/* <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} /> */}
       {modalRender()}
     </SidebarContainer>
   );

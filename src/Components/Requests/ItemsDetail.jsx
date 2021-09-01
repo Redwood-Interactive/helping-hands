@@ -4,7 +4,7 @@ import { UserContainer, ContactUser, ContactUserDiv, Information, ItemsDetailCon
 const ItemsDetail = ({ title, description, category, location, iconclass, user, condition}) => {
   var phone;
   if (user.phone) {
-    user.phone.toString();
+    phone = user.phone.toString();
     phone = '(' + phone.slice(0, 3) + ') ' + phone.slice(3, 7) + '-' + phone.slice(7);
   }
 

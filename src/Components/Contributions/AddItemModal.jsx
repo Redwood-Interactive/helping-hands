@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap'
 import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf, MidHalf, MainAddress, City, State, ZipCode, TitleContainer, CheckDiv, Title } from '../Contributions/Styles/AddItemModal.style.js';
-import apiCalls from '../../apiCalls.js'
-import {presetName, cloudName} from '../../../config.js'
+import apiCalls from '../../apiCalls.js';
+import { presetName, cloudName } from '../../../config.js';
 
 const AddItemModal = (props) => {
   const [title, setTitle] = useState('')
@@ -28,52 +28,33 @@ const AddItemModal = (props) => {
     formData.append('upload_preset', presetName.presetName);
 
     axios.post(`https://api.cloudinary.com/v1_1/${cloudName.cloudName}/image/upload`, formData)
-    .then((response)=>{
-      console.log('response after post to cloudinary',response.data.url)
-      setnewImageUrl(response.data.url)
-
-      let form = {
-        user_id: props.userInfo.id,
-        title: title,
-        c_description: description,
-        category: category,
-        condition: condition,
-        for_free: free,
-        image: newImageUrl ?  newImageUrl : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
-      }
-
-
-
-
-
-
-      axios.post('/getcontributions', form)
       .then((response) => {
-        console.log('got a res when posting an img to DB', response);
-              })
-        .catch((err) => {
-        console.log('there was an err :(', err);
-        })
+        console.log('response after post to cloudinary', response.data.url)
+        setnewImageUrl(response.data.url)
 
+        let form = {
+          user_id: props.userInfo.id,
+          title: title,
+          c_description: description,
+          category: category,
+          condition: condition,
+          for_free: free,
+          image: newImageUrl ? newImageUrl : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
+        }
 
-
-
-    })
-    .catch((error)=>{console.log('received an error', error)})
-
-
-
-
-
-
-
-
-
+        axios.post('/getcontributions', form)
+          .then((response) => {
+            console.log('got a res when posting an img to DB', response);
+          })
+          .catch((err) => {
+            console.log('there was an err :(', err);
+          })
+      })
+      .catch((error) => { console.log('received an error', error) })
   }
 
 
   return (
-
     <Modal
       {...props}
       size="lg"
@@ -95,11 +76,9 @@ const AddItemModal = (props) => {
                     </Form.Group>
                   </Title>
                   <CheckDiv>
-                    <Form.Check type="checkbox" id="autoSizingCheck2" label="For Free?" onChange={() => setFree(!free)} checked/>
+                    <Form.Check type="checkbox" id="autoSizingCheck2" label="For Free?" onChange={() => setFree(!free)} checked />
                   </CheckDiv>
-
                 </TitleContainer>
-
 
                 <Form.Group className="mb-3">
                   <Form.Label>Category</Form.Label>
@@ -126,12 +105,11 @@ const AddItemModal = (props) => {
                   </Form.Select>
                 </Form.Group>
 
-
               </LeftSide>
               <RightSide>
                 <Form.Group controlId="formFileLg" className="mb-3">
                   <Form.Label>Upload your images here</Form.Label>
-                  <Form.Control type="file" size="sm" onChange={(e)=>{setLocalImageLocation(e.target.files[0])}}/>
+                  <Form.Control type="file" size="sm" onChange={(e) => { setLocalImageLocation(e.target.files[0]) }} />
                 </Form.Group>
 
               </RightSide>
@@ -168,9 +146,8 @@ const AddItemModal = (props) => {
             <LowerHalf>
               <Form.Group className="mb-3" controlId="Description">
                 <Form.Label>Description</Form.Label>
-                <Form.Control as="textarea" type="Description" placeholder="Description" style={{ height: '100px' }} required onChange={(e) => setDescription(e.target.value)}/>
+                <Form.Control as="textarea" type="Description" placeholder="Description" style={{ height: '100px' }} required onChange={(e) => setDescription(e.target.value)} />
               </Form.Group>
-
             </LowerHalf>
 
             <Button variant="primary" type="submit" style={{ float: 'right' }} onClick={submitContribution}>
@@ -178,14 +155,9 @@ const AddItemModal = (props) => {
             </Button>
             <Button onClick={props.onHide}>Close</Button>
           </Form>
+
         </FormContainer>
-
-
-
       </Modal.Body>
-
-
-
     </Modal>
   );
 }
