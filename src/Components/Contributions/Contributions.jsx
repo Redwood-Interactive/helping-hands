@@ -30,6 +30,7 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
   useEffect(() => {
     if (data) {
       setIsLoaded(true);
+      // console.log(data);
     }
   }, [data])
 

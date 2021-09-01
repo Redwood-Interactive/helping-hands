@@ -27,7 +27,6 @@ const Items = (props) => {
 
   return (
     <ItemsContainer>
-      {console.log(props.conditions, props.categories)}
       <ItemsProducts>
         {props.data ? // show everything!!
           !props.categories.length && !props.conditions.length ? props.data.map((item, index) => {

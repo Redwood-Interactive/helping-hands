@@ -166,7 +166,7 @@ for_free
   'I will let go my favorite truck tire to someone who will better use it',
   'Furniture',
   CURRENT_TIMESTAMP,
-  'used',
+  'Used',
   TRUE,
   TRUE
 );
@@ -183,14 +183,15 @@ available,
 for_free
 ) VALUES (
   1,
-  'Truck Tire',
+  'Truck Tire Smoothie',
   'I will let go my favorite truck tire to someone who will better use it',
-  'Furniture',
+  'Drink',
   CURRENT_TIMESTAMP,
-  'used',
+  'Like new',
   TRUE,
   TRUE
 );
+
 --3
 INSERT INTO contributions
 (user_id,
@@ -203,11 +204,11 @@ available,
 for_free
 ) VALUES (
   1,
-  'Truck Tire',
+  'Truck Tire Trousers',
   'I will let go my favorite truck tire to someone who will better use it',
-  'Furniture',
+  'Clothing',
   CURRENT_TIMESTAMP,
-  'used',
+  'New',
   TRUE,
   TRUE
 );
@@ -266,9 +267,9 @@ available,
 for_free
 ) VALUES (
   1,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Star Wars Toys',
+  'I am teaching my child a lesson. Giving his toys away.',
+  'Toy',
   CURRENT_TIMESTAMP,
   'Used',
   TRUE,
@@ -287,15 +288,14 @@ available,
 for_free
 ) VALUES (
   1,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Will mow lawn',
+  'I like mowing lawns.',
+  'Service',
   CURRENT_TIMESTAMP,
-  'Used',
+  'New',
   TRUE,
   TRUE
 );
-
 
 --8
 INSERT INTO contributions
@@ -309,8 +309,8 @@ available,
 for_free
 ) VALUES (
   1,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
+  'Smart phone',
+  'Works as intended',
   'Electronic',
   CURRENT_TIMESTAMP,
   'Used',
@@ -330,11 +330,11 @@ available,
 for_free
 ) VALUES (
   1,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Beer',
+  'Leftover beer from a party',
+  'Drink',
   CURRENT_TIMESTAMP,
-  'Used',
+  'New',
   TRUE,
   TRUE
 );
@@ -351,9 +351,9 @@ available,
 for_free
 ) VALUES (
   1,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Couch',
+  'May have bed bugs',
+  'Furniture',
   CURRENT_TIMESTAMP,
   'Used',
   TRUE,
@@ -372,9 +372,9 @@ available,
 for_free
 ) VALUES (
   1,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Baseball glove and bat - no ball',
+  'Some baseball gear from my childhood',
+  'Toy',
   CURRENT_TIMESTAMP,
   'Used',
   TRUE,
@@ -393,11 +393,11 @@ available,
 for_free
 ) VALUES (
   1,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
+  'Radio with AM/FM',
+  'Needs power through outlet',
   'Electronic',
   CURRENT_TIMESTAMP,
-  'Used',
+  'Like new',
   TRUE,
   TRUE
 );
@@ -414,11 +414,11 @@ available,
 for_free
 ) VALUES (
   3,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Powerless Treadmill',
+  'No need for power - just run',
+  'Miscellaneous',
   CURRENT_TIMESTAMP,
-  'Used',
+  'Like new',
   TRUE,
   TRUE
 );
@@ -435,11 +435,11 @@ available,
 for_free
 ) VALUES (
   2,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Sandwiches from Subway',
+  'Eat fresh - limited quantity',
+  'Food',
   CURRENT_TIMESTAMP,
-  'Used',
+  'New',
   TRUE,
   TRUE
 );
@@ -456,11 +456,11 @@ available,
 for_free
 ) VALUES (
   3,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Winter socks',
+  'Protect yourself from the Winter chills',
+  'Clothing',
   CURRENT_TIMESTAMP,
-  'Used',
+  'New',
   TRUE,
   TRUE
 );
@@ -477,11 +477,11 @@ available,
 for_free
 ) VALUES (
   2,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Someone to talk to',
+  'I am here for you. Tell me anything',
+  'Service',
   CURRENT_TIMESTAMP,
-  'Used',
+  'New',
   TRUE,
   TRUE
 );
@@ -498,11 +498,11 @@ available,
 for_free
 ) VALUES (
   3,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Skateboard',
+  'Barely used skateboard - works perfectly',
+  'Toy',
   CURRENT_TIMESTAMP,
-  'Used',
+  'Like new',
   TRUE,
   TRUE
 );
@@ -519,9 +519,9 @@ available,
 for_free
 ) VALUES (
   2,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Herman Miller Aeron',
+  'A little worn but perfect for sitting on all day',
+  'Furniture',
   CURRENT_TIMESTAMP,
   'Used',
   TRUE,
@@ -540,11 +540,11 @@ available,
 for_free
 ) VALUES (
   1,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
-  'Electronic',
+  'Grannys Homemade Cookies',
+  'Feel at home with fresh-baked cookies (Limited quantity)',
+  'Food',
   CURRENT_TIMESTAMP,
-  'Used',
+  'New',
   TRUE,
   TRUE
 );
@@ -561,16 +561,14 @@ available,
 for_free
 ) VALUES (
   1,
-  'Old ship, some minor dents',
-  'Runs like a charm, never laser damaged',
+  'Car',
+  'Got a new car - dont need this one anymore',
   'Electronic',
   CURRENT_TIMESTAMP,
   'Used',
   TRUE,
   TRUE
 );
-
-
 
 
 
@@ -661,7 +659,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   6,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://www.chicagotribune.com/resizer/Jv5JyfaB2elvH-Xk1w2asBMmWDk=/1200x0/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/3VNKYVLWXJENRDVOMFMBJXGXOA.jpg'
 );
 
 INSERT INTO photos
@@ -670,7 +668,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   7,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://i.ytimg.com/vi/bNeHrICcWEE/maxresdefault.jpg'
 );
 
 INSERT INTO photos
@@ -679,7 +677,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   8,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://www.gannett-cdn.com/presto/2021/06/01/USAT/518a34c3-56c4-495a-a0ca-7a8542c51c6b-B04_iphone_25.jpg'
 );
 
 INSERT INTO photos
@@ -688,7 +686,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   9,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://spontaneousorder.in/wp-content/uploads/2016/06/beer-india.jpg'
 );
 
 INSERT INTO photos
@@ -697,7 +695,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   10,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://petdogowner.com/wp-content/uploads/2020/12/AdobeStock_254363718-scaled.jpeg'
 );
 
 INSERT INTO photos
@@ -706,7 +704,16 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   11,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://upload.wikimedia.org/wikipedia/commons/d/db/Baseball_glove_front.jpg'
+);
+
+INSERT INTO photos
+(
+  contribution_id,
+  photo_url
+) VALUES (
+  11,
+  'https://s.yimg.com/os/creatr-uploaded-images/2020-08/6f263270-e65e-11ea-b2d9-45c703827d93'
 );
 
 INSERT INTO photos
@@ -715,7 +722,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   12,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://www.amateur-radio-wiki.net/wp-content/uploads/2020/11/best-am-fm-radio-with-cd-player.jpg'
 );
 
 INSERT INTO photos
@@ -724,7 +731,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   13,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://images.offerup.com/65NxkadUr_6R9fBiqaduUNz0wSs=/800x600/0e4f/0e4ffe639b7b40ed99fa989b0e192d09.jpg'
 );
 
 INSERT INTO photos
@@ -733,7 +740,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   14,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://pbs.twimg.com/media/DIToFqFW0AADv5G.jpg'
 );
 
 INSERT INTO photos
@@ -742,7 +749,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   15,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://preview.redd.it/d5qs929e45gz.jpg?auto=webp&s=6450fc105fca7f56cf587a34bc43c46e3554980f'
 );
 
 INSERT INTO photos
@@ -751,7 +758,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   16,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://a1-images.myspacecdn.com/images03/33/2fcf8d796bd94d7a9ef7f4dae774abee/600x600.jpg'
 );
 
 INSERT INTO photos
@@ -760,7 +767,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   17,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://kslsports.com/wp-content/uploads/2020/05/GettyImages-51076455-768x432.jpg'
 );
 
 INSERT INTO photos
@@ -769,7 +776,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   18,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://www.continentalofficegroup.net/wp-content/uploads/2020/08/Herman-Miller-Aeron-Chairs-a-scaled.jpg'
 );
 
 INSERT INTO photos
@@ -778,7 +785,7 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   19,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj7OUZyys1OmWr-ply7HHLPr3Kaf3rAfEGzv6H-8V0wHFzr4JEyW2QVDruOS-BCK-HtS0&usqp=CAU'
 );
 
 INSERT INTO photos
@@ -787,18 +794,8 @@ INSERT INTO photos
   photo_url
 ) VALUES (
   20,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
+  'https://images.hgmsites.net/lrg/2013-tesla-model-s-photo-by-owner-gene-rubin_100494936_l.jpg'
 );
-
-INSERT INTO photos
-(
-  contribution_id,
-  photo_url
-) VALUES (
-  20,
-  'https://cdnb.artstation.com/p/assets/images/images/016/831/819/large/jack-uglow-falcon-01.jpg?1553636553'
-);
-
 
 
 
@@ -986,7 +983,6 @@ INSERT INTO requests
   'New',
   CURRENT_TIMESTAMP,
   'true'
-
 );
 
 
