@@ -59,16 +59,16 @@ const StatsBlock = (props) => {
       <StatsBlockSection>
         <StatsBlockTray>
           <StatsBlockCounter>
-            <h3>Requests Served</h3>
-            <StatsBlockNumber value={numRequests} className='stats-block-number'>0</StatsBlockNumber>
+            <h3>Users Active</h3>
+            <StatsBlockNumber value={numUsers} className='stats-block-number'>0</StatsBlockNumber>
           </StatsBlockCounter>
           <StatsBlockCounter>
             <h3>Contributions Made</h3>
             <StatsBlockNumber value={numContributions} className='stats-block-number'>0</StatsBlockNumber>
           </StatsBlockCounter>
           <StatsBlockCounter>
-            <h3>Users Active</h3>
-            <StatsBlockNumber value={numUsers} className='stats-block-number'>0</StatsBlockNumber>
+            <h3>Requests Served</h3>
+            <StatsBlockNumber value={numRequests} className='stats-block-number'>0</StatsBlockNumber>
           </StatsBlockCounter>
         </StatsBlockTray>
       </StatsBlockSection>
