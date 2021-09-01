@@ -41,7 +41,7 @@ const Requests = ({ isLoggedIn, userInfo }) => {
       <ContributionTitle>Requests</ContributionTitle>
       <ContainerDiv>
         <Sidebar setCategories={setCategories} categories={categories} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
-        {isLoaded ? <Items data={data} userinfo={userInfo}/> : null }
+        {isLoaded ? <Items data={data} userinfo={userInfo} categories={categories}/> : null }
       </ContainerDiv>
       <ButtonsDiv>
         <Button onClick={loadMore}>Load more</Button>

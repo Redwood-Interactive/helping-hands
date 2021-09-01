@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from '../Contributions/Styles/Sidebar.style.js';
 import AddItemModal from './AddItemModal.jsx'
 
-const Sidebar = () => {
+const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories }) => {
   const [height, setHeight] = useState((window.innerHeight - 100).toString() + 'px');
   const [addItemModal, setAddItemModal] = useState(false);
 
