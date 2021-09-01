@@ -9,6 +9,7 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
   const [data, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [conditions, setConditions] = useState([]);
 
   useEffect(() => {
     getContributions();
@@ -40,8 +41,8 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
     <ContributionsContainer>
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
-        <Sidebar setCategories={setCategories} categories={categories} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
-        {isLoaded ? <Items data={data} userinfo={userInfo} categories={categories}/>: null}
+        <Sidebar setCategories={setCategories} categories={categories} setConditions={setConditions} conditions={conditions} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
+        {isLoaded ? <Items data={data} userinfo={userInfo} categories={categories} conditions={conditions}/>: null}
       </ContainerDiv>
       <ButtonsDiv>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>
