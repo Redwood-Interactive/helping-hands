@@ -65,7 +65,7 @@ const states = [
   "WY"];
 
 
-const Settings = ({ userInfo, isLoggedIn }) => {
+const Settings = ({ userInfo, isLoggedIn, getUpdatedUser}) => {
     const [validated, setValidated] = useState(false);
     const [edit, setEdit] = useState(false);
     const [check, setCheck] = useState(false);
@@ -82,8 +82,8 @@ const Settings = ({ userInfo, isLoggedIn }) => {
     setFirstName(userInfo.first_name);
     setLastName(userInfo.last_name);
     setEmail(userInfo.email);
-    setPhone(userInfo.phone);
     if (userInfo.locations) {
+    setPhone(userInfo.phone);
     setStreetName(userInfo.locations[0].street_name);
     setCity(userInfo.locations[0].city);
     setState(userInfo.locations[0].state);
@@ -113,6 +113,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
     }
     axios.put('/updateUserInfo', body)
     .then((data) => {
+      getUpdatedUser(userInfo.id);
       alert('Submission successful, have fun trading!');
     })
   }
@@ -199,7 +200,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
               <Form.Control
               size='sm'
               placeholder="(888) 123-4567"
-              defaultValue={phone}
+              value={phone}
               required
               disabled={!edit}
               onChange={(e) => setPhone(e.target.value)}/>
@@ -254,7 +255,7 @@ const Settings = ({ userInfo, isLoggedIn }) => {
               <Form.Label>Zipcode</Form.Label>
               <Form.Control
                 size='sm'
-                defaultValue={zipcode}
+                value={zipcode}
                 required
                 disabled={!edit}
                 onChange={(e) => setZipcode(e.target.value)}/>
