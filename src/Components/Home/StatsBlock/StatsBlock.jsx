@@ -13,20 +13,16 @@ const StatsBlock = (props) => {
 
     apiCalls.getAllUsers()
       .then((results) => {
-        console.log('results from get all users count', results.data[0].count);
         setNumUsers('' + results.data[0].count);
         apiCalls.getAllReqCount()
         .then((results) => {
-          console.log('results from get all requests count', results.data[0].count);
           setNumRequests('' + results.data[0].count);
           apiCalls.getAllContriCount()
           .then((results) => {
-            console.log('results from get all contributions count', results.data[0].count);
             setNumContributions('' + results.data[0].count);
 
             var counters = document.querySelectorAll('.stats-block-number');
             var speed = 1.25;
-
             counters.forEach(counter => {
               const updateCount = () => {
                 const target = +counter.getAttribute('value');
@@ -41,7 +37,6 @@ const StatsBlock = (props) => {
               }
               updateCount()
             })
-
 
           })
           .catch((err) => {

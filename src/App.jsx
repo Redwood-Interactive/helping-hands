@@ -50,8 +50,8 @@ const App = () => {
       <AppContainer>
         <div id='main'>
           <Navbar isLoggedIn={isLoggedIn}/>
-          <Switch>
             <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path="/contributions">
               <Contributions isLoggedIn={isLoggedIn} userInfo={userInfo} />
@@ -66,8 +66,8 @@ const App = () => {
               <Settings isLoggedIn={isLoggedIn} userInfo={userInfo} getUpdatedUser={getUpdatedUser}
               />
             </Route>
-            </Suspense>
           </Switch>
+            </Suspense>
         </div>
         <Suspense fallback={<div>Loading...</div>}>
         <Footer />
