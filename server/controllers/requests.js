@@ -2,7 +2,7 @@ var {getAllRequests, postOne} = require('../models/requests.js')
 
 module.exports = {
   get: (req, res) => {
-    getAllRequests(req)
+    getAllRequests(req.query)
     .then((data)=>{
 
       res.send(data)

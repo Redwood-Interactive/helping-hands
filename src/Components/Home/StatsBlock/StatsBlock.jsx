@@ -13,20 +13,16 @@ const StatsBlock = (props) => {
 
     apiCalls.getAllUsers()
       .then((results) => {
-        console.log('results from get all users count', results.data[0].count);
         setNumUsers('' + results.data[0].count);
         apiCalls.getAllReqCount()
         .then((results) => {
-          console.log('results from get all requests count', results.data[0].count);
           setNumRequests('' + results.data[0].count);
           apiCalls.getAllContriCount()
           .then((results) => {
-            console.log('results from get all contributions count', results.data[0].count);
             setNumContributions('' + results.data[0].count);
 
             var counters = document.querySelectorAll('.stats-block-number');
             var speed = 1.25;
-
             counters.forEach(counter => {
               const updateCount = () => {
                 const target = +counter.getAttribute('value');
@@ -41,7 +37,6 @@ const StatsBlock = (props) => {
               }
               updateCount()
             })
-
 
           })
           .catch((err) => {
@@ -64,16 +59,16 @@ const StatsBlock = (props) => {
       <StatsBlockSection>
         <StatsBlockTray>
           <StatsBlockCounter>
-            <h3>Requests Served</h3>
-            <StatsBlockNumber value={numRequests} className='stats-block-number'>0</StatsBlockNumber>
+            <h3>Users Active</h3>
+            <StatsBlockNumber value={numUsers} className='stats-block-number'>0</StatsBlockNumber>
           </StatsBlockCounter>
           <StatsBlockCounter>
             <h3>Contributions Made</h3>
             <StatsBlockNumber value={numContributions} className='stats-block-number'>0</StatsBlockNumber>
           </StatsBlockCounter>
           <StatsBlockCounter>
-            <h3>Users Active</h3>
-            <StatsBlockNumber value={numUsers} className='stats-block-number'>0</StatsBlockNumber>
+            <h3>Requests Served</h3>
+            <StatsBlockNumber value={numRequests} className='stats-block-number'>0</StatsBlockNumber>
           </StatsBlockCounter>
         </StatsBlockTray>
       </StatsBlockSection>

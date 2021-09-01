@@ -4,7 +4,7 @@ import AddItemModal from './AddItemModal.jsx';
 import LoginPage from '../LoginPage/LoginPage.jsx';
 import LocationPage from '../LoginPage/LocationPage.jsx';
 
-const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, setConditions }) => {
+const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, categories, setCategories, conditions, setConditions }) => {
   const [addItemModal, setAddItemModal] = useState(false);
 
   const handleCategoryChange = (e) => {
@@ -31,6 +31,9 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, 
 
   const modalRender = () => {
     // change this back to isLoggedIn && userInfo.locations[0].street_name
+    if (Object.keys(userInfo).length === 0) {
+      return null;
+    }
     if (isLoggedIn) {
       return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
     } else if (!isLoggedIn) {
@@ -46,11 +49,11 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, 
       <SearchDiv>
         <Label>Search</Label>
         <SearchSubDiv>
-          <SearchBar placeholder='Search...'></SearchBar>
-          <SearchBtn>Enter</SearchBtn>
+          <SearchBar onChange={e => setSearchQuery(e.target.value)} placeholder='Search...'></SearchBar>
+          <SearchBtn onClick={handleSubmitSearch}>Enter</SearchBtn>
         </SearchSubDiv>
       </SearchDiv>
-      <LocationDiv>
+      {/* <LocationDiv>
         <LocationSubDiv>
           <Label>Zipcode</Label>
           <ZipInput placeholder='Enter zipcode...'></ZipInput>
@@ -66,7 +69,7 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, 
             <option>40 miles</option>
           </RadiusSelect>
         </LocationSubDiv>
-      </LocationDiv>
+      </LocationDiv> */}
       <CheckboxDiv>
         <Label>Category</Label>
         <Checkboxes>
