@@ -11,7 +11,7 @@ export const SidebarContainer = styled.div`
 `;
 
 export const AddBtn = styled.div`
-  width: 100%;
+  width: 210px;
   height: 70px;
   display: flex;
   justify-content: center;
@@ -28,24 +28,24 @@ export const AddBtn = styled.div`
 
 export const SearchDiv = styled.form`
   margin: 25px 50px;
-  width: 100%;
+  width: 210px;
   display: flex;
   flex-direction: column;
 `;
 
 export const SearchSubDiv = styled.div`
-  width: 100%;
+  width: 210px;
   display: flex;
   flex-direction: column;
 `;
 
 export const SearchBar = styled.input`
-  width: 100%;
+  width: 210px;
   margin-right: 5px;
 `;
 
 export const SearchBtn = styled.button`
-  width: 100%;
+  width: 210px;
   /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
   border: 1px solid black;
   border-radius: 5px;
