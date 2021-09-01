@@ -10,23 +10,18 @@ const AddItemModal = (props) => {
   const [location, setLocation] = useState('')
   const [description, setDescription] = useState('')
 
-  useEffect(() => {
-    if (props.userInfo.locations) {
-
-    }
-  }, [props.userInfo])
-
-  const submitItem = () => {
+  const submitItem = (e) => {
+    e.preventDefault()
     let form = {
+      user_id: props.userInfo.id,
       title: title,
       category: category,
-      condition: condition,
-      location: location,
-      description: description,
-
+      r_description: description,
     }
-    axios.post('something', form)
+    axios.post('/requestsAll', form)
       .then((res) => {
+        props.setAddItemModal(false)
+        window.open('/requests', '_self');
         console.log(res)
       })
   }
@@ -69,15 +64,7 @@ const AddItemModal = (props) => {
                   </Form.Select>
                 </Form.Group>
 
-                <Form.Group className="mb-3">
-                  <Form.Label>Condition</Form.Label>
-                  <Form.Select onChange={(e) => setCondition(e.target.value)} required aria-label="Default select example">
-                    <option value="" hidden>Condition</option>
-                    <option value="New">New</option>
-                    <option value="Like new">Like new</option>
-                    <option value="Used">Used</option>
-                  </Form.Select>
-                </Form.Group>
+
                 </LeftSide>
                 </UpperHalf>
 

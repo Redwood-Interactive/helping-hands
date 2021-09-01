@@ -11,7 +11,7 @@ module.exports = {
     .catch((error)=>{console.log(error)})
   },
   post: (req, res) =>{
-    postOne(req)
+    postOne(req.body)
     .then(()=>{
       res.sendStatus(200)
     })
