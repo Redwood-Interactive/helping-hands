@@ -3,7 +3,7 @@ const db = require('../../database/index.js');
 module.exports = {
   getAllReqForOneUser: (userID) => {
     var query = `
-    SELECT requests.id, requests.user_id, requests.title, requests.r_description, requests.category, requests.condition, requests.r_date, requests.available, JSON_BUILD_OBJECT('street_name', locations.street_name, 'city', locations.city, 'state', locations.state, 'zipcode', locations.zipcode) AS location
+    SELECT requests.id, requests.user_id, requests.title, requests.r_description, requests.category, requests.r_date, requests.available, JSON_BUILD_OBJECT('street_name', locations.street_name, 'city', locations.city, 'state', locations.state, 'zipcode', locations.zipcode) AS location
     FROM requests
     LEFT JOIN locations ON requests.user_id = locations.user_id
     WHERE requests.user_id=${userID}
