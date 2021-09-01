@@ -13,11 +13,8 @@ module.exports = {
   post: (req, res) => {
 
     getContributions.postContributions(req.body)
-      .then(()=>{
-
-
+      .then((response)=>{
         res.sendStatus(200)
-
       })
       .catch((error)=>{console.log('postRequest error', error)})
   }

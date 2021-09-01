@@ -6,7 +6,7 @@ import apiCalls from '../../apiCalls.js';
 import { presetName, cloudName } from '../../../config.js';
 
 const AddItemModal = (props) => {
-  console.log(props.userInfo)
+  // console.log(props.userInfo)
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [condition, setCondition] = useState('')
@@ -16,23 +16,20 @@ const AddItemModal = (props) => {
   const [image, setImage] = useState('');
 
   const [imageLocation, setLocalImageLocation] = useState('');
-  const [newImageUrl, setnewImageUrl] = useState('');
 
 
   const submitContribution = (e) => {
     e.preventDefault()
-
-    console.log(imageLocation)
-
     const formData = new FormData();
     formData.append('file', imageLocation);
     formData.append('upload_preset', presetName.presetName);
 
     axios.post(`https://api.cloudinary.com/v1_1/${cloudName.cloudName}/image/upload`, formData)
       .then((response) => {
-        console.log('response after post to cloudinary', response.data.url)
-        setnewImageUrl(response.data.url)
-
+        return response.data.url
+      })
+      .catch((error) => { console.log('received an error', error) })
+      .then((photo)=>{
         let form = {
           user_id: props.userInfo.id,
           title: title,
@@ -40,18 +37,19 @@ const AddItemModal = (props) => {
           category: category,
           condition: condition,
           for_free: free,
-          image: newImageUrl ? newImageUrl : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
-        }
-
-        axios.post('/getcontributions', form)
-          .then((response) => {
-            console.log('got a res when posting an img to DB', response);
-          })
-          .catch((err) => {
-            console.log('there was an err :(', err);
-          })
+          image: photo ? photo : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
+        };
+        return form;
       })
-      .catch((error) => { console.log('received an error', error) })
+      .then((form)=>{
+        axios.post('/getcontributions', form)
+      })
+      .then(()=>{
+
+      })
+      .catch((err) => {
+        console.log('there was an err :(', err);
+      })
   }
 
 
