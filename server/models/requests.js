@@ -47,7 +47,6 @@ module.exports = {
         'true'
       );
     `;
-    console.log(query)
     return db.query(query)
       .then((data) => {
         return data

@@ -31,14 +31,12 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
 
   const modalRender = () => {
     // change this back to isLoggedIn && userInfo.locations[0].street_name
-    if (Object.keys(userInfo).length === 0) {
-      return null;
-    }
-    if (isLoggedIn && userInfo.locations[0].street_name) {
+
+    if (isLoggedIn && Object.keys(userInfo).length) {
       return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
     } else if (!isLoggedIn) {
       return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
-    } else if (userInfo.locations[0].street_name === undefined || userInfo.locations[0].street_name === null) {
+    } else if (Object.keys(userInfo).length) {
       return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
     }
   }
