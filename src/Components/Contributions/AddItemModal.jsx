@@ -61,6 +61,9 @@ const submitContribution = (e) => {
           console.log('there was an err :(', err);
         })
     })
+    .then(() => {
+      getContributions(0);
+    })
     .catch((error) => { console.log('received an error', error) })
 
 }
