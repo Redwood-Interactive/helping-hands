@@ -39,3 +39,20 @@ export const RemoveIcon = styled.i`
   z-index: 2;
 `;
 
+export const StatusContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const Active = styled.div`
+  padding-left: 5px;
+  color: green;
+  font-weight: bold;
+`;
+
+export const Fulfilled = styled.div`
+  padding-left: 5px;
+  color: red;
+  font-weight: bold;
+`;

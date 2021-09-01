@@ -22,8 +22,7 @@ const HomeProfile = ({isLoggedIn, userInfo}) => {
         <HomeProfileImg src={userInfo.profile_pic}></HomeProfileImg>
         <UserInfoContainer>
           <p>{userInfo.first_name} {userInfo.last_name}</p>
-          <p><b>Location:</b>{userInfo.locations[0].city}, {userInfo.locations[0].state}</p>
-          <p><b>User Rating: </b>{userInfo.current_rating}</p>
+          <p><b>Location: </b>{userInfo.locations[0].city}, {userInfo.locations[0].state}</p>
         </UserInfoContainer>
       </ProfileInfoContainer>
       <HomeProfileHist userInfo={userInfo}/>

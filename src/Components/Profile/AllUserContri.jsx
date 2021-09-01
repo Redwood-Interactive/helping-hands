@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, ContributionTitle, Time } from '../Contributions/Styles/Items.style.js';
-import { RemoveIcon } from './Styles/HomeProfile.style.js';
+import { RemoveIcon, StatusContainer, Active, Fulfilled } from './Styles/HomeProfile.style.js';
+import moment from 'moment';
 
 const AllUserContributions = ( { contributions, removeContri } ) => {
   const icons = {
@@ -30,8 +31,12 @@ const AllUserContributions = ( { contributions, removeContri } ) => {
               <TextDiv>
                 <Title>{item.title}</Title>
                 <Location>{item.location.city}, {item.location.state}</Location>
-                <Time>{item.c_date}</Time>
-                <div>Status: Active</div>
+                <Time>{moment(item.c_date).fromNow()}</Time>
+                <StatusContainer>
+                  <div>Status: </div>
+                  <Active>Active</Active>
+                </StatusContainer>
+
               </TextDiv>
             </Item> )
 
@@ -45,8 +50,11 @@ const AllUserContributions = ( { contributions, removeContri } ) => {
               <TextDiv>
                 <Title>{item.title}</Title>
                 <Location>{item.location.city}, {item.location.state}</Location>
-                <Time>{item.c_date}</Time>
-                <div>Status: Fulfilled</div>
+                <Time>{moment(item.c_date).fromNow()}</Time>
+                <StatusContainer>
+                  <div>Status: </div>
+                  <Fulfilled>Fulfilled</Fulfilled>
+                </StatusContainer>
               </TextDiv>
             </Item> )
           }
