@@ -13,6 +13,7 @@ export const HistoryContainer = styled.div`
   border: 2px solid black;
   border-radius: 10px;
   width: 60%;
+  min-height: 407px;
   margin: auto;
 `;
 
