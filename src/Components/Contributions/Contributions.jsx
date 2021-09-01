@@ -10,6 +10,8 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [categories, setCategories] = useState([]);
   const [conditions, setConditions] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [queriedSearch, setQueriedSearch] = useState('');
 
   useEffect(() => {
     getContributions();
@@ -20,6 +22,12 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
       .then(res => {
         transformData(res.data);
       })
+  }
+
+  const handleSubmitSearch = (e) => {
+    e.preventDefault();
+    // console.log('submit:', searchQuery)
+    setQueriedSearch(searchQuery);
   }
 
   const transformData = (contributions) => {
@@ -41,8 +49,8 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
     <ContributionsContainer>
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
-        <Sidebar setCategories={setCategories} categories={categories} setConditions={setConditions} conditions={conditions} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
-        {isLoaded ? <Items data={data} userinfo={userInfo} categories={categories} conditions={conditions}/>: null}
+        <Sidebar setSearchQuery={setSearchQuery} handleSubmitSearch={handleSubmitSearch} setCategories={setCategories} categories={categories} setConditions={setConditions} conditions={conditions} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
+        {isLoaded ? <Items data={data} userinfo={userInfo} queriedSearch={queriedSearch} categories={categories} conditions={conditions}/>: null}
       </ContainerDiv>
       <ButtonsDiv>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>

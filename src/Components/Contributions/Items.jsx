@@ -13,6 +13,7 @@ const Items = (props) => {
   const [iconClass, setClass] = useState('');
   const [user, setUser] = useState({});
   const [condition, setCondition] = useState('');
+  const [newData, setNewData] = useState([]);
 
   const icons = {
     Food: 'fas fa-utensils',
@@ -25,11 +26,26 @@ const Items = (props) => {
     Miscellaneous: 'fas fa-ellipsis-h'
   }
 
+  useEffect(() => {
+    if (props.data) {
+      setNewData(props.data);
+    }
+  }, [props.data])
+
+  useEffect(() => {
+    if (props.queriedSearch.length) {
+      setNewData([...newData].filter(item => item.title.toLowerCase().includes(props.queriedSearch.toLowerCase())));
+    } else {
+      setNewData(props.data);
+    }
+    console.log('newData')
+  }, [props.queriedSearch])
+
   return (
     <ItemsContainer>
       <ItemsProducts>
         {props.data ?
-          !props.categories.length && !props.conditions.length ? props.data.map((item, index) => {
+          !props.categories.length && !props.conditions.length ? newData.map((item, index) => {
             return (
               <Item key={index} onClick={() => {
                 setShowModal(true)
@@ -61,7 +77,7 @@ const Items = (props) => {
             )
           }) :
             props.categories.length && props.conditions.length ?
-              props.data.map((item, index) => {
+              newData.map((item, index) => {
                 if (props.categories.indexOf(item.category) !== -1 && props.conditions.indexOf(item.condition) !== -1) {
                   return (
                     <Item key={index} onClick={() => {
@@ -94,7 +110,7 @@ const Items = (props) => {
                   )
                 }
               }) :
-              props.data.map((item, index) => {
+              newData.map((item, index) => {
                 if (props.categories.indexOf(item.category) !== -1 || props.conditions.indexOf(item.condition) !== -1) {
                   return (
                     <Item key={index} onClick={() => {
