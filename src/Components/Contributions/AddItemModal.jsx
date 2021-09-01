@@ -5,6 +5,7 @@ import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf, MidHalf, Main
 import apiCalls from '../../apiCalls.js'
 
 const AddItemModal = (props) => {
+  console.log(props.userInfo)
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [condition, setCondition] = useState('')
@@ -107,26 +108,26 @@ const AddItemModal = (props) => {
               <MainAddress>
                 <Form.Group className="mb-3" controlId="MainAddress">
                   <Form.Label>Main Address</Form.Label>
-                  <Form.Control type="text" placeholder="Location" />
+                  <Form.Control type="text" defaultValue={props.userInfo.locations.street_name} />
                 </Form.Group>
               </MainAddress>
               <City>
                 <Form.Group className="mb-3" controlId="City">
                   <Form.Label>City</Form.Label>
-                  <Form.Control type="text" placeholder="Location" />
+                  <Form.Control type="text" defaultValue={props.userInfo.locations.city} />
                 </Form.Group>
               </City>
               <State>
                 <Form.Group className="mb-3" controlId="State">
                   <Form.Label>State</Form.Label>
-                  <Form.Control type="text" placeholder="Location" />
+                  <Form.Control type="text" defaultValue={props.userInfo.locations.state} />
                 </Form.Group>
               </State>
 
               <ZipCode>
                 <Form.Group className="mb-3" controlId="ZipCode">
                   <Form.Label>Zip Code</Form.Label>
-                  <Form.Control type="text" placeholder="Location" />
+                  <Form.Control type="text" defaultValue={props.userInfo.locations.zipcode} />
                 </Form.Group>
               </ZipCode>
             </MidHalf>
