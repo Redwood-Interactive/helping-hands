@@ -9,38 +9,38 @@ const MissionStatement = (props) => {
 <Carousel fade>
   <Carousel.Item>
 
-    <img
+    <ImageStyle
       className="d-block w-100"
-      src={require('../../assets/homepagepic/hppic1.png')}
+      src='https://images.pexels.com/photos/6647178/pexels-photo-6647178.jpeg'
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3>Neighbors Help Neighbors</h3>
+      <p>Give back to your community, make a donation today</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
-    <img
+    <ImageStyle
       className="d-block w-100"
-      src="assets/homepagepic/hppic2.png"
+      src="https://images.pexels.com/photos/3996723/pexels-photo-3996723.jpeg"
       alt="Second slide"
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3>Change The Narrative</h3>
+      <p>Here at Helping Hands we believe that small acts of kindness can make a big difference</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
-    <img
+    <ImageStyle
       className="d-block w-100"
-      src="https://soundwaveart.com/wp-content/uploads/2017/09/Helping-those-in-need.jpg"
+      src="https://images.pexels.com/photos/45842/clasped-hands-comfort-hands-people-45842.jpeg"
       alt="Third slide"
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3>Sign Up Today</h3>
+      <p>One man's trash is another man's tresure</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
