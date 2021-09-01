@@ -6,32 +6,29 @@ import axios from 'axios';
 // import dummyData from '../../dummydata/dummydata.js'
 
 const Contributions = ({ isLoggedIn, userInfo }) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [categories, setCategories] = useState([]);
   const [conditions, setConditions] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [queriedSearch, setQueriedSearch] = useState('');
+  const [page, setPage] = useState(0);
+
 
   useEffect(() => {
-    getContributions();
-  }, [])
+    getContributions(page);
+  }, [page])
 
-  const getContributions = () => {
-    axios.get('/getcontributions')
+  const getContributions = (pageNum) => {
+    axios.get(`/getcontributions?page=${pageNum}`)
       .then(res => {
-        transformData(res.data);
+        setData([...data].concat(res.data));
       })
   }
 
   const handleSubmitSearch = (e) => {
     e.preventDefault();
     setQueriedSearch(searchQuery);
-  }
-
-  const transformData = (contributions) => {
-    // Here we can transform any data to the proper format
-    setData(contributions);
   }
 
   useEffect(() => {
@@ -41,7 +38,9 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
   }, [data])
 
   const loadMore = () => {
-    // console.log('Load more 20 more items');
+    var newPage = page;
+    newPage = newPage + 1;
+    setPage(newPage);
   }
 
   return (
