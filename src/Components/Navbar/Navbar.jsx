@@ -8,7 +8,7 @@ const Navbar = ({isLoggedIn}) => {
 
   return (
     <NavbarContainer>
-      <Logo onClick={() => window.open('/', '_self')}src='https://i1.wp.com/pcdeeprun.org/wp-content/uploads/2017/03/HelpingHands.png?fit=450%2C450&ssl=1'/>
+      <Logo onClick={() => window.open('/', '_self')}src='newLogo.png'/>
       <NavbarList>
         <NavbarListItem>
           <Link id='link' to='/'>Home</Link>

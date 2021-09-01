@@ -15,7 +15,7 @@ module.exports = {
       GROUP BY contributions.id, users.id, locations.street_name, locations.city, locations.state, locations.zipcode
       ORDER BY contributions.c_date DESC
       LIMIT 20
-      OFFSET $1
+      OFFSET ($1)
     `;
 
     return db.query(query, values)
@@ -54,35 +54,32 @@ module.exports = {
       '${for_free}'
   ) RETURNING id;
   `;
-
-  db.query(query1)
+   return db.query(query1)
   .then((data) => {
     var contriId = data.rows[0].id;
-
+    return contriId;
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  .then((id)=>{
     var query2=`
     INSERT INTO photos
       (contribution_id,
        photo_url
     ) VALUES (
-      ${contriId},
+      ${id},
       '${image}'
     );
   `;
-
-        db.query(query2)
-          .then((data)=>{return data})
-          .catch((error)=>{console.log(error)})
-
-
+  return query2
   })
-  .catch((err) => {
-    console.log(err);
-  });
-
-
-
-
-
-
+  .then((querydata)=>{
+    return db.query(querydata)
+    .then((data)=>{
+      return data;
+    })
+    .catch((error)=>{console.log('error in model', error)})
+  })
   }
 };
