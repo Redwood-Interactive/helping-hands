@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ItemsContainer, Title, ItemsProducts, Item, ItemImage, AnotherDiv, TextDiv, Location, ImageDiv, CategoryDiv, CategoryIcon, Time, ItemIconDiv, ItemIcon, BottomRow, CategoryName } from '../Contributions/Styles/Items.style.js';
 import ItemsModal from './ItemsModal.jsx';
+import moment from 'moment';
 
 const Items = (props) => {
 
@@ -65,7 +66,7 @@ const Items = (props) => {
                   <AnotherDiv>
                     <Location>{item.location.city}, {item.location.state}</Location>
                     <BottomRow>
-                      <Time>{item.r_date.slice(0, 10)}</Time>
+                      <Time>{moment(item.r_date).fromNow()}</Time>
                       <CategoryName>{item.category}</CategoryName>
                     </BottomRow>
                   </AnotherDiv>
@@ -97,7 +98,7 @@ const Items = (props) => {
                         <AnotherDiv>
                           <Location>{item.location.city}, {item.location.state}</Location>
                           <BottomRow>
-                            <Time>{item.r_date.slice(0, 10)}</Time>
+                            <Time>{moment(item.r_date).fromNow()}</Time>
                             <CategoryName>{item.category}</CategoryName>
                           </BottomRow>
                         </AnotherDiv>
@@ -129,7 +130,7 @@ const Items = (props) => {
                         <AnotherDiv>
                           <Location>{item.location.city}, {item.location.state}</Location>
                           <BottomRow>
-                            <Time>{item.r_date.slice(0, 10)}</Time>
+                            <Time>{moment(item.r_date).fromNow()}</Time>
                             <CategoryName>{item.category}</CategoryName>
                           </BottomRow>
                         </AnotherDiv>
