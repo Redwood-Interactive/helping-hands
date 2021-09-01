@@ -28,7 +28,7 @@ const Items = (props) => {
   return (
     <ItemsContainer>
       <ItemsProducts>
-        {props.data ? // show everything!!
+        {props.data ?
           !props.categories.length && !props.conditions.length ? props.data.map((item, index) => {
             return (
               <Item key={index} onClick={() => {
@@ -61,9 +61,8 @@ const Items = (props) => {
             )
           }) :
             props.categories.length && props.conditions.length ?
-              props.data.map((item, index) => { // filtered by categories
+              props.data.map((item, index) => {
                 if (props.categories.indexOf(item.category) !== -1 && props.conditions.indexOf(item.condition) !== -1) {
-                  console.log('1');
                   return (
                     <Item key={index} onClick={() => {
                       setShowModal(true)
@@ -95,9 +94,8 @@ const Items = (props) => {
                   )
                 }
               }) :
-              props.data.map((item, index) => { // filtered by categories
+              props.data.map((item, index) => {
                 if (props.categories.indexOf(item.category) !== -1 || props.conditions.indexOf(item.condition) !== -1) {
-                  console.log('1');
                   return (
                     <Item key={index} onClick={() => {
                       setShowModal(true)
@@ -131,7 +129,7 @@ const Items = (props) => {
               })
           : null}
       </ItemsProducts>
-      <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location} iconclass={iconClass} user={user} condition={condition} />
+      <ItemsModal show={showModal} onHide={() => setShowModal(false)} clickedimages={clickedimages} title={title} description={description} category={category} location={location} iconclass={iconClass} user={user} condition={condition}/>
     </ItemsContainer>
   );
 };

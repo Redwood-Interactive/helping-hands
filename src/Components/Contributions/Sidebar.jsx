@@ -4,7 +4,7 @@ import AddItemModal from './AddItemModal.jsx';
 import LoginPage from '../LoginPage/LoginPage.jsx';
 import LocationPage from '../LoginPage/LocationPage.jsx';
 
-const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, setConditions}) => {
+const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, setConditions }) => {
   const [addItemModal, setAddItemModal] = useState(false);
 
   const handleCategoryChange = (e) => {
