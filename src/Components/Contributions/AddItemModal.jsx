@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap'
 import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf, MidHalf, MainAddress, City, State, ZipCode, TitleContainer, CheckDiv, Title } from '../Contributions/Styles/AddItemModal.style.js';
 import apiCalls from '../../apiCalls.js'
+import {presetName, cloudName} from '../../../config.js'
 
 const AddItemModal = (props) => {
   const [title, setTitle] = useState('')
@@ -13,26 +14,59 @@ const AddItemModal = (props) => {
   const [free, setFree] = useState(false);
   const [image, setImage] = useState('');
 
+  const [imageLocation, setLocalImageLocation] = useState('');
+  const [newImageUrl, setnewImageUrl] = useState('');
+
+
   const submitContribution = (e) => {
     e.preventDefault()
-    let form = {
-      user_id: props.userInfo.id,
-      title: title,
-      c_description: description,
-      category: category,
-      condition: condition,
-      for_free: free,
-      image: image,
-    }
 
-    apiCalls.postContribution(form)
-      .then(() => {
-        console.log('contribution sent!')
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-      props.setAddItemModal(false)
+    console.log(imageLocation)
+
+    const formData = new FormData();
+    formData.append('file', imageLocation);
+    formData.append('upload_preset', presetName.presetName);
+
+    axios.post(`https://api.cloudinary.com/v1_1/${cloudName.cloudName}/image/upload`, formData)
+    .then((response)=>{
+      console.log('response after post to cloudinary',response.data.url)
+      setnewImageUrl(response.data.url)
+
+      let form = {
+        user_id: props.userInfo.id,
+        title: title,
+        c_description: description,
+        category: category,
+        condition: condition,
+        for_free: free,
+        image: newImageUrl ?  newImageUrl : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
+      }
+
+
+
+
+
+
+      axios.post('/getcontributions', form)
+      .then((response) => {
+        console.log('got a res when posting an img to DB', response);
+              })
+        .catch((err) => {
+        console.log('there was an err :(', err);
+        })
+
+
+
+
+    })
+    .catch((error)=>{console.log('received an error', error)})
+
+
+
+
+
+
+
 
 
   }
@@ -97,7 +131,7 @@ const AddItemModal = (props) => {
               <RightSide>
                 <Form.Group controlId="formFileLg" className="mb-3">
                   <Form.Label>Upload your images here</Form.Label>
-                  <Form.Control type="file" size="sm" />
+                  <Form.Control type="file" size="sm" onChange={(e)=>{setLocalImageLocation(e.target.files[0])}}/>
                 </Form.Group>
 
               </RightSide>

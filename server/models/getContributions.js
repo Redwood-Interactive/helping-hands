@@ -27,17 +27,15 @@ module.exports = {
       });
   },
   postContributions: (data) =>{
+    var user_id = data.user_id;
+    var title = data.title;
+    var c_description = data.c_description;
+    var category = data.category;
+    var condition = data.condition;
+    var for_free = data.for_free;
+    var image = data.image;
 
-console.log(data)
-
-  var user_id = data.user_id;
-  var title = data.title;
-  var c_description = data.c_description;
-  var category = data.category;
-  var condition = data.condition;
-  var for_free = data.for_free;
-
-  var query = `
+  var query1 = `
   INSERT INTO contributions
     (user_id,
     title,
@@ -54,16 +52,36 @@ console.log(data)
       '${condition}',
       'true',
       '${for_free}'
-  );
+  ) RETURNING id;
   `;
 
-  return db.query(query)
+  db.query(query1)
   .then((data) => {
-    return data;
+    var contriId = data.rows[0].id;
+
+    var query2=`
+    INSERT INTO photos
+      (contribution_id,
+       photo_url
+    ) VALUES (
+      ${contriId},
+      '${image}'
+    );
+  `;
+
+        db.query(query2)
+          .then((data)=>{return data})
+          .catch((error)=>{console.log(error)})
+
+
   })
   .catch((err) => {
     console.log(err);
   });
+
+
+
+
 
 
   }
