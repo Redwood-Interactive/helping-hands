@@ -31,39 +31,40 @@ const AddItemModal = (props) => {
 
 
 
-const submitContribution = (e) => {
-  e.preventDefault()
+  const submitContribution = (e) => {
+    e.preventDefault()
+    const formData = new FormData();
+    formData.append('file', imageLocation);
+    formData.append('upload_preset', presetName.presetName);
 
-  const formData = new FormData();
-  formData.append('file', imageLocation);
-  formData.append('upload_preset', presetName.presetName);
+    axios.post(`https://api.cloudinary.com/v1_1/${cloudName.cloudName}/image/upload`, formData)
+      .then((response) => {
+        return response.data.url
+      })
+      .catch((error) => { console.log('received an error', error) })
+      .then((photo)=>{
+        let form = {
+          user_id: props.userInfo.id,
+          title: title,
+          c_description: description,
+          category: category,
+          condition: condition,
+          for_free: free,
+          image: photo ? photo : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
+        };
+        return form;
+      })
+      .then((form)=>{
+        axios.post('/getcontributions', form)
+        props.setAddItemModal(false)
+      })
+      .then(()=>{
 
-  axios.post(`https://api.cloudinary.com/v1_1/${cloudName.cloudName}/image/upload`, formData)
-    .then((response) => {
-      setnewImageUrl(response.data.url)
-
-      let form = {
-        user_id: props.userInfo.id,
-        title: title,
-        c_description: description,
-        category: category,
-        condition: condition,
-        for_free: free,
-        image: newImageUrl ? newImageUrl : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
-      }
-
-      axios.post('/getcontributions', form)
-        .then((response) => {
-          props.setAddItemModal(false)
-
-        })
-        .catch((err) => {
-          console.log('there was an err :(', err);
-        })
-    })
-    .catch((error) => { console.log('received an error', error) })
-
-}
+      })
+      .catch((err) => {
+        console.log('there was an err :(', err);
+      })
+  }
 
 
 return (
