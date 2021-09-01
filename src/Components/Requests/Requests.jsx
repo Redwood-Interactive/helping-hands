@@ -7,6 +7,7 @@ import axios from 'axios';
 const Requests = ({ isLoggedIn, userInfo }) => {
   const [data, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     getRequests();
@@ -16,8 +17,13 @@ const Requests = ({ isLoggedIn, userInfo }) => {
     axios.get('/requestsAll')
       .then(res => {
         // console.log(res.data);
-        setData(res.data);
+        transformData(res.data);
       })
+  }
+
+  const transformData = (requests) => {
+    // Here we can transform any data to the proper format
+    setData(requests);
   }
 
   useEffect(() => {
@@ -26,15 +32,19 @@ const Requests = ({ isLoggedIn, userInfo }) => {
     }
   }, [data])
 
+  const loadMore = () => {
+    // console.log('Load more 20 more items');
+  }
+
   return (
     <ContributionsContainer>
       <ContributionTitle>Requests</ContributionTitle>
       <ContainerDiv>
-        <Sidebar />
+        <Sidebar setCategories={setCategories} categories={categories} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
         {isLoaded ? <Items data={data} userinfo={userInfo}/> : null }
       </ContainerDiv>
       <ButtonsDiv>
-        <Button>Load more</Button>
+        <Button onClick={loadMore}>Load more</Button>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>
       </ButtonsDiv>
     </ContributionsContainer>

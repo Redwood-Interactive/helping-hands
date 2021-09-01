@@ -3,7 +3,7 @@ import { ContributionsContainer, ContributionTitle, ContainerDiv, ButtonsDiv, Bu
 import Sidebar from './Sidebar.jsx';
 import Items from './Items.jsx';
 import axios from 'axios';
-import dummyData from '../../dummydata/dummydata.js'
+// import dummyData from '../../dummydata/dummydata.js'
 
 const Contributions = ({ isLoggedIn, userInfo }) => {
   const [data, setData] = useState(null);
