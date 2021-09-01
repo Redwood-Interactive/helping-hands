@@ -571,7 +571,845 @@ for_free
   TRUE
 );
 
+--1
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Truck Tire',
+  'I will let go my favorite truck tire to someone who will better use it',
+  'Furniture',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
 
+--2
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Truck Tire Smoothie',
+  'I will let go my favorite truck tire to someone who will better use it',
+  'Drink',
+  CURRENT_TIMESTAMP,
+  'Like new',
+  TRUE,
+  TRUE
+);
+
+--3
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Truck Tire Trousers',
+  'I will let go my favorite truck tire to someone who will better use it',
+  'Clothing',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--4
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  2,
+  'Wookie shoes',
+  'Like barefoot',
+  'Clothing',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--5
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Old ship, some minor dents',
+  'Runs like a charm, never laser damaged',
+  'Electronic',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--6
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Star Wars Toys',
+  'I am teaching my child a lesson. Giving his toys away.',
+  'Toy',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--7
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Will mow lawn',
+  'I like mowing lawns.',
+  'Service',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--8
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Smart phone',
+  'Works as intended',
+  'Electronic',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--9
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Beer',
+  'Leftover beer from a party',
+  'Drink',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--10
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Couch',
+  'May have bed bugs',
+  'Furniture',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--11
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Baseball glove and bat - no ball',
+  'Some baseball gear from my childhood',
+  'Toy',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--12
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Radio with AM/FM',
+  'Needs power through outlet',
+  'Electronic',
+  CURRENT_TIMESTAMP,
+  'Like new',
+  TRUE,
+  TRUE
+);
+
+--13
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  3,
+  'Powerless Treadmill',
+  'No need for power - just run',
+  'Miscellaneous',
+  CURRENT_TIMESTAMP,
+  'Like new',
+  TRUE,
+  TRUE
+);
+
+--14
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  2,
+  'Sandwiches from Subway',
+  'Eat fresh - limited quantity',
+  'Food',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--15
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  3,
+  'Winter socks',
+  'Protect yourself from the Winter chills',
+  'Clothing',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--16
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  2,
+  'Someone to talk to',
+  'I am here for you. Tell me anything',
+  'Service',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--17
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  3,
+  'Skateboard',
+  'Barely used skateboard - works perfectly',
+  'Toy',
+  CURRENT_TIMESTAMP,
+  'Like new',
+  TRUE,
+  TRUE
+);
+
+--18
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  2,
+  'Herman Miller Aeron',
+  'A little worn but perfect for sitting on all day',
+  'Furniture',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--19
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Grannys Homemade Cookies',
+  'Feel at home with fresh-baked cookies (Limited quantity)',
+  'Food',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--20
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Car',
+  'Got a new car - dont need this one anymore',
+  'Electronic',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--1
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Truck Tire',
+  'I will let go my favorite truck tire to someone who will better use it',
+  'Furniture',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--2
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Truck Tire Smoothie',
+  'I will let go my favorite truck tire to someone who will better use it',
+  'Drink',
+  CURRENT_TIMESTAMP,
+  'Like new',
+  TRUE,
+  TRUE
+);
+
+--3
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Truck Tire Trousers',
+  'I will let go my favorite truck tire to someone who will better use it',
+  'Clothing',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--4
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  2,
+  'Wookie shoes',
+  'Like barefoot',
+  'Clothing',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--5
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Old ship, some minor dents',
+  'Runs like a charm, never laser damaged',
+  'Electronic',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--6
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Star Wars Toys',
+  'I am teaching my child a lesson. Giving his toys away.',
+  'Toy',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--7
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Will mow lawn',
+  'I like mowing lawns.',
+  'Service',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--8
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Smart phone',
+  'Works as intended',
+  'Electronic',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--9
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Beer',
+  'Leftover beer from a party',
+  'Drink',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--10
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Couch',
+  'May have bed bugs',
+  'Furniture',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--11
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Baseball glove and bat - no ball',
+  'Some baseball gear from my childhood',
+  'Toy',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--12
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Radio with AM/FM',
+  'Needs power through outlet',
+  'Electronic',
+  CURRENT_TIMESTAMP,
+  'Like new',
+  TRUE,
+  TRUE
+);
+
+--13
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  3,
+  'Powerless Treadmill',
+  'No need for power - just run',
+  'Miscellaneous',
+  CURRENT_TIMESTAMP,
+  'Like new',
+  TRUE,
+  TRUE
+);
+
+--14
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  2,
+  'Sandwiches from Subway',
+  'Eat fresh - limited quantity',
+  'Food',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--15
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  3,
+  'Winter socks',
+  'Protect yourself from the Winter chills',
+  'Clothing',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--16
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  2,
+  'Someone to talk to',
+  'I am here for you. Tell me anything',
+  'Service',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--17
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  3,
+  'Skateboard',
+  'Barely used skateboard - works perfectly',
+  'Toy',
+  CURRENT_TIMESTAMP,
+  'Like new',
+  TRUE,
+  TRUE
+);
+
+--18
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  2,
+  'Herman Miller Aeron',
+  'A little worn but perfect for sitting on all day',
+  'Furniture',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
+
+--19
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Grannys Homemade Cookies',
+  'Feel at home with fresh-baked cookies (Limited quantity)',
+  'Food',
+  CURRENT_TIMESTAMP,
+  'New',
+  TRUE,
+  TRUE
+);
+
+--20
+INSERT INTO contributions
+(user_id,
+title,
+c_description,
+category,
+c_date,
+condition,
+available,
+for_free
+) VALUES (
+  1,
+  'Car',
+  'Got a new car - dont need this one anymore',
+  'Electronic',
+  CURRENT_TIMESTAMP,
+  'Used',
+  TRUE,
+  TRUE
+);
 
 INSERT INTO photos
 (
