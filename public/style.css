@@ -18,14 +18,13 @@ html, body {
   margin-right: 20px;
   font-size: 20px;
   color: white;
-  border: 1px solid #D45F00;
   background-color: #EB6A00;
   border-radius: 2px;
   padding: 7px;
   cursor: pointer;
-  border-radius: 2px;
   transition: 0.2s ease-in;
   text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
 }
 #profile:hover {

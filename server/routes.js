@@ -1,4 +1,5 @@
-const { newCustomer, postFeedback, getContributions, getUser, requests, getContriForOneUser, getReqForOneUser, updateUserInfo, getAllUsers, getAllReqCount, getAllContriCount } = require('./controllers/index.js');
+
+const { newCustomer, postFeedback, getContributions, getUser, requests, getContriForOneUser, getReqForOneUser, updateUserInfo, getAllUsers, getAllReqCount, getAllContriCount, getUserInfo } = require('./controllers/index.js');
 const router = require('express').Router();
 const passport = require('passport');
 
@@ -6,6 +7,8 @@ const passport = require('passport');
 
 // Database Endpoints:
 router.get('/newcustomer', newCustomer.get);
+
+router.get('/userInfo/:id', getUserInfo.get);
 
 router.put('/updateUserInfo', updateUserInfo.put);
 
