@@ -68,6 +68,7 @@ CREATE TABLE locations (
   city VARCHAR(255) NOT NULL,
   state VARCHAR(2) NOT NULL,
   zipcode INTEGER NOT NULL,
+  UNIQUE(user_id),
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
