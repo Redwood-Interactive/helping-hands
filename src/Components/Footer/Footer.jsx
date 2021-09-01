@@ -1,6 +1,6 @@
 import React from 'react';
 import Feedback from './Feedback/Feedback.jsx'
-import { FooterContainer, LinksContainer, FooterSection, StyledAnchor } from './Styles/Footer.style.js';
+import { FooterContainer, LinksContainer, FooterSection, StyledAnchor} from './Styles/Footer.style.js';
 
 const Footer = () => {
   return (

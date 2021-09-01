@@ -14,7 +14,6 @@ export const FooterContainer = styled.div`
 `;
 
 export const LinksContainer = styled.div`
-
 display: flex;
 justify-content: space-between;
 `;
@@ -24,10 +23,11 @@ margin-right: 55px;
 display: flex;
 flex-direction: column;
 white-space: nowrap
+
 `;
 
 export const StyledAnchor = styled.a`
 text-decoration: none;
 color: black;
-
+transition: 0.2s ease-in;
 `;
