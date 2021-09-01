@@ -131,26 +131,26 @@ return (
             <MainAddress>
               <Form.Group className="mb-3" controlId="MainAddress">
                 <Form.Label>Main Address</Form.Label>
-                <Form.Control type="text" defaultValue={props.userInfo.locations[0].street_name} />
+                <Form.Control type="text" defaultValue={props.userInfo.locations[0].street_name} disabled/>
               </Form.Group>
             </MainAddress>
             <City>
               <Form.Group className="mb-3" controlId="City">
                 <Form.Label>City</Form.Label>
-                <Form.Control type="text" defaultValue={props.userInfo.locations[0].city} />
+                <Form.Control type="text" defaultValue={props.userInfo.locations[0].city} disabled/>
               </Form.Group>
             </City>
             <State>
               <Form.Group className="mb-3" controlId="State">
                 <Form.Label>State</Form.Label>
-                <Form.Control type="text" defaultValue={props.userInfo.locations[0].state} />
+                <Form.Control type="text" defaultValue={props.userInfo.locations[0].state} disabled/>
               </Form.Group>
             </State>
 
             <ZipCode>
               <Form.Group className="mb-3" controlId="ZipCode">
                 <Form.Label>Zip Code</Form.Label>
-                <Form.Control type="text" defaultValue={props.userInfo.locations[0].zipcode} />
+                <Form.Control type="text" defaultValue={props.userInfo.locations[0].zipcode} disabled/>
               </Form.Group>
             </ZipCode>
           </MidHalf>
