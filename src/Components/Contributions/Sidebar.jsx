@@ -3,8 +3,19 @@ import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn
 import AddItemModal from './AddItemModal.jsx'
 import LoginPage from '../LoginPage/LoginPage.jsx'
 
-const Sidebar = ({isLoggedIn}) => {
+const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories}) => {
   const [addItemModal, setAddItemModal] = useState(false);
+
+  const handleCategoryChange = (e) => {
+    const category = e.target.name;
+    if (categories.includes(category)) { // uncheck
+      let newState = [...categories];
+      newState.splice(newState.indexOf(category), 1);
+      setCategories(newState);
+    } else { // check
+      setCategories(prevCategories => [...prevCategories, category]);
+    }
+  }
 
   return (
     <SidebarContainer>
@@ -36,14 +47,14 @@ const Sidebar = ({isLoggedIn}) => {
       <CheckboxDiv>
         <Label>Category</Label>
         <Checkboxes>
-          <CheckSubDiv><Checkbox type="checkbox" id='category1' name='food'/><CheckLabel htmlFor='category1'>Food</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category2' name='drink'/><CheckLabel htmlFor='category2'>Drink</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category3' name='clothing'/><CheckLabel htmlFor='category3'>Clothing</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category4' name='service'/><CheckLabel htmlFor='category4'>Service</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category5' name='furniture'/><CheckLabel htmlFor='category5'>Furniture</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category6' name='electronic'/><CheckLabel htmlFor='category6'>Electronic</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category7' name='toy'/><CheckLabel htmlFor='category7'>Toy</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox type="checkbox" id='category8' name='miscellaneous'/><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category1' name='Food'/><CheckLabel htmlFor='category1'>Food</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category2' name='Drink'/><CheckLabel htmlFor='category2'>Drink</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category3' name='Clothing'/><CheckLabel htmlFor='category3'>Clothing</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category4' name='Service'/><CheckLabel htmlFor='category4'>Service</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category5' name='Furniture'/><CheckLabel htmlFor='category5'>Furniture</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category6' name='Electronic'/><CheckLabel htmlFor='category6'>Electronic</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category7' name='Toy'/><CheckLabel htmlFor='category7'>Toy</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category8' name='Miscellaneous'/><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
       <CheckboxDiv>

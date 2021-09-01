@@ -8,11 +8,15 @@ import dummyData from '../../dummydata/dummydata.js'
 const Contributions = ({ isLoggedIn, userInfo }) => {
   const [data, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     getContributions();
-    // transformData(dummyData.contributions);
   }, [])
+
+  useEffect(() => {
+    console.log('Updated categories:', categories);
+  }, [categories])
 
   const getContributions = () => {
     axios.get('/getcontributions')
@@ -23,7 +27,6 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
 
   const transformData = (contributions) => {
     // Here we can transform any data to the proper format
-    // console.log('Contributions', contributions);
     setData(contributions);
   }
 
@@ -41,8 +44,8 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
     <ContributionsContainer>
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
-        <Sidebar isLoggedIn={isLoggedIn}/>
-        {isLoaded ? <Items data={data} userinfo={userInfo}/> : null}
+        <Sidebar setCategories={setCategories} categories={categories} isLoggedIn={isLoggedIn}/>
+        {isLoaded ? <Items data={data} userinfo={userInfo} categories={categories}/>: null}
       </ContainerDiv>
       <ButtonsDiv>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>
