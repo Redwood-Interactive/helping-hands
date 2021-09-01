@@ -53,7 +53,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
           <SearchBtn onClick={handleSubmitSearch}>Enter</SearchBtn>
         </SearchSubDiv>
       </SearchDiv>
-      <LocationDiv>
+      {/* <LocationDiv>
         <LocationSubDiv>
           <Label>Zipcode</Label>
           <ZipInput placeholder='Enter zipcode...'></ZipInput>
@@ -69,7 +69,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
             <option>40 miles</option>
           </RadiusSelect>
         </LocationSubDiv>
-      </LocationDiv>
+      </LocationDiv> */}
       <CheckboxDiv>
         <Label>Category</Label>
         <Checkboxes>

@@ -21,8 +21,11 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
 
   const getContributions = (pageNum) => {
     axios.get(`/getcontributions?page=${pageNum}`)
-      .then(res => {
+      .then((res) => {
         setData([...data].concat(res.data));
+      })
+      .catch((err) => {
+        console.log(err);
       })
   }
 

@@ -37,7 +37,6 @@ const Items = (props) => {
     } else {
       setNewData(props.data);
     }
-    console.log('newData')
   }, [props.queriedSearch])
 
   return (
