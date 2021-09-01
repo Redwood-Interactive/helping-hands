@@ -26,7 +26,6 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
 
   const handleSubmitSearch = (e) => {
     e.preventDefault();
-    // console.log('submit:', searchQuery)
     setQueriedSearch(searchQuery);
   }
 

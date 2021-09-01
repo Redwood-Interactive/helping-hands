@@ -9,6 +9,8 @@ const Requests = ({ isLoggedIn, userInfo }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [categories, setCategories] = useState([]);
   const [conditions, setConditions] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [queriedSearch, setQueriedSearch] = useState('');
 
   useEffect(() => {
     getRequests();
@@ -19,6 +21,11 @@ const Requests = ({ isLoggedIn, userInfo }) => {
       .then(res => {
         transformData(res.data);
       })
+  }
+
+  const handleSubmitSearch = (e) => {
+    e.preventDefault();
+    setQueriedSearch(searchQuery);
   }
 
   const transformData = (requests) => {
@@ -40,8 +47,8 @@ const Requests = ({ isLoggedIn, userInfo }) => {
     <ContributionsContainer>
       <ContributionTitle>Requests</ContributionTitle>
       <ContainerDiv>
-        <Sidebar setCategories={setCategories} categories={categories} setConditions={setConditions} conditions={conditions} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
-        {isLoaded ? <Items data={data} userinfo={userInfo} categories={categories} conditions={conditions}/>: null}
+        <Sidebar setSearchQuery={setSearchQuery} handleSubmitSearch={handleSubmitSearch} setCategories={setCategories} categories={categories} setConditions={setConditions} conditions={conditions} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
+        {isLoaded ? <Items data={data} userinfo={userInfo} queriedSearch={queriedSearch} categories={categories} conditions={conditions}/>: null}
       </ContainerDiv>
       <ButtonsDiv>
         <Button onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}>Go to top</Button>

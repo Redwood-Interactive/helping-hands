@@ -34,7 +34,7 @@ const Items = (props) => {
 
   useEffect(() => {
     if (props.queriedSearch.length) {
-      setNewData([...newData].filter(item => item.title.toLowerCase().includes(props.queriedSearch.toLowerCase())));
+      setNewData([...props.data].filter(item => item.title.toLowerCase().includes(props.queriedSearch.toLowerCase())));
     } else {
       setNewData(props.data);
     }
