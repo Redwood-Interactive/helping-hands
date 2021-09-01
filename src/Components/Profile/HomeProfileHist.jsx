@@ -9,11 +9,13 @@ const HomeProfileHist = ({ userInfo }) => {
   const [showContributions, setContributions] = useState(true);
   const [allContributions, setAllContributions] = useState([]);
   const [allRequests, setAllRequests] = useState([]);
+  const [itemRemoved, setRemoved] = useState(0);
 
   useEffect(() => {
     function contributions() {
       axios.get(`/getAllContriForOneUser?user_id=${userInfo.id}`)
       .then((res) => {
+        console.log('getting infooooo')
         setAllContributions(res.data);
       })
       .catch((err) => {
@@ -33,7 +35,7 @@ const HomeProfileHist = ({ userInfo }) => {
 
     requests();
     contributions();
-  }, [])
+  }, [itemRemoved])
 
   const showContri = () => {
     setContributions(true);
@@ -41,6 +43,28 @@ const HomeProfileHist = ({ userInfo }) => {
 
   const showReqs = () => {
     setContributions(false);
+  }
+
+  const removeContri = (contriID) => {
+    console.log('lets remove', contriID)
+    axios.put(`/removeContri?contri_id=${contriID}`)
+    .then((res) => {
+      console.log('success')
+    })
+    .catch((err) => {
+      console.log('there was an error!: ', err)
+    })
+  }
+
+  const removeReq = (reqID) => {
+    console.log('lets remove req', reqID)
+    axios.put(`/removeReq?req_id=${reqID}`)
+    .then((res) => {
+      console.log('success')
+    })
+    .catch((err) => {
+      console.log('there was an error!: ', err)
+    })
   }
 
   return (
@@ -51,7 +75,7 @@ const HomeProfileHist = ({ userInfo }) => {
           <ContriButton selected={showContributions} onClick={showContri}>Contributions</ContriButton>
           <ReqButton selected={showContributions} onClick={showReqs}>Requests</ReqButton>
         </ButtonWrapper>
-        {showContributions ? <AllUserContri contributions={allContributions}/> : <AllUserReqs requests={allRequests}/>}
+        {showContributions ? <AllUserContri contributions={allContributions} removeContri={removeContri}/> : <AllUserReqs requests={allRequests} removeReq={removeReq}/>}
       </HistoryContainer>
     </ProfileHistContainer>
   );
