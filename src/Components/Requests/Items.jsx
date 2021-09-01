@@ -33,35 +33,70 @@ const Items = (props) => {
   return (
     <ItemsContainer>
       <ItemsProducts>
-        {props.data ? props.data.map((item, index) =>
-          <Item key={index} onClick={() => {
-            setShowModal(true)
-            setTitle(item.title)
-            setDescription(item.r_description)
-            setCategory(item.category)
-            setLocation(item.location.city + ', ' + item.location.state)
-            setClass(icons[item.category])
-            setUser(item.user)
-            setCondition(item.condition)
-          }}>
-            {/* {console.log(item.user)} */}
-            <ImageDiv>
-              <ItemIconDiv>
-                <ItemIcon className={icons[item.category]}></ItemIcon>
-              </ItemIconDiv>
-            </ImageDiv>
-            <TextDiv>
-              <Title>{item.title}</Title>
-              <AnotherDiv>
-                <Location>{item.location.city}, {item.location.state}</Location>
-                <BottomRow>
-                  <Time>{item.r_date.slice(0, 10)}</Time>
-                  <CategoryName>{item.category}</CategoryName>
-                </BottomRow>
-              </AnotherDiv>
-            </TextDiv>
-          </Item>
-        ): null}
+        {props.data ?
+          props.categories.length === 0 ? props.data.map((item, index) => {
+            return (
+              <Item key={index} onClick={() => {
+                setShowModal(true)
+                setTitle(item.title)
+                setDescription(item.r_description)
+                setCategory(item.category)
+                setLocation(item.location.city + ', ' + item.location.state)
+                setClass(icons[item.category])
+                setUser(item.user)
+                setCondition(item.condition)
+              }}>
+                <ImageDiv>
+                  <ItemIconDiv>
+                    <ItemIcon className={icons[item.category]}></ItemIcon>
+                  </ItemIconDiv>
+                </ImageDiv>
+                <TextDiv>
+                  <Title>{item.title}</Title>
+                  <AnotherDiv>
+                    <Location>{item.location.city}, {item.location.state}</Location>
+                    <BottomRow>
+                      <Time>{item.r_date.slice(0, 10)}</Time>
+                      <CategoryName>{item.category}</CategoryName>
+                    </BottomRow>
+                  </AnotherDiv>
+                </TextDiv>
+              </Item>
+            )
+          }) :
+          props.data.map((item, index) => {
+            if (props.categories.indexOf(item.category) !== -1) {
+              return (
+                <Item key={index} onClick={() => {
+                  setShowModal(true)
+                  setTitle(item.title)
+                  setDescription(item.r_description)
+                  setCategory(item.category)
+                  setLocation(item.location.city + ', ' + item.location.state)
+                  setClass(icons[item.category])
+                  setUser(item.user)
+                  setCondition(item.condition)
+                }}>
+                  <ImageDiv>
+                    <ItemIconDiv>
+                      <ItemIcon className={icons[item.category]}></ItemIcon>
+                    </ItemIconDiv>
+                  </ImageDiv>
+                  <TextDiv>
+                    <Title>{item.title}</Title>
+                    <AnotherDiv>
+                      <Location>{item.location.city}, {item.location.state}</Location>
+                      <BottomRow>
+                        <Time>{item.r_date.slice(0, 10)}</Time>
+                        <CategoryName>{item.category}</CategoryName>
+                      </BottomRow>
+                    </AnotherDiv>
+                  </TextDiv>
+                </Item>
+              )
+            }
+          })
+        : null}
       </ItemsProducts>
       <ItemsModal show={showModal} onHide={() => setShowModal(false)} title={title} description={description} category={category} location={location} iconclass={iconClass} user={user} condition={condition}/>
     </ItemsContainer>

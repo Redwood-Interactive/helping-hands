@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap'
+import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap';
 import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf } from '../Contributions/Styles/AddItemModal.style.js';
 
 const AddItemModal = (props) => {
@@ -25,7 +25,6 @@ const AddItemModal = (props) => {
          })
   }
 
-
   return (
 
     <Modal
@@ -36,7 +35,6 @@ const AddItemModal = (props) => {
     >
 
       <Modal.Body>
-
         <Form>
           <FormContainer>
             <UpperHalf>
@@ -98,8 +96,6 @@ const AddItemModal = (props) => {
             Submit
           </Button>
         </Form>
-
-
 
       </Modal.Body>
       <Modal.Footer>

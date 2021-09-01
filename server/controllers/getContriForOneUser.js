@@ -6,7 +6,6 @@ module.exports = {
     let userID = queryParams.user_id;
     getAllContriForOneUser.getAllContriForOneUser(userID)
       .then((data) => {
-        console.log('successful controller get all contributions for one user');
         res.send(data.rows);
       })
       .catch((err) => {
