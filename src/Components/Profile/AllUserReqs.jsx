@@ -18,26 +18,48 @@ const AllUserRequests = ( { requests, removeReq } ) => {
     <ItemsContainer>
       <ItemsProducts>
         {requests.map((item, index) => {
-
-          return (
-          <Item key={item.id}>
-            <ImageDiv>
-              <RemoveIcon className="fas fa-times fa-2x" onClick={removeReq.bind(null, item.id)}></RemoveIcon>
-              <ItemIconDiv>
-              <ItemIcon className={icons[item.category]}></ItemIcon>
-              </ItemIconDiv>
-            </ImageDiv>
-            <TextDiv>
-              <Title>{item.title}</Title>
-              <AnotherDiv>
-                <Location>{item.location.city}, {item.location.state}</Location>
-                <BottomRow>
-                  <Time>{item.r_date.slice(0, 10)}</Time>
-                  <CategoryName>{item.category}</CategoryName>
-                </BottomRow>
-              </AnotherDiv>
-            </TextDiv>
-          </Item> )
+          if (item.available) {
+            return (
+            <Item key={item.id}>
+              <ImageDiv>
+                <RemoveIcon className="fas fa-times fa-2x" onClick={removeReq.bind(null, item.id)}></RemoveIcon>
+                <ItemIconDiv>
+                <ItemIcon className={icons[item.category]}></ItemIcon>
+                </ItemIconDiv>
+              </ImageDiv>
+              <TextDiv>
+                <Title>{item.title}</Title>
+                <AnotherDiv>
+                  <Location>{item.location.city}, {item.location.state}</Location>
+                  <BottomRow>
+                    <Time>{item.r_date.slice(0, 10)}</Time>
+                    <CategoryName>{item.category}</CategoryName>
+                  </BottomRow>
+                </AnotherDiv>
+                <div>Status: Active</div>
+              </TextDiv>
+            </Item> )
+          } else {
+            return (
+              <Item key={item.id}>
+                <ImageDiv>
+                  <ItemIconDiv>
+                  <ItemIcon className={icons[item.category]}></ItemIcon>
+                  </ItemIconDiv>
+                </ImageDiv>
+                <TextDiv>
+                  <Title>{item.title}</Title>
+                  <AnotherDiv>
+                    <Location>{item.location.city}, {item.location.state}</Location>
+                    <BottomRow>
+                      <Time>{item.r_date.slice(0, 10)}</Time>
+                      <CategoryName>{item.category}</CategoryName>
+                    </BottomRow>
+                  </AnotherDiv>
+                  <div>Status: Fulfilled</div>
+                </TextDiv>
+              </Item> )
+          }
         }
         )}
       </ItemsProducts>

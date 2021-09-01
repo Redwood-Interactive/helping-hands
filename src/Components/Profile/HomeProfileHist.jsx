@@ -15,7 +15,6 @@ const HomeProfileHist = ({ userInfo }) => {
     function contributions() {
       axios.get(`/getAllContriForOneUser?user_id=${userInfo.id}`)
       .then((res) => {
-        console.log('getting infooooo')
         setAllContributions(res.data);
       })
       .catch((err) => {
@@ -46,10 +45,9 @@ const HomeProfileHist = ({ userInfo }) => {
   }
 
   const removeContri = (contriID) => {
-    console.log('lets remove', contriID)
     axios.put(`/removeContri?contri_id=${contriID}`)
     .then((res) => {
-      console.log('success')
+      setRemoved(itemRemoved + 1);
     })
     .catch((err) => {
       console.log('there was an error!: ', err)
@@ -57,10 +55,9 @@ const HomeProfileHist = ({ userInfo }) => {
   }
 
   const removeReq = (reqID) => {
-    console.log('lets remove req', reqID)
     axios.put(`/removeReq?req_id=${reqID}`)
     .then((res) => {
-      console.log('success')
+      setRemoved(itemRemoved + 1);
     })
     .catch((err) => {
       console.log('there was an error!: ', err)

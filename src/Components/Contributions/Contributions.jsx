@@ -18,7 +18,6 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
   const getContributions = () => {
     axios.get('/getcontributions')
       .then(res => {
-        console.log('get contri within contributions', res.data)
         transformData(res.data);
       })
   }

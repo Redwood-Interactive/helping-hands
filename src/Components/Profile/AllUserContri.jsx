@@ -19,19 +19,38 @@ const AllUserContributions = ( { contributions, removeContri } ) => {
       <ItemsProducts>
         {contributions.map((item, index) => {
 
-          return ( <Item key={item.id}>
-            <ImageDiv>
-              <RemoveIcon className="fas fa-times fa-2x" onClick={removeContri.bind(null, item.id)}></RemoveIcon>
-              <ItemImage src={item.photos[0]}/>
-              <CategoryDiv></CategoryDiv>
-              <CategoryIcon className={icons[item.category]}></CategoryIcon>
-            </ImageDiv>
-            <TextDiv>
-              <Title>{item.title}</Title>
-              <Location>{item.location.city}, {item.location.state}</Location>
-              <Time>{item.c_date}</Time>
-            </TextDiv>
-          </Item> )
+          if (item.available) {
+            return ( <Item key={item.id}>
+              <ImageDiv>
+                <RemoveIcon className="fas fa-times fa-2x" onClick={removeContri.bind(null, item.id)}></RemoveIcon>
+                <ItemImage src={item.photos[0]}/>
+                <CategoryDiv></CategoryDiv>
+                <CategoryIcon className={icons[item.category]}></CategoryIcon>
+              </ImageDiv>
+              <TextDiv>
+                <Title>{item.title}</Title>
+                <Location>{item.location.city}, {item.location.state}</Location>
+                <Time>{item.c_date}</Time>
+                <div>Status: Active</div>
+              </TextDiv>
+            </Item> )
+
+          } else {
+            return ( <Item key={item.id}>
+              <ImageDiv>
+                <ItemImage src={item.photos[0]}/>
+                <CategoryDiv></CategoryDiv>
+                <CategoryIcon className={icons[item.category]}></CategoryIcon>
+              </ImageDiv>
+              <TextDiv>
+                <Title>{item.title}</Title>
+                <Location>{item.location.city}, {item.location.state}</Location>
+                <Time>{item.c_date}</Time>
+                <div>Status: Fulfilled</div>
+              </TextDiv>
+            </Item> )
+          }
+
         }
         )}
       </ItemsProducts>
