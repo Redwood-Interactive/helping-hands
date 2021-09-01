@@ -6,23 +6,24 @@ import apiCalls from '../../apiCalls.js';
 import { presetName, cloudName } from '../../../config.js';
 
 const AddItemModal = (props) => {
-  console.log(props.userInfo)
+  console.log(props)
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [condition, setCondition] = useState('')
-  const [location, setLocation] = useState('')
+  const [streetName, setStreetName] = useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
+  const [zipCode, setZipCode] = useState('')
   const [description, setDescription] = useState('')
-  const [free, setFree] = useState(false);
+  const [free, setFree] = useState(true);
   const [image, setImage] = useState('');
-
   const [imageLocation, setLocalImageLocation] = useState('');
   const [newImageUrl, setnewImageUrl] = useState('');
 
 
+
   const submitContribution = (e) => {
     e.preventDefault()
-
-    console.log(imageLocation)
 
     const formData = new FormData();
     formData.append('file', imageLocation);
@@ -39,6 +40,10 @@ const AddItemModal = (props) => {
           c_description: description,
           category: category,
           condition: condition,
+          street_name: streetName,
+          city: city,
+          state: state,
+          zipcode: zipCode,
           for_free: free,
           image: newImageUrl ? newImageUrl : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
         }
@@ -46,12 +51,14 @@ const AddItemModal = (props) => {
         axios.post('/getcontributions', form)
           .then((response) => {
             console.log('got a res when posting an img to DB', response);
+
           })
           .catch((err) => {
             console.log('there was an err :(', err);
           })
       })
       .catch((error) => { console.log('received an error', error) })
+      props.setAddItemModal(false)
   }
 
 
@@ -120,26 +127,26 @@ const AddItemModal = (props) => {
               <MainAddress>
                 <Form.Group className="mb-3" controlId="MainAddress">
                   <Form.Label>Main Address</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations.street_name} />
+                  <Form.Control type="text" defaultValue={props.userInfo.locations.street_name} onChange={(e) => setStreetName(e.target.value)} />
                 </Form.Group>
               </MainAddress>
               <City>
                 <Form.Group className="mb-3" controlId="City">
                   <Form.Label>City</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations.city} />
+                  <Form.Control type="text" defaultValue={props.userInfo.locations.city} onChange={(e) => setCity(e.target.value)} />
                 </Form.Group>
               </City>
               <State>
                 <Form.Group className="mb-3" controlId="State">
                   <Form.Label>State</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations.state} />
+                  <Form.Control type="text" defaultValue={props.userInfo.locations.state} onChange={(e) => setState(e.target.value)} />
                 </Form.Group>
               </State>
 
               <ZipCode>
                 <Form.Group className="mb-3" controlId="ZipCode">
                   <Form.Label>Zip Code</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations.zipcode} />
+                  <Form.Control type="text" defaultValue={props.userInfo.locations.zipcode} onChange={(e) => setZipCode(e.target.value)} />
                 </Form.Group>
               </ZipCode>
             </MidHalf>

@@ -4,7 +4,7 @@ import AddItemModal from './AddItemModal.jsx';
 import LoginPage from '../LoginPage/LoginPage.jsx';
 import LocationPage from '../LoginPage/LocationPage.jsx';
 
-const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, setConditions}) => {
+const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, setConditions }) => {
   const [addItemModal, setAddItemModal] = useState(false);
 
   const handleCategoryChange = (e) => {
@@ -83,9 +83,9 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, 
       <CheckboxDiv>
         <Label>Condition</Label>
         <Checkboxes>
-          <CheckSubDiv><Checkbox onChange={handleConditionChange} type="checkbox" id='condition1' name='new' /><CheckLabel htmlFor='condition1'>New</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox onChange={handleConditionChange} type="checkbox" id='condition2' name='likeNew' /><CheckLabel htmlFor='condition2'>Like new</CheckLabel></CheckSubDiv>
-          <CheckSubDiv><Checkbox onChange={handleConditionChange} type="checkbox" id='condition3' name='used' /><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleConditionChange} type="checkbox" id='condition1' name='New' /><CheckLabel htmlFor='condition1'>New</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleConditionChange} type="checkbox" id='condition2' name='Like new' /><CheckLabel htmlFor='condition2'>Like new</CheckLabel></CheckSubDiv>
+          <CheckSubDiv><Checkbox onChange={handleConditionChange} type="checkbox" id='condition3' name='Used' /><CheckLabel htmlFor='condition3'>Used</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
       {/* <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} /> */}
