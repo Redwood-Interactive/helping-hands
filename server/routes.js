@@ -34,6 +34,10 @@ router.get('/requestsAll', requests.get)
 
 router.post('/requestsAll', requests.post)
 
+router.put('/removeContri', getContriForOneUser.put);
+
+router.put('/removeReq', getReqForOneUser.put);
+
 
 
 //AUTHENTICATION

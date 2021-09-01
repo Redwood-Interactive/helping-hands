@@ -32,13 +32,10 @@ export const HomeProfileImg = styled.img`
   object-fit: cover;
 `;
 
+export const RemoveIcon = styled.i`
+  position: absolute;
+  left: 195px;
+  top: 5px;
+  z-index: 2;
+`;
 
-
-// display: flex;
-//     flex-direction: row;
-//     justify-content: center;
-
-// user name etc
-// width: 300px;
-// text-align: center;
-// margin-top: 15px;

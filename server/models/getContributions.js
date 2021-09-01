@@ -15,7 +15,7 @@ module.exports = {
       GROUP BY contributions.id, users.id, locations.street_name, locations.city, locations.state, locations.zipcode
       ORDER BY contributions.c_date DESC
       LIMIT 20
-      OFFSET $1
+      OFFSET ($1)
     `;
 
     return db.query(query, values)

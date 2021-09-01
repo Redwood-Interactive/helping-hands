@@ -62,3 +62,9 @@ export const ProfileIcon = styled.div`
   width: 50px;
   height: 50px;
 `;
+
+export const DropdownMenu = styled.div`
+  position: relative;
+  height: 100px;
+  overflowY: scroll;
+`;
