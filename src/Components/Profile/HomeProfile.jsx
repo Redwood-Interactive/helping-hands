@@ -8,7 +8,7 @@ const HomeProfile = ({isLoggedIn, userInfo}) => {
 
   return (
     <div>
-    {isLoggedIn ? <HomeProfileContainer className="outermost">
+    {Object.keys(userInfo).length !== 0 ? <HomeProfileContainer className="outermost">
     <HomeProfileContainer className="outermost"></HomeProfileContainer>
       <ProfileInfoContainer>
         <Link id='link' className="settingsWrapper" to={{

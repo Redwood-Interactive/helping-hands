@@ -13,6 +13,11 @@ module.exports = {
         WHERE id = ($6)
         )
         INSERT INTO locations (user_id, street_name, city, state, zipcode) VALUES ($6, $7, $8, $9, $10)
+        ON CONFLICT (user_id) DO UPDATE
+          SET street_name = ($7),
+              city = ($8),
+              state = ($9),
+              zipcode = ($10)
         `,
       values: [user.first_name, user.last_name, user.email, user.phone, user.profile_pic, user.id, street_name, city, state, zipcode]
     }

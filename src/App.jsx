@@ -63,7 +63,7 @@ const App = () => {
               <HomeProfile isLoggedIn={isLoggedIn} userInfo={userInfo} />
             </Route>
             <Route exact path="/settings">
-              <Settings isLoggedIn={isLoggedIn} userInfo={userInfo}
+              <Settings isLoggedIn={isLoggedIn} userInfo={userInfo} getUpdatedUser={getUpdatedUser}
               />
             </Route>
             </Suspense>
