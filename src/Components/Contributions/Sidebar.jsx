@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from './Styles/Sidebar.style.js';
 import AddItemModal from './AddItemModal.jsx';
 import LoginPage from '../LoginPage/LoginPage.jsx';
@@ -6,6 +6,9 @@ import LocationPage from '../LoginPage/LocationPage.jsx';
 
 const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, setConditions }) => {
   const [addItemModal, setAddItemModal] = useState(false);
+
+
+
 
   const handleCategoryChange = (e) => {
     const category = e.target.name;
@@ -31,7 +34,10 @@ const Sidebar = ({ isLoggedIn, userInfo, categories, setCategories, conditions, 
 
   const modalRender = () => {
     // change this back to isLoggedIn && userInfo.locations[0].street_name
-    if (isLoggedIn) {
+    if (Object.keys(userInfo).length === 0) {
+      return null;
+    }
+    if (isLoggedIn && userInfo.locations[0].street_name) {
       return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
     } else if (!isLoggedIn) {
       return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
