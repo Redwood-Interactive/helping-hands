@@ -21,8 +21,11 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
 
   const getContributions = (pageNum) => {
     axios.get(`/getcontributions?page=${pageNum}`)
-      .then(res => {
+      .then((res) => {
         setData([...data].concat(res.data));
+      })
+      .catch((err) => {
+        console.log(err);
       })
   }
 
@@ -47,7 +50,7 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
     <ContributionsContainer>
       <ContributionTitle>Contributions</ContributionTitle>
       <ContainerDiv>
-        <Sidebar getContributions={getContributions} setSearchQuery={setSearchQuery} handleSubmitSearch={handleSubmitSearch} setCategories={setCategories} categories={categories} setConditions={setConditions} conditions={conditions} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
+        <Sidebar setSearchQuery={setSearchQuery} handleSubmitSearch={handleSubmitSearch} setCategories={setCategories} categories={categories} setConditions={setConditions} conditions={conditions} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
         {isLoaded ? <Items data={data} userinfo={userInfo} queriedSearch={queriedSearch} categories={categories} conditions={conditions}/>: null}
       </ContainerDiv>
       <ButtonsDiv>

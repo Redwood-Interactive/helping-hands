@@ -4,7 +4,7 @@ import AddItemModal from './AddItemModal.jsx';
 import LoginPage from '../LoginPage/LoginPage.jsx';
 import LocationPage from '../LoginPage/LocationPage.jsx';
 
-const Sidebar = ({ getContributions, isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, categories, setCategories, conditions, setConditions }) => {
+const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, categories, setCategories, conditions, setConditions }) => {
   const [addItemModal, setAddItemModal] = useState(false);
 
   const handleCategoryChange = (e) => {
@@ -35,7 +35,7 @@ const Sidebar = ({ getContributions, isLoggedIn, userInfo, setSearchQuery, handl
       return null;
     }
     if (isLoggedIn && userInfo.locations[0].street_name) {
-      return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal} getContributions={getContributions}/>
+      return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
     } else if (!isLoggedIn) {
       return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
     } else if (userInfo.locations[0].street_name === undefined || userInfo.locations[0].street_name === null) {

@@ -5,8 +5,8 @@ export const StatsBlockContainer = styled.div`
   height: 200px;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
   align-items: center;
+  margin-bottom: 50px;
 `;
 
 //leave the semicolon off of color here adding it will break something
@@ -21,11 +21,11 @@ export const StatsBlockTray = styled.div`
   grid-gap: 30px;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
+
 `;
 
 export const StatsBlockCounter = styled.div`
   color: black;
-  padding: 40px 20px;
   display: grid;
   grid-gap: 30px;
   text-align: center;
