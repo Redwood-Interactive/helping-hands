@@ -3,7 +3,6 @@ const db = require('../../database/index.js');
 
 module.exports = {
   getAllRequests: (data) => {
-    console.log('page in model', data.page)
     var page = data.page * 20 || 0
     var values = [page]
     var query = `
