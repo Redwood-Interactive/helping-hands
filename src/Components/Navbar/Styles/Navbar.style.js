@@ -16,7 +16,7 @@ export const NavbarContainer = styled.div`
 
 export const Logo = styled.img`
   position: relative;
-  left: 175px;
+  left: 50px;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -30,7 +30,8 @@ export const NavbarList = styled.ul`
   height: 100%;
   width: 100%;
   align-items: center;
-  right: 150px;
+  right: 50px;
+  top: 7px;
 `;
 
 export const NavbarListItem = styled.li`
