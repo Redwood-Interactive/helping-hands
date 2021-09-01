@@ -5,32 +5,28 @@ import Items from './Items.jsx';
 import axios from 'axios';
 
 const Requests = ({ isLoggedIn, userInfo }) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [categories, setCategories] = useState([]);
   const [conditions, setConditions] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [queriedSearch, setQueriedSearch] = useState('');
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
-    getRequests();
-  }, [])
+    getRequests(page);
+  }, [page])
 
-  const getRequests = () => {
-    axios.get('/requestsAll')
+  const getRequests = (pageNum) => {
+    axios.get(`/requestsAll?page=${pageNum}`)
       .then(res => {
-        transformData(res.data);
+        setData([...data].concat(res.data));
       })
   }
 
   const handleSubmitSearch = (e) => {
     e.preventDefault();
     setQueriedSearch(searchQuery);
-  }
-
-  const transformData = (requests) => {
-    // Here we can transform any data to the proper format
-    setData(requests);
   }
 
   useEffect(() => {
@@ -40,7 +36,9 @@ const Requests = ({ isLoggedIn, userInfo }) => {
   }, [data])
 
   const loadMore = () => {
-    // console.log('Load more 20 more items');
+    var newPage = page;
+    newPage = newPage + 1;
+    setPage(newPage);
   }
 
   return (

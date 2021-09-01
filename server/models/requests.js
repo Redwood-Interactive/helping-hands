@@ -3,6 +3,7 @@ const db = require('../../database/index.js');
 
 module.exports = {
   getAllRequests: (data) => {
+    console.log('page in model', data.page)
     var page = data.page * 20 || 0
     var values = [page]
     var query = `
@@ -12,8 +13,9 @@ module.exports = {
       LEFT JOIN locations ON requests.user_id = locations.user_id
       WHERE requests.available = true
       GROUP BY requests.id, users.id, locations.street_name, locations.city, locations.state, locations.zipcode
+      ORDER BY requests.r_date DESC
       LIMIT 20
-      OFFSET $1
+      OFFSET ($1)
     `;
 
     return db.query(query, values)

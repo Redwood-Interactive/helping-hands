@@ -14,13 +14,9 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
   const [queriedSearch, setQueriedSearch] = useState('');
   const [page, setPage] = useState(0);
 
-  // useEffect(() => {
-  //   getContributions(0);
-  // }, [])
 
   useEffect(() => {
     getContributions(page);
-    console.log('PAge:', page);
   }, [page])
 
   const getContributions = (pageNum) => {
@@ -42,7 +38,6 @@ const Contributions = ({ isLoggedIn, userInfo }) => {
   }, [data])
 
   const loadMore = () => {
-    // console.log('Load more 20 more items');
     var newPage = page;
     newPage = newPage + 1;
     setPage(newPage);
