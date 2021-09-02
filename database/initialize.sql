@@ -259,6 +259,42 @@ INSERT INTO users
   '114799463748278374395'
 );
 
+INSERT INTO users
+(first_name,
+  last_name,
+  current_rating,
+  email,
+  phone,
+  profile_pic,
+  auth_id
+) VALUES (
+  'Seiji',
+  'Matsumoto',
+  5,
+  'seijim27@gmail.com',
+  9168345346,
+  'https://lh3.googleusercontent.com/a-/AOh14Gj5caPJe9RjTJcjW1xkQQQDWSjjZgv0FyF8-2X6k9M=s96-c',
+  '101778420426767501483'
+);
+
+INSERT INTO users
+(first_name,
+  last_name,
+  current_rating,
+  email,
+  phone,
+  profile_pic,
+  auth_id
+) VALUES (
+  'Christian',
+  'Gazmo',
+  5,
+  'christiangazmo@gmail.com',
+  4158345346,
+  'https://lh3.googleusercontent.com/a/AATXAJyo4T_nP-SLfMxAI77W287MZBSh0wbrz7WdbZXC=s96-c',
+  '117688055649015924743'
+);
+
 --1
 INSERT INTO contributions
 (user_id,
