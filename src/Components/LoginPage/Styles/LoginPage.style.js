@@ -36,14 +36,6 @@ export const GoogleSvg = styled.svg `
   padding-left: 10px;
 `;
 
-export const LocationLogo = styled.img `
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
-`;
-
-export const LocationIcon = styled.i `
-
-`;
+export const LocationIcon = styled.i ``;
 
 

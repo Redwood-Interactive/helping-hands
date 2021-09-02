@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap'
-import { NotLoggedInContainer, ClickGoogle, AlertText, ClickBtn, GoogleSvg, LocationLogo, LocationIcon } from './Styles/LoginPage.style';
+import { NotLoggedInContainer, ClickGoogle, AlertText, ClickBtn, GoogleSvg, LocationIcon } from './Styles/LoginPage.style';
 
 const LocationPage = (props) => {
 
@@ -14,7 +14,7 @@ const LocationPage = (props) => {
       centered
     >
       <NotLoggedInContainer >
-        <LocationLogo src='newLogo.png' />
+
 
         <ClickGoogle onClick={() => { window.location = '/settings' }}>
           <LocationIcon className='fas fa-map-marked-alt'></LocationIcon>
