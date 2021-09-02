@@ -131,7 +131,7 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser}) => {
     if (!validator.isPostalCode(zipcode)) {
       return false;
     }
-    
+
     if (!validator.isMobilePhone(phone)) {
       return false;
     }

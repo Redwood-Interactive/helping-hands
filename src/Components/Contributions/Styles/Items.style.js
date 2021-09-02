@@ -5,6 +5,7 @@ export const ItemsContainer = styled.div `
   flex-direction: column;
   align-items: center;
   position: relative;
+  top: 20px;
 `;
 
 export const ItemsProducts = styled.div `
