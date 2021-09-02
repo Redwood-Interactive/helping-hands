@@ -134,7 +134,7 @@ const AddItemModal = (props) => {
             <LowerHalf>
               <Form.Group className="mb-3" controlId="formBasicDescription">
                 <Form.Label>Description</Form.Label>
-                <Form.Control as="textarea" type="Description" required placeholder="Description" style={{ height: '100px' }} />
+                <Form.Control as="textarea" type="Description" required placeholder="Description" style={{ height: '100px' }} onChange={(e) => setDescription(e.target.value)}/>
                 <Form.Control.Feedback type='invalid'>
                   Description required.
                 </Form.Control.Feedback>

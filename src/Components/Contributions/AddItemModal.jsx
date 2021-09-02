@@ -39,10 +39,8 @@ const AddItemModal = (props) => {
 
 
         if(imageLocation) {
-
           var arrayOfPromises = []
           let filesArray = Array.from(imageLocation)
-          console.log(filesArray)
           for (var i =0; i<filesArray.length; i++) {
             let fileItem = filesArray[i]
             const formData = new FormData();
@@ -96,6 +94,8 @@ const AddItemModal = (props) => {
 
           axios.post('/getcontributions', form)
           .then(()=>{
+            props.setAddItemModal(false)
+            window.open('/contributions', '_self'); // uncomment this one when finished
           })
           .catch((error)=>{console.log(error)})
         }
