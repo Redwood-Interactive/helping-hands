@@ -11,6 +11,13 @@ export const SidebarContainer = styled.div`
   padding: 20px;
 `;
 
+export const Title = styled.div`
+  width: 100%;
+  font-size: 35px;
+  text-align: left;
+  border-bottom: 2px solid black;
+`;
+
 export const AddBtn = styled.div`
   width: 210px;
   height: 70px;
@@ -18,17 +25,20 @@ export const AddBtn = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 1px solid black;
+  position: relative;
   font-size: ${props => props.font};
   cursor: pointer;
   background-color: #f7f7f7;
   &:hover {
     background-color: #e5eae5;
   }
+  margin-top: 15px;
+  margin-bottom: 25px;
 `;
 
 export const SearchDiv = styled.form`
-  margin: 25px 50px;
+  margin-top: 15px;
   width: 210px;
   display: flex;
   flex-direction: column;

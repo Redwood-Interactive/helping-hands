@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from './Styles/Sidebar.style.js';
+import { Title, SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from './Styles/Sidebar.style.js';
 import AddItemModal from './AddItemModal.jsx';
 import LoginPage from '../LoginPage/LoginPage.jsx';
 import LocationPage from '../LoginPage/LocationPage.jsx';
@@ -53,7 +53,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
 
   return (
     <SidebarContainer height={sidebarHeight}>
-      <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
+      <Title>Contributions</Title>
       <SearchDiv>
         <Label>Search</Label>
         <SearchSubDiv>
@@ -61,6 +61,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
           <SearchBtn onClick={handleSubmitSearch}>Enter</SearchBtn>
         </SearchSubDiv>
       </SearchDiv>
+      <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
       {/* <LocationDiv>
         <LocationSubDiv>
           <Label>Zipcode</Label>
