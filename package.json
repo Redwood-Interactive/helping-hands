@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "watch": "npx webpack",
+    "build": "webpack --watch",
     "start": "nodemon server/server.js",
     "buildDB": "psql template1 < ./database/initialize.sql"
   },
