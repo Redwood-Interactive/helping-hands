@@ -22,7 +22,7 @@ const StatsBlock = (props) => {
             setNumContributions('' + results.data[0].count);
 
             var counters = document.querySelectorAll('.stats-block-number');
-            var speed = 1.25;
+            var speed = 1000;
             counters.forEach(counter => {
               const updateCount = () => {
                 const target = +counter.getAttribute('value');
