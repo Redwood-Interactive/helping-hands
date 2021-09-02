@@ -7,8 +7,7 @@
     "test": "test",
     "watch": "npx webpack",
     "start": "nodemon server/server.js",
-    "buildDB": "psql template1 < ./database/initialize.sql",
-    "build": "npx webpack --mode production"
+    "buildDB": "psql template1 < ./database/initialize.sql"
   },
   "repository": {
     "type": "git",
