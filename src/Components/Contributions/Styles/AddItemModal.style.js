@@ -54,10 +54,11 @@ export const TitleContainer = styled.div`
 
 export const CheckDiv = styled.div`
   margin-top: 37px;
+  margin-left: 10px;
 `;
 
 export const Title = styled.div`
-  
+
 `
 
 
