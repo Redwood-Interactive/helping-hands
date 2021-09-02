@@ -28,6 +28,12 @@ const AddItemModal = (props) => {
     }
   }, [props.userInfo])
 
+
+  // useEffect(()=>{
+  //   console.log(imageLocation)
+
+  // }, [imageLocation])
+
   const submitContribution = (e) => {
     e.preventDefault()
     const check = e.currentTarget;
@@ -36,8 +42,9 @@ const AddItemModal = (props) => {
       e.stopPropagation();
     } else {
       const formData = new FormData();
-      formData.append('file', imageLocation);
+      formData.append('file', imageLocation[0]);
       formData.append('upload_preset', presetName.presetName);
+      console.log(formData)
 
       axios.post(`https://api.cloudinary.com/v1_1/${cloudName.cloudName}/image/upload`, formData)
         .then((response) => {
@@ -139,7 +146,7 @@ const AddItemModal = (props) => {
               <RightSide>
                 <Form.Group controlId="formFileLg" className="mb-3">
                   <Form.Label>Upload your images here</Form.Label>
-                  <Form.Control type="file" size="sm" onChange={(e) => { setLocalImageLocation(e.target.files[0]) }} />
+                  <Form.Control type="file" multiple='multiple' size="sm" onChange={(e) => { setLocalImageLocation(e.target.files) }} />
                 </Form.Group>
 
               </RightSide>
