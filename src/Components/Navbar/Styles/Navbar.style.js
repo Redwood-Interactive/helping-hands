@@ -6,7 +6,12 @@ export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #bf5700;
+  // background-color: #bf5700;
+  // background-color: #7EA1C4;
+  background-color: #f2f2f2;
+  // background-color: #bf5700;
+  // background-color: #bf5700;
+  // background-color: #bf5700;
   position: fixed;
   top: 0;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;

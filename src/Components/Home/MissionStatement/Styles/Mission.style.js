@@ -13,5 +13,4 @@ export const StatementContainer = styled.div`
   width: 30%;
   top: 100px;
   left: 30px;
-  font-size: 28px;
 `;
