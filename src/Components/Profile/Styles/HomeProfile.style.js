@@ -15,12 +15,26 @@ export const ProfileInfoContainer = styled.div`
 `;
 
 export const SettingsIcon = styled.img`
-  height: 50px;
-  width: 50px;
+  position: relative;
+  height: 30px;
+  width: 30px;
+  left: 4px;
+  top: 2px;
+`;
+
+export const UserSettings = styled.div`
+  display: flex;
+  flex-direction: row;
+  border: 2.3px solid black;
+  border-radius: 10px;
+  width: 250px;
+  justify-content: center;
+  &:hover {
+    background-color: #E5EAE5;
+  }
 `;
 
 export const UserInfoContainer = styled.div`
-  width: 250px;
   margin-left: 50px;
   font-size: 22px;
 `;
@@ -55,4 +69,12 @@ export const Fulfilled = styled.div`
   padding-left: 5px;
   color: red;
   font-weight: bold;
+`;
+
+export const EditProfile = styled.div`
+  color: black;
+`;
+
+export const Username = styled.p`
+  font-size: 28px;
 `;
