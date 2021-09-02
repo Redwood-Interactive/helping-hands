@@ -25,7 +25,7 @@ export const SettingsIcon = styled.img`
 export const UserSettings = styled.div`
   display: flex;
   flex-direction: row;
-  border: 3px solid black;
+  border: 2.3px solid black;
   border-radius: 10px;
   width: 250px;
   justify-content: center;

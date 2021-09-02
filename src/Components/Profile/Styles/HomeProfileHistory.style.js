@@ -14,8 +14,9 @@ export const HistoryContainer = styled.div`
   border: 2px solid black;
   border-radius: 10px;
   width: 1030px;
-  min-height: 407px;
+  min-height: 435px;
   margin: auto;
+  overflow: hidden;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -26,9 +27,7 @@ export const ButtonWrapper = styled.div`
 export const ContriButton = styled.div`
   flex-grow: 1;
   font-size: 24px;
-  border: 0.8px solid black;
-  border-radius: 10px 0px 0px 0px;
-  border-top: 0px;
+  border-bottom: 1px solid black;
   padding: 10px;
   &:hover {
     cursor: pointer;
@@ -45,9 +44,8 @@ export const ContriButton = styled.div`
 export const ReqButton = styled.div`
   flex-grow: 1;
   font-size: 24px;
-  border: 0.8px solid black;
-  border-radius: 0px 10px 0px 0px;
-  border-top: 0px;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
   padding: 10px;
   &:hover {
     cursor: pointer;
