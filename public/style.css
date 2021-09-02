@@ -44,3 +44,7 @@ html, body {
 .d-block {
   opacity: 0.7;
 }
+
+.modal-c {
+  opacity: 1;
+}
