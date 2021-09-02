@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from '../Contributions/Styles/Sidebar.style.js';
 import AddItemModal from './AddItemModal.jsx';
 import LoginPage from '../LoginPage/LoginPage.jsx';
@@ -6,6 +6,16 @@ import LocationPage from '../LoginPage/LocationPage.jsx';
 
 const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, categories, setCategories }) => {
   const [addItemModal, setAddItemModal] = useState(false);
+  const [sidebarHeight, setSidebarHeight] = useState('');
+
+  useEffect(() => {
+    window.addEventListener('resize', resize);
+    resize();
+  })
+
+  const resize = () => {
+    setSidebarHeight(window.innerHeight + 'px');
+  }
 
   const handleCategoryChange = (e) => {
     const category = e.target.name;
@@ -39,7 +49,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
   }
 
     return (
-      <SidebarContainer>
+      <SidebarContainer height={sidebarHeight}>
         <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
         <SearchDiv>
           <Label>Search</Label>
@@ -78,6 +88,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
           <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category8' name='Miscellaneous'/><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
+      <CheckboxDiv></CheckboxDiv>
       {modalRender()}
     </SidebarContainer>
   );

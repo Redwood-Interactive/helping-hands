@@ -6,6 +6,16 @@ import LocationPage from '../LoginPage/LocationPage.jsx';
 
 const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, categories, setCategories, conditions, setConditions }) => {
   const [addItemModal, setAddItemModal] = useState(false);
+  const [sidebarHeight, setSidebarHeight] = useState('');
+
+  useEffect(() => {
+    window.addEventListener('resize', resize);
+    resize();
+  })
+
+  const resize = () => {
+    setSidebarHeight(window.innerHeight + 'px');
+  }
 
   const handleCategoryChange = (e) => {
     const category = e.target.name;
@@ -30,8 +40,6 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
   }
 
   const modalRender = () => {
-
-
     // change this back to isLoggedIn && userInfo.locations[0].street_name
 
     if (Object.keys(userInfo).length && isLoggedIn && userInfo.locations[0].street_name) {
@@ -44,7 +52,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
   }
 
   return (
-    <SidebarContainer>
+    <SidebarContainer height={sidebarHeight}>
       <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
       <SearchDiv>
         <Label>Search</Label>
