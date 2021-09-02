@@ -149,7 +149,115 @@ INSERT INTO users
   'thisisdumsaauth'
 );
 
+INSERT INTO users
+(first_name,
+  last_name,
+  current_rating,
+  email,
+  phone,
+  profile_pic,
+  auth_id
+) VALUES (
+  'Chewbacca',
+  'Wookie',
+  5,
+  'RAWRGWAWGGR@gmail.com',
+  1861201234,
+  'https://static.wikia.nocookie.net/starwars/images/4/48/Chewbacca_TLJ.png/revision/latest?cb=20210106001220',
+  'thisisdumsaauth'
+);
 
+--- OUR REAL DATA ---
+
+INSERT INTO users
+(first_name,
+  last_name,
+  current_rating,
+  email,
+  phone,
+  profile_pic,
+  auth_id
+) VALUES (
+  'Sandra',
+  'Ministro',
+  5,
+  'sministro@gmail.com',
+  1861201234,
+  'https://lh3.googleusercontent.com/a-/AOh14GiNqnVBKjIE69fLonACmrugFJkyEdGcnuWh9xI43g=s96-c',
+  '115501555181940173397'
+);
+
+INSERT INTO users
+(first_name,
+  last_name,
+  current_rating,
+  email,
+  phone,
+  profile_pic,
+  auth_id
+) VALUES (
+  'Juan Pablo',
+  'Bustamante',
+  5,
+  'cuchobustamante@gmail.com',
+  9669201234,
+  'https://lh3.googleusercontent.com/a-/AOh14Gjs2FO63g5CL5HxP53Y7sIE_WkBh7H31hsKNO--Lw=s96-c',
+  '112101043673644164577'
+);
+
+INSERT INTO users
+(first_name,
+  last_name,
+  current_rating,
+  email,
+  phone,
+  profile_pic,
+  auth_id
+) VALUES (
+  'Justin',
+  'Case',
+  5,
+  'justin.case1061@gmail.com',
+  9523201234,
+  'https://lh3.googleusercontent.com/a/AATXAJxda7t5aR3cQ-lsIvQQS8LqBAGAKLfecNkRfv0Q=s96-c',
+  '101265807125155333741'
+);
+
+INSERT INTO users
+(first_name,
+  last_name,
+  current_rating,
+  email,
+  phone,
+  profile_pic,
+  auth_id
+) VALUES (
+  'June',
+  'Lee',
+  5,
+  'junehaklee94@gmail.com',
+  7329201254,
+  'https://lh3.googleusercontent.com/a/AATXAJxPAJbksZ-72hRSnO0J1vcNGOkJM8lwibzGpcQE=s96-c',
+  '107182027803960209277'
+);
+
+INSERT INTO users
+(first_name,
+  last_name,
+  current_rating,
+  email,
+  phone,
+  profile_pic,
+  auth_id
+) VALUES (
+  'Katie',
+  'Law',
+  5,
+  'katielaw97@gmail.com',
+  7188030196,
+  'https://lh3.googleusercontent.com/a/AATXAJx7MWHCD6AsWbZGd7R04lGb1EiEj2JpZdRTvS3t=s96-c',
+  '114799463748278374395'
+);
 
 --1
 INSERT INTO contributions
