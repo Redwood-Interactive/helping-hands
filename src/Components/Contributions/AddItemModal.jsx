@@ -31,7 +31,6 @@ const AddItemModal = (props) => {
   const submitContribution = (e) => {
     e.preventDefault()
     const check = e.currentTarget;
-    const allErrors = {};
     if (check.checkValidity() === false) {
       setValidated(false)
       e.stopPropagation();
