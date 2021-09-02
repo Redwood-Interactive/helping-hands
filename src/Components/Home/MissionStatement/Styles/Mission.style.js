@@ -11,7 +11,7 @@ export const ImageStyle = styled.img`
 export const StatementContainer = styled.div`
   position: absolute;
   width: 30%;
-  top: 200px;
+  top: 100px;
   left: 30px;
   font-size: 28px;
 `;

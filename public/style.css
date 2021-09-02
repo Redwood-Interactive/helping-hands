@@ -35,3 +35,13 @@ html, body {
 #profile:hover {
   background-color: #FF811A;
 }
+
+.carousel-text {
+  position: relative;
+  top: 550px;
+  font-size: 20px;
+}
+
+.d-block {
+  opacity: 0.7;
+}
