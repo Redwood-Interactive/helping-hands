@@ -16,7 +16,6 @@ export const ContributionTitle = styled.div`
   justify-content: center;
   width: 100vw;
   font-size: 50px;
-  /* border: 1px solid green; */
   padding: 20px;
 `;
 
@@ -28,10 +27,8 @@ export const ContainerDiv = styled.div`
 export const ButtonsDiv = styled.div`
   position: relative;
   width: 100%;
-  /* top: 50px; */
   display: inline-flex;
   justify-content: center;
-  /* border: 1px solid black; */
 `;
 
 export const Button = styled.div`

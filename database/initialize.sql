@@ -43,7 +43,6 @@ CREATE TABLE requests (
   title VARCHAR(255) NOT NULL,
   r_description VARCHAR(1500) NOT NULL,
   category VARCHAR(100) NOT NULL,
-  condition VARCHAR(50) NOT NULL,
   r_date TIMESTAMP DEFAULT current_timestamp,
   available BOOLEAN NOT NULL,
   PRIMARY KEY (id),
@@ -1835,7 +1834,6 @@ INSERT INTO requests
   title,
   r_description,
   category,
-  condition,
   r_date,
   available
 ) VALUES (
@@ -1843,10 +1841,8 @@ INSERT INTO requests
   'Need ski boots',
   'mine are really bad',
   'Electronic',
-  'Used',
   CURRENT_TIMESTAMP,
   TRUE
-
 );
 
 INSERT INTO requests
@@ -1855,99 +1851,17 @@ INSERT INTO requests
   title,
   r_description,
   category,
-  condition,
   r_date,
   available
 ) VALUES (
   1,
-  'Need water',
-  'its hot outside, im dehydrated',
-  'Drink',
-  'Like new',
-  CURRENT_TIMESTAMP,
-  TRUE
-
-);
-
-INSERT INTO requests
-(
-  user_id,
-  title,
-  r_description,
-  category,
-  condition,
-  r_date,
-  available
-) VALUES (
-  1,
-  'Need socks',
-  'mine have holes in them',
-  'Clothing',
-  'Used',
-  CURRENT_TIMESTAMP,
-  TRUE
-
-);
-
-INSERT INTO requests
-(
-  user_id,
-  title,
-  r_description,
-  category,
-  condition,
-  r_date,
-  available
-) VALUES (
-  2,
-  'Need socks',
-  'mine have holes in them',
-  'Clothing',
-  'Used',
-  CURRENT_TIMESTAMP,
-  TRUE
-
-);
-
-INSERT INTO requests
-(
-  user_id,
-  title,
-  r_description,
-  category,
-  condition,
-  r_date,
-  available
-) VALUES (
-  3,
-  'Need socks',
-  'mine have holes in them',
-  'Clothing',
-  'Like new',
-  CURRENT_TIMESTAMP,
-  TRUE
-
-);
-
-INSERT INTO requests
-(
-  user_id,
-  title,
-  r_description,
-  category,
-  condition,
-  r_date,
-  available
-) VALUES (
-  3,
-  'Need a sandwich',
-  'its lunch time, feeling pretty hungry',
+  'apple pie',
+  'mine are really bad',
   'Food',
-  'Used',
   CURRENT_TIMESTAMP,
   TRUE
-
 );
+
 
 INSERT INTO requests
 (
@@ -1955,19 +1869,16 @@ INSERT INTO requests
   title,
   r_description,
   category,
-  condition,
   r_date,
   available
 ) VALUES (
-  3,
-  'Need help moving',
-  'moving to a new place, need some strong people!',
-  'Service',
-  'New',
+  1,
+  'star wars toys',
+  'mine are really bad',
+  'Toy',
   CURRENT_TIMESTAMP,
   TRUE
 );
-
 
 
 

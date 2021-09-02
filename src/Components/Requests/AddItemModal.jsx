@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap';
+import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form, FormControl, FormCheck, FloatingLabel } from 'react-bootstrap'
 import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf, MidHalf, MainAddress, City, State, ZipCode, TitleContainer, CheckDiv, Title } from '../Contributions/Styles/AddItemModal.style.js';
 
 const AddItemModal = (props) => {
@@ -9,26 +9,32 @@ const AddItemModal = (props) => {
   const [condition, setCondition] = useState('')
   const [location, setLocation] = useState('')
   const [description, setDescription] = useState('')
+  const [validated, setValidated] = useState(false);
 
-  useEffect(() => {
-    if (props.userInfo.locations) {
+  const submitItem = (e) => {
+    e.preventDefault()
+    const check = e.currentTarget;
+    if (check.checkValidity() === false) {
+      setValidated(false)
+      e.stopPropagation();
+    } else {
+      setValidated(true);
+      let form = {
+        user_id: props.userInfo.id,
+        title: title,
+        category: category,
+        r_description: description,
+      }
+      axios.post('/requestsAll', form)
+        .then((res) => {
+          props.setAddItemModal(false)
+          window.open('/requests', '_self');
+          console.log(res)
+        })
 
     }
-  }, [props.userInfo])
+    setValidated(true);
 
-  const submitItem = () => {
-    let form = {
-      title: title,
-      category: category,
-      condition: condition,
-      location: location,
-      description: description,
-
-    }
-    axios.post('something', form)
-      .then((res) => {
-        console.log(res)
-      })
   }
 
   return (
@@ -42,14 +48,17 @@ const AddItemModal = (props) => {
 
       <Modal.Body>
         <FormContainer>
-          <Form>
+          <Form noValidate validated={validated} onSubmit={submitItem}>
             <UpperHalf>
               <LeftSide>
                 <TitleContainer>
                   <Title>
                     <Form.Group className="mb-3" controlId="formBasicTitle">
                       <Form.Label>Title</Form.Label>
-                      <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' required placeholder="Enter title" />
+                      <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' placeholder="Enter title" required />
+                      <Form.Control.Feedback type='invalid'>
+                        no bueno!
+                      </Form.Control.Feedback>
                     </Form.Group>
                   </Title>
                 </TitleContainer>
@@ -67,49 +76,44 @@ const AddItemModal = (props) => {
                     <option value='Toy'>Toy</option>
                     <option value='Miscellaneous'>Miscellaneous</option>
                   </Form.Select>
+                  <Form.Control.Feedback type='invalid'>
+                    no bueno!
+                  </Form.Control.Feedback>
                 </Form.Group>
 
-                <Form.Group className="mb-3">
-                  <Form.Label>Condition</Form.Label>
-                  <Form.Select onChange={(e) => setCondition(e.target.value)} required aria-label="Default select example">
-                    <option value="" hidden>Condition</option>
-                    <option value="New">New</option>
-                    <option value="Like new">Like new</option>
-                    <option value="Used">Used</option>
-                  </Form.Select>
+
+              </LeftSide>
+            </UpperHalf>
+
+            <MidHalf>
+              <MainAddress>
+                <Form.Group className="mb-3" controlId="MainAddress">
+                  <Form.Label>Main Address</Form.Label>
+                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].street_name} disabled />
                 </Form.Group>
-                </LeftSide>
-                </UpperHalf>
+              </MainAddress>
 
-                <MidHalf>
-                  <MainAddress>
-                    <Form.Group className="mb-3" controlId="MainAddress">
-                      <Form.Label>Main Address</Form.Label>
-                      <Form.Control type="text" defaultValue={props.userInfo.locations[0].street_name} disabled />
-                    </Form.Group>
-                  </MainAddress>
+              <City>
+                <Form.Group className="mb-3" controlId="City">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].city} disabled />
+                </Form.Group>
+              </City>
 
-                  <City>
-                    <Form.Group className="mb-3" controlId="City">
-                      <Form.Label>City</Form.Label>
-                      <Form.Control type="text" defaultValue={props.userInfo.locations[0].city} disabled />
-                    </Form.Group>
-                  </City>
+              <State>
+                <Form.Group className="mb-3" controlId="State">
+                  <Form.Label>State</Form.Label>
+                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].state} disabled />
+                </Form.Group>
+              </State>
 
-                  <State>
-                    <Form.Group className="mb-3" controlId="State">
-                      <Form.Label>State</Form.Label>
-                      <Form.Control type="text" defaultValue={props.userInfo.locations[0].state} disabled />
-                    </Form.Group>
-                  </State>
-
-                  <ZipCode>
-                    <Form.Group className="mb-3" controlId="ZipCode">
-                      <Form.Label>Zip Code</Form.Label>
-                      <Form.Control type="text" defaultValue={props.userInfo.locations[0].zipcode} disabled />
-                    </Form.Group>
-                  </ZipCode>
-                </MidHalf>
+              <ZipCode>
+                <Form.Group className="mb-3" controlId="ZipCode">
+                  <Form.Label>Zip Code</Form.Label>
+                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].zipcode} disabled />
+                </Form.Group>
+              </ZipCode>
+            </MidHalf>
 
 
 
@@ -119,10 +123,13 @@ const AddItemModal = (props) => {
               <Form.Group className="mb-3" controlId="formBasicDescription">
                 <Form.Label>Description</Form.Label>
                 <Form.Control as="textarea" type="Description" required placeholder="Description" style={{ height: '100px' }} />
+                <Form.Control.Feedback type='invalid'>
+                  no bueno!
+                </Form.Control.Feedback>
               </Form.Group>
 
             </LowerHalf>
-            <Button variant="primary" type="submit" style={{ float: 'right' }} onClick={submitItem}>
+            <Button variant="primary" type="submit" style={{ float: 'right' }}>
               Submit
             </Button>
             <Button onClick={props.onHide}>Close</Button>

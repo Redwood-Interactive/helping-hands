@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SidebarContainer = styled.div`
   width: 250px;
+  height: 70vh;
   position: relative;
   margin-left: 50px;
   display: flex;
@@ -46,7 +47,6 @@ export const SearchBar = styled.input`
 
 export const SearchBtn = styled.button`
   width: 210px;
-  /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
   border: 1px solid black;
   border-radius: 5px;
   margin-top: 5px;
@@ -99,9 +99,7 @@ export const CheckSubDiv = styled.div`
   flex-direction: row;
 `;
 
-export const Checkbox = styled.input`
-
-`;
+export const Checkbox = styled.input ``;
 
 export const CheckLabel = styled.label`
   position: relative;

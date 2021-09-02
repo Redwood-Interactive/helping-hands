@@ -72,11 +72,11 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser}) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState(0);
+    const [phone, setPhone] = useState();
     const [streetName, setStreetName] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('State');
-    const [zipcode, setZipcode] = useState(0);
+    const [zipcode, setZipcode] = useState();
 
   useEffect (() => {
     setFirstName(userInfo.first_name);

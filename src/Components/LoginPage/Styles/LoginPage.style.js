@@ -10,7 +10,6 @@ export const NotLoggedInContainer = styled.div`
   font-size: 2em;
   padding: 10px;
   border-radius: 10px;
-
 `;
 
 export const ClickGoogle= styled.div`
@@ -27,14 +26,14 @@ export const ClickBtn = styled.div `
 `;
 
 export const AlertText = styled.div `
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
   margin-left: 10px;
   font-size: 16px;
 `;
 
 export const GoogleSvg = styled.svg `
-padding-left: 10px;
+  padding-left: 10px;
 `;
 
 
