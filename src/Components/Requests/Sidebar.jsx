@@ -21,26 +21,34 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
   const modalRender = () => {
     // change this back to isLoggedIn && userInfo.locations[0].street_name
 
-    if (isLoggedIn && Object.keys(userInfo).length) {
-      return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
+    // if (isLoggedIn && Object.keys(userInfo).length) {
+    //   return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
+    // } else if (!isLoggedIn) {
+    //   return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
+    // } else if (isLoggedIn && !userInfo.locations[0].street_name) {
+    //   return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
+    // }
+
+    if (isLoggedIn && !userInfo.locations[0].street_name) {
+      return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)} />
     } else if (!isLoggedIn) {
       return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
-    } else if (Object.keys(userInfo).length) {
-      return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
+    } else {
+      return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal} />
     }
   }
 
-  return (
-    <SidebarContainer>
-      <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
-      <SearchDiv>
-        <Label>Search</Label>
-        <SearchSubDiv>
-          <SearchBar onChange={e => setSearchQuery(e.target.value)} placeholder='Search...'></SearchBar>
-          <SearchBtn onClick={handleSubmitSearch}>Enter</SearchBtn>
-        </SearchSubDiv>
-      </SearchDiv>
-      {/* <LocationDiv>
+    return (
+      <SidebarContainer>
+        <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
+        <SearchDiv>
+          <Label>Search</Label>
+          <SearchSubDiv>
+            <SearchBar onChange={e => setSearchQuery(e.target.value)} placeholder='Search...'></SearchBar>
+            <SearchBtn onClick={handleSubmitSearch}>Enter</SearchBtn>
+          </SearchSubDiv>
+        </SearchDiv>
+        {/* <LocationDiv>
         <LocationSubDiv>
           <Label>Zipcode</Label>
           <ZipInput placeholder='Enter zipcode...'></ZipInput>
@@ -75,4 +83,4 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
   );
 };
 
-export default Sidebar;
+  export default Sidebar;

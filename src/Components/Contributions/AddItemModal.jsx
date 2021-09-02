@@ -17,6 +17,7 @@ const AddItemModal = (props) => {
   const [free, setFree] = useState(true);
   const [imageLocation, setLocalImageLocation] = useState('');
   const [newImageUrl, setnewImageUrl] = useState('');
+  const [validated, setValidated] = useState(false);
 
   useEffect(() => {
     if (props.userInfo.locations) {
@@ -29,40 +30,46 @@ const AddItemModal = (props) => {
 
   const submitContribution = (e) => {
     e.preventDefault()
-    const formData = new FormData();
-    formData.append('file', imageLocation);
-    formData.append('upload_preset', presetName.presetName);
 
-    axios.post(`https://api.cloudinary.com/v1_1/${cloudName.cloudName}/image/upload`, formData)
-      .then((response) => {
-        return response.data.url
-      })
-      .catch((error) => { console.log('received an error', error) })
-      .then((photo) => {
-        let form = {
-          user_id: props.userInfo.id,
-          title: title,
-          c_description: description,
-          category: category,
-          condition: condition,
-          for_free: free,
-          image: photo ? photo : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
-        };
-        return form;
-      })
-      .then((form) => {
-        axios.post('/getcontributions', form)
-          .then(() => {
-            props.setAddItemModal(false)
-            window.open('/contributions', '_self');
-          })
-          .catch((err) => {
-            console.log('there was an err :(', err);
-          })
-      })
-      .catch((err) => {
-        console.log('there was an err :(', err);
-      })
+    const check = e.currentTarget;
+    if (check.checkValidity() === false) {
+      e.stopPropagation();
+    } else {
+      const formData = new FormData();
+      formData.append('file', imageLocation);
+      formData.append('upload_preset', presetName.presetName);
+
+      axios.post(`https://api.cloudinary.com/v1_1/${cloudName.cloudName}/image/upload`, formData)
+        .then((response) => {
+          return response.data.url
+        })
+        .catch((error) => { console.log('received an error', error) })
+        .then((photo) => {
+          let form = {
+            user_id: props.userInfo.id,
+            title: title,
+            c_description: description,
+            category: category,
+            condition: condition,
+            for_free: free,
+            image: photo ? photo : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
+          };
+          return form;
+        })
+        .then((form) => {
+          axios.post('/getcontributions', form)
+            .then(() => {
+              props.setAddItemModal(false)
+              window.open('/contributions', '_self');
+            })
+            .catch((err) => {
+              console.log('there was an err :(', err);
+            })
+        })
+        .catch((err) => {
+          console.log('there was an err :(', err);
+        })
+    }
   }
 
 
@@ -77,7 +84,7 @@ const AddItemModal = (props) => {
 
       <Modal.Body>
         <FormContainer>
-          <Form>
+          <Form noValidate validated={validated} onSubmit={submitContribution}>
 
             <UpperHalf>
               <LeftSide>
@@ -165,7 +172,7 @@ const AddItemModal = (props) => {
               </Form.Group>
             </LowerHalf>
 
-            <Button variant="primary" type="submit" style={{ float: 'right' }} onClick={submitContribution}>
+            <Button variant="primary" type="submit" style={{ float: 'right' }}>
               Submit
             </Button>
             <Button onClick={props.onHide}>Close</Button>
