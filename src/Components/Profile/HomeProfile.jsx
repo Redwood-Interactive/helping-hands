@@ -4,7 +4,7 @@ import HomeProfileHist from './HomeProfileHist.jsx';
 import { Link, useLocation } from 'react-router-dom';
 
 
-const HomeProfile = ({isLoggedIn, userInfo}) => {
+const HomeProfile = ({ isLoggedIn, userInfo }) => {
 
   return (
     <div>
@@ -31,7 +31,7 @@ const HomeProfile = ({isLoggedIn, userInfo}) => {
       <HomeProfileHist userInfo={userInfo}/>
     </HomeProfileContainer> : <div></div>}
     </div>
-      );
+  );
 }
 
-      export default HomeProfile;
+export default HomeProfile;
