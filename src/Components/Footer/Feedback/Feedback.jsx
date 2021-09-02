@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { FeedbackTextArea, FeedbackForm } from './Styles/Feedback.style.js'
+import { FeedbackTextArea, FeedbackForm, FeedbackSubmitButton, FeedbackTitle } from './Styles/Feedback.style.js'
 import apiCalls from '../../../apiCalls.js'
 
 const Feedback = (props) => {
@@ -24,9 +24,9 @@ const Feedback = (props) => {
 
   return (
     <FeedbackForm onSubmit={submitHandler}>
-      <div>Leave us some feedback!</div>
+      <FeedbackTitle>Leave us some feedback!</FeedbackTitle>
       <FeedbackTextArea onChange={changeHandler} value={feedback}></FeedbackTextArea>
-      <button type='submit'>Submit</button>
+      <FeedbackSubmitButton type='submit'>Submit</FeedbackSubmitButton>
     </FeedbackForm>
   )
 }

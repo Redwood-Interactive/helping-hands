@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ProfileHistContainer, Text, HistoryContainer, ButtonWrapper, ContriButton, ReqButton } from './Styles/HomeProfileHistory.style.js';
-import dummyData from '../../dummydata/dummydata.js'
 import AllUserContri from './AllUserContri.jsx';
 import AllUserReqs from './AllUserReqs.jsx';
 import axios from 'axios';
