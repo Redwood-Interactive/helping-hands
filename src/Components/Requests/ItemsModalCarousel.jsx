@@ -17,14 +17,10 @@ const ItemsModalCarousel = ({ clickedimages }) => {
         <Carousel.Item key={order}>
           <ItemsImageContainer>
             <ItemsModalImages
-              className="d-block w-100"
+              className="d-block w-100 modal-c"
               src={image}
             />
           </ItemsImageContainer>
-          {/* <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption> */}
         </Carousel.Item>
       )}
     </Carousel>

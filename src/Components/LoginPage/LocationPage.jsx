@@ -1,9 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap'
-import { NotLoggedInContainer, ClickGoogle, AlertText, ClickBtn, GoogleSvg } from './Styles/LoginPage.style';
+import { NotLoggedInContainer, ClickGoogle, AlertText, ClickBtn, GoogleSvg, LocationIcon } from './Styles/LoginPage.style';
 
 const LocationPage = (props) => {
-
 
 
 
@@ -16,18 +15,17 @@ const LocationPage = (props) => {
     >
       <NotLoggedInContainer >
 
+
         <ClickGoogle onClick={() => { window.location = '/settings' }}>
-          <ClickBtn>
-         </ClickBtn>
-         <AlertText>Please fill out location data</AlertText>
+          <LocationIcon className='fas fa-map-marked-alt'></LocationIcon>
+
+          <AlertText>Please fill out location data</AlertText>
         </ClickGoogle>
 
 
 
       </NotLoggedInContainer>
-      {/* <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer> */}
+
     </Modal>
   );
 }
