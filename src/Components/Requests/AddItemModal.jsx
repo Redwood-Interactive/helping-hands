@@ -57,7 +57,7 @@ const AddItemModal = (props) => {
                       <Form.Label>Title</Form.Label>
                       <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' placeholder="Enter title" required />
                       <Form.Control.Feedback type='invalid'>
-                        no bueno!
+                        Title required.
                       </Form.Control.Feedback>
                     </Form.Group>
                   </Title>
@@ -77,7 +77,7 @@ const AddItemModal = (props) => {
                     <option value='Miscellaneous'>Miscellaneous</option>
                   </Form.Select>
                   <Form.Control.Feedback type='invalid'>
-                    no bueno!
+                    Category required.
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -124,7 +124,7 @@ const AddItemModal = (props) => {
                 <Form.Label>Description</Form.Label>
                 <Form.Control as="textarea" type="Description" required placeholder="Description" style={{ height: '100px' }} />
                 <Form.Control.Feedback type='invalid'>
-                  no bueno!
+                  Description required.
                 </Form.Control.Feedback>
               </Form.Group>
 
