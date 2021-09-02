@@ -14,7 +14,7 @@ export const NavbarContainer = styled.div`
   // background-color: #bf5700;
   position: fixed;
   top: 0;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   z-index: 5;
 `;
 
