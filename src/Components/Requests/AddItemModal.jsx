@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap';
+import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form, FormControl, FormCheck, FloatingLabel } from 'react-bootstrap'
 import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf, MidHalf, MainAddress, City, State, ZipCode, TitleContainer, CheckDiv, Title } from '../Contributions/Styles/AddItemModal.style.js';
 
 const AddItemModal = (props) => {
@@ -15,6 +15,7 @@ const AddItemModal = (props) => {
     e.preventDefault()
     const check = e.currentTarget;
     if (check.checkValidity() === false) {
+      setValidated(false)
       e.stopPropagation();
     } else {
       setValidated(true);
@@ -32,6 +33,7 @@ const AddItemModal = (props) => {
         })
 
     }
+    setValidated(true);
 
   }
 
@@ -54,6 +56,9 @@ const AddItemModal = (props) => {
                     <Form.Group className="mb-3" controlId="formBasicTitle">
                       <Form.Label>Title</Form.Label>
                       <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' placeholder="Enter title" required />
+                      <Form.Control.Feedback type='invalid'>
+                        no bueno!
+                      </Form.Control.Feedback>
                     </Form.Group>
                   </Title>
                 </TitleContainer>
@@ -71,6 +76,9 @@ const AddItemModal = (props) => {
                     <option value='Toy'>Toy</option>
                     <option value='Miscellaneous'>Miscellaneous</option>
                   </Form.Select>
+                  <Form.Control.Feedback type='invalid'>
+                    no bueno!
+                  </Form.Control.Feedback>
                 </Form.Group>
 
 
@@ -115,6 +123,9 @@ const AddItemModal = (props) => {
               <Form.Group className="mb-3" controlId="formBasicDescription">
                 <Form.Label>Description</Form.Label>
                 <Form.Control as="textarea" type="Description" required placeholder="Description" style={{ height: '100px' }} />
+                <Form.Control.Feedback type='invalid'>
+                  no bueno!
+                </Form.Control.Feedback>
               </Form.Group>
 
             </LowerHalf>

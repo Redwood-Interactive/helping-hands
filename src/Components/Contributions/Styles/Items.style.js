@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 export const ItemsContainer = styled.div `
-  /* width: 83%; */
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  /* border: 1px solid black; */
 `;
 
 export const ItemsProducts = styled.div `

@@ -21,7 +21,6 @@ export const StatsBlockTray = styled.div`
   grid-gap: 30px;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
-
 `;
 
 export const StatsBlockCounter = styled.div`

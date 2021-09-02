@@ -103,7 +103,6 @@ export const UpperInformationContainer = styled.div`
 `;
 
 export const Title = styled.div `
-  /* border: 1px red solid; */
   width: 70%;
   display: flex;
   justify-content: flex-start;
@@ -113,7 +112,6 @@ export const Title = styled.div `
 `;
 
 export const CategoryLocationContainer = styled.div `
-  /* border: 1px red solid; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,12 +127,10 @@ export const Category = styled.div `
 `;
 
 export const Location = styled.div `
-  /* border: 1px red solid; */
   text-align: center;
 `;
 
 export const Description = styled.div `
-  /* border: 1px red solid; */
   text-align: left;
   margin: 15px;
   margin-top: 10px;

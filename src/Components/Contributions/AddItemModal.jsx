@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form } from 'react-bootstrap'
+import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Form, FormControl, FormCheck, FloatingLabel } from 'react-bootstrap'
 import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf, MidHalf, MainAddress, City, State, ZipCode, TitleContainer, CheckDiv, Title } from '../Contributions/Styles/AddItemModal.style.js';
 import apiCalls from '../../apiCalls.js';
 import { presetName, cloudName } from '../../../config.js';
@@ -30,9 +30,9 @@ const AddItemModal = (props) => {
 
   const submitContribution = (e) => {
     e.preventDefault()
-
     const check = e.currentTarget;
     if (check.checkValidity() === false) {
+      setValidated(false)
       e.stopPropagation();
     } else {
       const formData = new FormData();
@@ -70,6 +70,7 @@ const AddItemModal = (props) => {
           console.log('there was an err :(', err);
         })
     }
+    setValidated(true);
   }
 
 
@@ -90,9 +91,12 @@ const AddItemModal = (props) => {
               <LeftSide>
                 <TitleContainer>
                   <Title>
-                    <Form.Group className="mb-3" controlId="formBasicTitle">
+                    <Form.Group md="4" className="mb-3" controlId="formBasicTitle">
                       <Form.Label>Title</Form.Label>
                       <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' placeholder="Enter title" required />
+                      <Form.Control.Feedback type='invalid'>
+                        no bueno!
+                      </Form.Control.Feedback>
                     </Form.Group>
                   </Title>
                   <CheckDiv>
@@ -113,6 +117,9 @@ const AddItemModal = (props) => {
                     <option value='Toy'>Toy</option>
                     <option value='Miscellaneous'>Miscellaneous</option>
                   </Form.Select>
+                  <Form.Control.Feedback type='invalid'>
+                    no bueno!
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
@@ -123,6 +130,9 @@ const AddItemModal = (props) => {
                     <option value="Like new">Like new</option>
                     <option value="Used">Used</option>
                   </Form.Select>
+                  <Form.Control.Feedback type='invalid'>
+                    no bueno!
+                  </Form.Control.Feedback>
                 </Form.Group>
 
               </LeftSide>
@@ -141,6 +151,7 @@ const AddItemModal = (props) => {
                   <Form.Label>Main Address</Form.Label>
                   <Form.Control type="text" defaultValue={props.userInfo.locations[0].street_name} disabled />
                 </Form.Group>
+
               </MainAddress>
 
               <City>
@@ -170,6 +181,9 @@ const AddItemModal = (props) => {
                 <Form.Label>Description</Form.Label>
                 <Form.Control as="textarea" type="Description" placeholder="Description" style={{ height: '100px' }} required onChange={(e) => setDescription(e.target.value)} />
               </Form.Group>
+              <Form.Control.Feedback type='invalid'>
+                no bueno!
+              </Form.Control.Feedback>
             </LowerHalf>
 
             <Button variant="primary" type="submit" style={{ float: 'right' }}>
