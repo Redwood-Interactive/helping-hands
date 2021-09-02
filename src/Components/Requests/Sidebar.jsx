@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
-import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel } from '../Contributions/Styles/Sidebar.style.js';
+import React, { useEffect, useState } from 'react';
+import { SidebarContainer, AddBtn, SearchDiv, SearchSubDiv, SearchBar, SearchBtn, LocationDiv, LocationSubDiv, Label, ZipDiv, ZipInput, RadiusSelect, CheckboxDiv, Checkboxes, CheckSubDiv, Checkbox, CheckLabel, Title } from '../Contributions/Styles/Sidebar.style.js';
 import AddItemModal from './AddItemModal.jsx';
 import LoginPage from '../LoginPage/LoginPage.jsx';
 import LocationPage from '../LoginPage/LocationPage.jsx';
 
 const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, categories, setCategories }) => {
   const [addItemModal, setAddItemModal] = useState(false);
+  const [sidebarHeight, setSidebarHeight] = useState('');
+
+  useEffect(() => {
+    window.addEventListener('resize', resize);
+    resize();
+  })
+
+  const resize = () => {
+    setSidebarHeight(window.innerHeight + 'px');
+  }
 
   const handleCategoryChange = (e) => {
     const category = e.target.name;
@@ -39,8 +49,8 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
   }
 
     return (
-      <SidebarContainer>
-        <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
+      <SidebarContainer height={sidebarHeight}>
+        <Title>Requests</Title>
         <SearchDiv>
           <Label>Search</Label>
           <SearchSubDiv>
@@ -48,6 +58,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
             <SearchBtn onClick={handleSubmitSearch}>Enter</SearchBtn>
           </SearchSubDiv>
         </SearchDiv>
+        <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
         {/* <LocationDiv>
         <LocationSubDiv>
           <Label>Zipcode</Label>
@@ -78,6 +89,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
           <CheckSubDiv><Checkbox onChange={handleCategoryChange} type="checkbox" id='category8' name='Miscellaneous'/><CheckLabel htmlFor='category8'>Miscellaneous</CheckLabel></CheckSubDiv>
         </Checkboxes>
       </CheckboxDiv>
+      <CheckboxDiv></CheckboxDiv>
       {modalRender()}
     </SidebarContainer>
   );
