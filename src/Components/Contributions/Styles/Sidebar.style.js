@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SidebarContainer = styled.div`
   width: 250px;
+  height: 60vh;
   position: relative;
   margin-left: 50px;
   display: flex;

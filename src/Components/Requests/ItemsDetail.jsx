@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UserContainer, ContactUser, ContactUserDiv, Information, ItemsDetailContainer, UpperInformationContainer, Title, Profile, TopRow, NameCol, UserPic, BottomRow, CategoryLocationContainer, Category, Location, Description } from '../Contributions/Styles/ItemsModal.style.js';
 
-const ItemsDetail = ({ title, description, category, location, iconclass, user, condition}) => {
+const ItemsDetail = ({ title, description, category, location, iconclass, user}) => {
   var phone;
   if (user.phone) {
     phone = user.phone.toString();
@@ -21,7 +21,7 @@ const ItemsDetail = ({ title, description, category, location, iconclass, user, 
     <Information>
       <UpperInformationContainer>
         <Title>
-          [{condition}] {title}
+          {title}
         </Title>
         <CategoryLocationContainer>
           <Category>

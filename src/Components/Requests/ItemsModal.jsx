@@ -16,7 +16,7 @@ const ItemsModal = (props) => {
     >
 
       <Modal.Body>
-        <ItemsDetail title={props.title} description={props.description} category={props.category} location={props.location} iconclass={props.iconclass} user={props.user} condition={props.condition}/>
+        <ItemsDetail title={props.title} description={props.description} category={props.category} location={props.location} iconclass={props.iconclass} user={props.user}/>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
