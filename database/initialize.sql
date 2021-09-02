@@ -1701,6 +1701,40 @@ INSERT INTO requests
   TRUE
 );
 
+INSERT INTO requests
+(
+  user_id,
+  title,
+  r_description,
+  category,
+  r_date,
+  available
+) VALUES (
+  1,
+  'apple pie',
+  'mine are really bad',
+  'Food',
+  CURRENT_TIMESTAMP,
+  TRUE
+);
+
+
+INSERT INTO requests
+(
+  user_id,
+  title,
+  r_description,
+  category,
+  r_date,
+  available
+) VALUES (
+  1,
+  'star wars toys',
+  'mine are really bad',
+  'Toy',
+  CURRENT_TIMESTAMP,
+  TRUE
+);
 
 
 
