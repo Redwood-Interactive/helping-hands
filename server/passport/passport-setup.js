@@ -26,6 +26,7 @@ passport.use(
   new GoogleStrategy(optionsG,
     (token, tokenSecret, profile, done) => {
       let { sub, given_name, family_name, picture } = profile._json;
+      console.log(profile);
       authenticateLogin.authenticate(sub)
         .then((data) => {
           if (data.rows[0]) {
@@ -42,36 +43,4 @@ passport.use(
     }
   )
 );
-
-
-/* Profile Object:
-{
-  id: '114799463748278374395',
-  displayName: 'Katie Law',
-  name: { familyName: 'Law', givenName: 'Katie' },
-  photos: [
-    {
-      value: 'https://lh3.googleusercontent.com/a/AATXAJx7MWHCD6AsWbZGd7R04lGb1EiEj2JpZdRTvS3t=s96-c'
-    }
-  ],
-  provider: 'google',
-  _raw: '{\n' +
-    '  "sub": "114799463748278374395",\n' +
-    '  "name": "Katie Law",\n' +
-    '  "given_name": "Katie",\n' +
-    '  "family_name": "Law",\n' +
-    '  "picture": "https://lh3.googleusercontent.com/a/AATXAJx7MWHCD6AsWbZGd7R04lGb1EiEj2JpZdRTvS3t\\u003ds96-c",\n' +
-    '  "locale": "en"\n' +
-    '}',
-  _json: {
-    sub: '114799463748278374395',
-    name: 'Katie Law',
-    given_name: 'Katie',
-    family_name: 'Law',
-    picture: 'https://lh3.googleusercontent.com/a/AATXAJx7MWHCD6AsWbZGd7R04lGb1EiEj2JpZdRTvS3t=s96-c',
-    locale: 'en'
-  }
-}
-
-*/
 

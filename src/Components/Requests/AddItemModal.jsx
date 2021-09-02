@@ -4,12 +4,24 @@ import { Modal, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFo
 import { FormContainer, UpperHalf, LeftSide, RightSide, LowerHalf, MidHalf, MainAddress, City, State, ZipCode, TitleContainer, CheckDiv, Title } from '../Contributions/Styles/AddItemModal.style.js';
 
 const AddItemModal = (props) => {
-  const [title, setTitle] = useState('')
-  const [category, setCategory] = useState('')
-  const [condition, setCondition] = useState('')
-  const [location, setLocation] = useState('')
-  const [description, setDescription] = useState('')
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
+  const [condition, setCondition] = useState('');
+  const [description, setDescription] = useState('');
   const [validated, setValidated] = useState(false);
+  const [location, setLocation] = useState({
+    street_name: '',
+    city: '',
+    state: '',
+    zipcode: ''
+  });
+
+  useEffect(() => {
+    if (props.userInfo.locations) {
+    setLocation(props.userInfo.locations[0]);
+    }
+
+  }, [props.userInfo]);
 
   const submitItem = (e) => {
     e.preventDefault()
@@ -57,7 +69,7 @@ const AddItemModal = (props) => {
                       <Form.Label>Title</Form.Label>
                       <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' placeholder="Enter title" required />
                       <Form.Control.Feedback type='invalid'>
-                        no bueno!
+                        Title required.
                       </Form.Control.Feedback>
                     </Form.Group>
                   </Title>
@@ -77,7 +89,7 @@ const AddItemModal = (props) => {
                     <option value='Miscellaneous'>Miscellaneous</option>
                   </Form.Select>
                   <Form.Control.Feedback type='invalid'>
-                    no bueno!
+                    Category required.
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -89,28 +101,28 @@ const AddItemModal = (props) => {
               <MainAddress>
                 <Form.Group className="mb-3" controlId="MainAddress">
                   <Form.Label>Main Address</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].street_name} disabled />
+                  <Form.Control type="text" defaultValue={location.street_name} disabled />
                 </Form.Group>
               </MainAddress>
 
               <City>
                 <Form.Group className="mb-3" controlId="City">
                   <Form.Label>City</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].city} disabled />
+                  <Form.Control type="text" defaultValue={location.city} disabled />
                 </Form.Group>
               </City>
 
               <State>
                 <Form.Group className="mb-3" controlId="State">
                   <Form.Label>State</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].state} disabled />
+                  <Form.Control type="text" defaultValue={location.state} disabled />
                 </Form.Group>
               </State>
 
               <ZipCode>
                 <Form.Group className="mb-3" controlId="ZipCode">
                   <Form.Label>Zip Code</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].zipcode} disabled />
+                  <Form.Control type="text" defaultValue={location.zipcode} disabled />
                 </Form.Group>
               </ZipCode>
             </MidHalf>
@@ -124,7 +136,7 @@ const AddItemModal = (props) => {
                 <Form.Label>Description</Form.Label>
                 <Form.Control as="textarea" type="Description" required placeholder="Description" style={{ height: '100px' }} />
                 <Form.Control.Feedback type='invalid'>
-                  no bueno!
+                  Description required.
                 </Form.Control.Feedback>
               </Form.Group>
 
