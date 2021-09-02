@@ -57,7 +57,7 @@ export const CheckDiv = styled.div`
 `;
 
 export const Title = styled.div`
-  margin-right:10px;
+  
 `
 
 
