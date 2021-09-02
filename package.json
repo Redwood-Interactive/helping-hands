@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "watch": "npx webpack -w",
+    "watch": "npx webpack",
     "start": "nodemon server/server.js",
-    "buildDB": "psql template1 < ./database/initialize.sql"
+    "buildDB": "psql template1 < ./database/initialize.sql",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
     "cookie-session": "^1.4.0",
+    "dotenv": "^10.0.0",
     "enzyme": "^3.11.0",
     "express": "^4.17.1",
     "jest": "^27.0.6",
