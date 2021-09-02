@@ -9,7 +9,7 @@ import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Link, useLocation, Redirect } from 'react-router-dom';
 import axios from 'axios';
-
+import validator from 'validator';
 import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu, ImageRow, ProfileIcon, AddrRow, SettingRow, SmallRow } from './Styles/Settings.style.js'
 
 const states = [
@@ -66,6 +66,7 @@ const states = [
 
 
 const Settings = ({ userInfo, isLoggedIn, getUpdatedUser}) => {
+  console.log(userInfo);
     const [validated, setValidated] = useState(false);
     const [edit, setEdit] = useState(false);
     const [check, setCheck] = useState(false);
@@ -93,6 +94,7 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser}) => {
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
+    console.log(form);
     if (form.checkValidity() === false) {
       event.stopPropagation();
     } else {
@@ -120,6 +122,19 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser}) => {
     event.preventDefault();
     setValidated(true);
   };
+
+  const validCheck = () => {
+    if (!validator.isEmail(email)) {
+      return false;
+    }
+    if (!validator.isPostalCode(zipcode)) {
+      return false;
+    }
+    if (!validator.isMobilePhone(phone)) {
+      return false;
+    }
+    return true;
+  }
 
   const submitCheck = () => {
     if (!edit) {
