@@ -7,11 +7,12 @@ module.exports = {
     FROM contributions
     LEFT JOIN photos ON contributions.id = photos.contribution_id
     LEFT JOIN locations ON contributions.user_id = locations.user_id
-    WHERE contributions.user_id=${userID}
+    WHERE contributions.user_id=($1)
     GROUP BY contributions.id, locations.street_name, locations.city, locations.state, locations.zipcode
     ORDER BY contributions.c_date DESC`;
+    var values = [userID]
 
-    return db.query(query)
+    return db.query(query, values)
       .then((data) => {
         return data;
       })
@@ -20,8 +21,9 @@ module.exports = {
       });
   },
   removeContri: (contriID) => {
-    var query = `UPDATE contributions SET available = false WHERE id = ${contriID}`;
-    return db.query(query)
+    var query = `UPDATE contributions SET available = false WHERE id = ($1)`;
+    var values = [contriID]
+    return db.query(query, values)
     .then((data) => {
       return data;
     })
