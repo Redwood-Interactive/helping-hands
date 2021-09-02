@@ -100,7 +100,7 @@ const AddItemModal = (props) => {
                     </Form.Group>
                   </Title>
                   <CheckDiv>
-                    <Form.Check type="checkbox" id="autoSizingCheck2" label="For Free?" onChange={() => setFree(!free)} checked />
+                    <Form.Check type="checkbox" id="autoSizingCheck2" label="For Free?" onChange={(e) => setFree(!free)} defaultChecked='true'/>
                   </CheckDiv>
                 </TitleContainer>
 
