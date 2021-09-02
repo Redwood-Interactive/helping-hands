@@ -1,7 +1,6 @@
 import Image from 'react-bootstrap/Image';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown'
 
 export const InputContainer = styled.div`
