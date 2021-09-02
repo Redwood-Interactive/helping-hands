@@ -92,7 +92,6 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser }) => {
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
-    console.log(form);
     if (form.checkValidity() === false) {
       event.stopPropagation();
     } else {
