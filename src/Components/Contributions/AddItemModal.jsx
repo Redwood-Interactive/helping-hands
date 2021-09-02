@@ -16,7 +16,6 @@ const AddItemModal = (props) => {
   const [description, setDescription] = useState('')
   const [free, setFree] = useState(true);
   const [imageLocation, setLocalImageLocation] = useState('');
-  const [newImageUrl, setnewImageUrl] = useState('');
   const [validated, setValidated] = useState(false);
 
   useEffect(() => {
@@ -29,10 +28,6 @@ const AddItemModal = (props) => {
   }, [props.userInfo])
 
 
-  // useEffect(()=>{
-  //   console.log(imageLocation)
-
-  // }, [imageLocation])
 
   const submitContribution = (e) => {
     e.preventDefault()
@@ -41,41 +36,72 @@ const AddItemModal = (props) => {
       setValidated(false)
       e.stopPropagation();
     } else {
-      const formData = new FormData();
-      formData.append('file', imageLocation[0]);
-      formData.append('upload_preset', presetName.presetName);
-      console.log(formData)
 
-      axios.post(`https://api.cloudinary.com/v1_1/${cloudName.cloudName}/image/upload`, formData)
-        .then((response) => {
-          return response.data.url
-        })
-        .catch((error) => { console.log('received an error', error) })
-        .then((photo) => {
+
+        if(imageLocation) {
+
+          var arrayOfPromises = []
+          let filesArray = Array.from(imageLocation)
+          console.log(filesArray)
+          for (var i =0; i<filesArray.length; i++) {
+            let fileItem = filesArray[i]
+            const formData = new FormData();
+            formData.append('file', fileItem);
+            formData.append('upload_preset', presetName.presetName);
+            arrayOfPromises.push(axios.post(`https://api.cloudinary.com/v1_1/${cloudName.cloudName}/image/upload`, formData));
+          }
+
+        Promise.all(arrayOfPromises)
+          .then((responses)=>{
+            var arrayOfresponses =[]
+            responses.forEach( each =>{
+              arrayOfresponses.push(each.data.url)
+            })
+            return arrayOfresponses
+          })
+          .catch((error)=>{console.log('error in promise all', error)})
+          .then((array)=>{
+            let form = {
+              user_id: props.userInfo.id,
+              title: title,
+              c_description: description,
+              category: category,
+              condition: condition,
+              for_free: free,
+              image: array.length ? array : false
+            };
+            return form
+          })
+          .then((form)=>{
+            axios.post('/getcontributions', form)
+          })
+          .then(() => {
+            props.setAddItemModal(false)
+            window.open('/contributions', '_self'); // uncomment this one when finished
+          })
+          .catch((err) => {
+            console.log('there was an err :(', err);
+          });
+
+        } else {
           let form = {
-            user_id: props.userInfo.id,
-            title: title,
-            c_description: description,
-            category: category,
-            condition: condition,
-            for_free: free,
-            image: photo ? photo : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png'
+              user_id: props.userInfo.id,
+              title: title,
+              c_description: description,
+              category: category,
+              condition: condition,
+              for_free: free,
+              image: false
           };
-          return form;
-        })
-        .then((form) => {
+
           axios.post('/getcontributions', form)
-            .then(() => {
-              props.setAddItemModal(false)
-              window.open('/contributions', '_self');
-            })
-            .catch((err) => {
-              console.log('there was an err :(', err);
-            })
-        })
-        .catch((err) => {
-          console.log('there was an err :(', err);
-        })
+          .then(()=>{
+          })
+          .catch((error)=>{console.log(error)})
+        }
+
+
+
     }
     setValidated(true);
   }

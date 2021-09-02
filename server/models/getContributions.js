@@ -1,4 +1,5 @@
 const db = require('../../database/index.js');
+const {presetName, cloudName} = require('../../config.js')
 
 
 module.exports = {
@@ -33,53 +34,68 @@ module.exports = {
     var category = data.category;
     var condition = data.condition;
     var for_free = data.for_free;
-    var image = data.image;
+    this.image = data.image? data.image : 'https://res.cloudinary.com/jpbust/image/upload/v1630447070/ypakj1nr5ft7ryfrezf0.png';
 
-  var query1 = `
-  INSERT INTO contributions
-    (user_id,
-    title,
-    c_description,
-    category,
-    condition,
-    available,
-    for_free
-  ) VALUES (
-      ${user_id},
-      '${title}',
-      '${c_description}',
-      '${category}',
-      '${condition}',
-      'true',
-      '${for_free}'
-  ) RETURNING id;
-  `;
-   return db.query(query1)
-  .then((data) => {
-    var contriId = data.rows[0].id;
-    return contriId;
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-  .then((id)=>{
-    var query2=`
-    INSERT INTO photos
-      (contribution_id,
-       photo_url
+
+    var query1 = `
+    INSERT INTO contributions
+      (user_id,
+      title,
+      c_description,
+      category,
+      condition,
+      available,
+      for_free
     ) VALUES (
-      ${id},
-      '${image}'
-    );
-  `;
-  return query2
-  })
-  .then((querydata)=>{
-    return db.query(querydata)
-    .then((data)=>{
-      return data;
+        ${user_id},
+        '${title}',
+        '${c_description}',
+        '${category}',
+        '${condition}',
+        'true',
+        '${for_free}'
+    ) RETURNING id;
+    `;
+    return db.query(query1)
+    .then((data) => {
+      var contriId = data.rows[0].id;
+      return contriId
     })
-    .catch((error)=>{console.log('error in model', error)})
-  })
+    .then((id)=>{
+      if (typeof this.image === 'string') {
+          var query=`
+            INSERT INTO photos
+            (contribution_id,
+            photo_url
+            ) VALUES (
+            ${id},
+            '${this.image}'
+            );
+            `;
+            return db.query(query)
+      } else {
+        this.image.map( (photo)=>  {
+
+            var imageUrl = photo
+            var query=`
+              INSERT INTO photos
+              (contribution_id,
+              photo_url
+              ) VALUES (
+              ${id},
+              '${imageUrl}'
+              );
+              `;
+            return db.query(query)
+            .then(()=>{
+
+            })
+            .catch((error)=>{ console.log('image upload failed')})
+        })
+      }
+
+    })
+    .then(()=>{console.log('success')})
+    .catch((err) => {console.log(err);})
   }
 };
