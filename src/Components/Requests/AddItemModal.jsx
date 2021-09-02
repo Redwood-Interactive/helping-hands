@@ -41,7 +41,7 @@ const AddItemModal = (props) => {
         .then((res) => {
           props.setAddItemModal(false)
           window.open('/requests', '_self');
-          console.log(res)
+          // console.log(res)
         })
 
     }
