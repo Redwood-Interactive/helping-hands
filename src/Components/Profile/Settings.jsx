@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Link, useLocation, Redirect } from 'react-router-dom';
-import { ProfileIcon, FormItem, FormRow, InputContainer, DropdownMenu, ImageRow, SettingRow, SmallRow, Img, ImageEdit, Edit, Submit } from './Styles/Settings.style.js'
+import { Menu, ProfileIcon, FormItem, FormRow, InputContainer, DropdownMenu, ImageRow, SettingRow, SmallRow, Img, ImageEdit, Edit, Submit } from './Styles/Settings.style.js'
 
 const states = [
   "AK",
@@ -224,7 +224,7 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser }) => {
                   disabled={!edit}>
                   {state}
                 </Dropdown.Toggle>
-                <Dropdown.Menu style={{ "height": "140px", "overflowY": "scroll" }}>
+                <DropdownMenu>
                   {states.map((stateobj, i) => (
                     <Dropdown.Item
                       key={i}
@@ -232,7 +232,7 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser }) => {
                       {stateobj}
                     </Dropdown.Item>
                   ))}
-                </Dropdown.Menu>
+                </DropdownMenu>
               </Dropdown>
             </FormItem>
           </FormRow>
