@@ -14,11 +14,6 @@ html, body {
   color: #FFD9BA;
 }
 
-.settingsWrapper {
-  align-self: baseline;
-  padding-right: 150px;
-}
-
 #profile {
   margin-right: 20px;
   font-size: 20px;

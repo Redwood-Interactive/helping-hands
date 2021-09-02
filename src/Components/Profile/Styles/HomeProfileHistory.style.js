@@ -6,7 +6,8 @@ export const ProfileHistContainer = styled.div`
 `;
 
 export const Text = styled.div`
-  font-size: 24px;
+  font-size: 27px;
+  margin-bottom: 5px;
 `;
 
 export const HistoryContainer = styled.div`
@@ -24,7 +25,7 @@ export const ButtonWrapper = styled.div`
 
 export const ContriButton = styled.div`
   flex-grow: 1;
-  font-size: 20px;
+  font-size: 24px;
   border: 0.8px solid black;
   border-radius: 10px 0px 0px 0px;
   border-top: 0px;
@@ -43,7 +44,7 @@ export const ContriButton = styled.div`
 
 export const ReqButton = styled.div`
   flex-grow: 1;
-  font-size: 20px;
+  font-size: 24px;
   border: 0.8px solid black;
   border-radius: 0px 10px 0px 0px;
   border-top: 0px;
