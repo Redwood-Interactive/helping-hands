@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import validator from 'validator';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row';
@@ -8,8 +10,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Link, useLocation, Redirect } from 'react-router-dom';
-import axios from 'axios';
-import validator from 'validator';
 import { FormItem, FormRow, ImageItem, InputContainer, DropdownMenu, ImageRow, ProfileIcon, AddrRow, SettingRow, SmallRow } from './Styles/Settings.style.js'
 
 const states = [
@@ -131,7 +131,7 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser}) => {
     if (!validator.isPostalCode(zipcode)) {
       return false;
     }
-    
+
     if (!validator.isMobilePhone(phone)) {
       return false;
     }
