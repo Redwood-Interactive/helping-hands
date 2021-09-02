@@ -224,7 +224,7 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser }) => {
                   disabled={!edit}>
                   {state}
                 </Dropdown.Toggle>
-                <Dropdown.Menu style={{ "height": "140px", "overflowY": "scroll" }}>
+                <DropdownMenu>
                   {states.map((stateobj, i) => (
                     <Dropdown.Item
                       key={i}
@@ -232,7 +232,7 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser }) => {
                       {stateobj}
                     </Dropdown.Item>
                   ))}
-                </Dropdown.Menu>
+                </DropdownMenu>
               </Dropdown>
             </FormItem>
           </FormRow>

@@ -2,7 +2,7 @@ import Image from 'react-bootstrap/Image';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
+import Dropdown from 'react-bootstrap/Dropdown'
 
 export const InputContainer = styled.div`
 margin: 175px 0 75px;
@@ -66,8 +66,7 @@ export const SettingRow = styled.div`
   padding: 10px;
 `;
 
-export const DropdownMenu = styled.div`
-  position: relative;
-  height: 100px;
-  overflowY: scroll;
+export const DropdownMenu = styled(Dropdown.Menu)`
+  height: 140px;
+  overflow-y: scroll;
 `;
