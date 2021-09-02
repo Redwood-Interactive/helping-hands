@@ -1,17 +1,19 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 #link {
-  color: white;
+  /* color: white; */
+  color: #4c4c4c;
   text-decoration: none;
   transition: 0.2s ease-in;
 }
 
 #link:hover {
-  color: #FFD9BA;
+  color: #bf5700;
 }
 
 .settingsWrapper {
@@ -37,9 +39,11 @@ html, body {
 }
 
 .carousel-text {
-  position: relative;
-  top: 550px;
-  font-size: 20px;
+  position: absolute;
+  bottom: 85px;
+  /* top: 550px;
+  font-size: 20px; */
+
 }
 
 .d-block {

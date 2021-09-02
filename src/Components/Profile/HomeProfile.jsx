@@ -4,31 +4,31 @@ import HomeProfileHist from './HomeProfileHist.jsx';
 import { Link, useLocation } from 'react-router-dom';
 
 
-const HomeProfile = ({isLoggedIn, userInfo}) => {
+const HomeProfile = ({ isLoggedIn, userInfo }) => {
 
   return (
     <div>
-    {Object.keys(userInfo).length !== 0 ? <HomeProfileContainer className="outermost">
-    <HomeProfileContainer className="outermost"></HomeProfileContainer>
-      <ProfileInfoContainer>
-        <Link id='link' className="settingsWrapper" to={{
-          pathname: "/settings",
-          state: {
-            user: userInfo
-          },
-        }}>
-          <SettingsIcon src="https://static.thenounproject.com/png/20344-200.png"></SettingsIcon>
-        </Link>
-        <HomeProfileImg src={userInfo.profile_pic}></HomeProfileImg>
-        <UserInfoContainer>
-          <p>{userInfo.first_name} {userInfo.last_name}</p>
-          <p><b>Location: </b>{userInfo.locations[0].city}, {userInfo.locations[0].state}</p>
-        </UserInfoContainer>
-      </ProfileInfoContainer>
-      <HomeProfileHist userInfo={userInfo}/>
-    </HomeProfileContainer> : <div></div>}
+      {Object.keys(userInfo).length !== 0 ? <HomeProfileContainer className="outermost">
+        {/* <HomeProfileContainer className="outermost"></HomeProfileContainer> */}
+        <ProfileInfoContainer>
+          <Link id='link' className="settingsWrapper" to={{
+            pathname: "/settings",
+            state: {
+              user: userInfo
+            },
+          }}>
+            <SettingsIcon src="https://static.thenounproject.com/png/20344-200.png"></SettingsIcon>
+          </Link>
+          <HomeProfileImg src={userInfo.profile_pic}></HomeProfileImg>
+          <UserInfoContainer>
+            <p>{userInfo.first_name} {userInfo.last_name}</p>
+            <p><b>Location: </b>{userInfo.locations[0].city}, {userInfo.locations[0].state}</p>
+          </UserInfoContainer>
+        </ProfileInfoContainer>
+        <HomeProfileHist userInfo={userInfo} />
+      </HomeProfileContainer> : <div></div>}
     </div>
-      );
+  );
 }
 
-      export default HomeProfile;
+export default HomeProfile;

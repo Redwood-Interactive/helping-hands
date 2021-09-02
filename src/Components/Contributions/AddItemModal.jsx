@@ -115,7 +115,6 @@ const AddItemModal = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-
       <Modal.Body>
         <FormContainer>
           <Form noValidate validated={validated} onSubmit={submitContribution}>
@@ -128,12 +127,12 @@ const AddItemModal = (props) => {
                       <Form.Label>Title</Form.Label>
                       <Form.Control onChange={(e) => setTitle(e.target.value)} type="text" maxLength='20' placeholder="Enter title" required />
                       <Form.Control.Feedback type='invalid'>
-                        no bueno!
+                        Title required.
                       </Form.Control.Feedback>
                     </Form.Group>
                   </Title>
                   <CheckDiv>
-                    <Form.Check type="checkbox" id="autoSizingCheck2" label="For Free?" onChange={() => setFree(!free)} checked />
+                    <Form.Check type="checkbox" id="autoSizingCheck2" label="For Free?" onChange={(e) => setFree(!free)} defaultChecked='true'/>
                   </CheckDiv>
                 </TitleContainer>
 
@@ -151,7 +150,7 @@ const AddItemModal = (props) => {
                     <option value='Miscellaneous'>Miscellaneous</option>
                   </Form.Select>
                   <Form.Control.Feedback type='invalid'>
-                    no bueno!
+                    Category required.
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -164,7 +163,7 @@ const AddItemModal = (props) => {
                     <option value="Used">Used</option>
                   </Form.Select>
                   <Form.Control.Feedback type='invalid'>
-                    no bueno!
+                    Condition required.
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -182,7 +181,7 @@ const AddItemModal = (props) => {
               <MainAddress>
                 <Form.Group className="mb-3" controlId="MainAddress">
                   <Form.Label>Main Address</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].street_name} disabled />
+                  <Form.Control type="text" defaultValue={streetName} disabled />
                 </Form.Group>
 
               </MainAddress>
@@ -190,21 +189,21 @@ const AddItemModal = (props) => {
               <City>
                 <Form.Group className="mb-3" controlId="City">
                   <Form.Label>City</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].city} disabled />
+                  <Form.Control type="text" defaultValue={city} disabled />
                 </Form.Group>
               </City>
 
               <State>
                 <Form.Group className="mb-3" controlId="State">
                   <Form.Label>State</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].state} disabled />
+                  <Form.Control type="text" defaultValue={state} disabled />
                 </Form.Group>
               </State>
 
               <ZipCode>
                 <Form.Group className="mb-3" controlId="ZipCode">
                   <Form.Label>Zip Code</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].zipcode} disabled />
+                  <Form.Control type="text" defaultValue={zipCode} disabled />
                 </Form.Group>
               </ZipCode>
             </MidHalf>
@@ -215,7 +214,7 @@ const AddItemModal = (props) => {
                 <Form.Control as="textarea" type="Description" placeholder="Description" style={{ height: '100px' }} required onChange={(e) => setDescription(e.target.value)} />
               </Form.Group>
               <Form.Control.Feedback type='invalid'>
-                no bueno!
+                Description required.
               </Form.Control.Feedback>
             </LowerHalf>
 
