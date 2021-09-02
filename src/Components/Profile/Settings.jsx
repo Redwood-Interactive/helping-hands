@@ -66,7 +66,6 @@ const states = [
 
 
 const Settings = ({ userInfo, isLoggedIn, getUpdatedUser}) => {
-  console.log(userInfo);
     const [validated, setValidated] = useState(false);
     const [edit, setEdit] = useState(false);
     const [check, setCheck] = useState(false);

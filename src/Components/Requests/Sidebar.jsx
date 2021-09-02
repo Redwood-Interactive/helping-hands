@@ -29,15 +29,6 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
   }
 
   const modalRender = () => {
-    // change this back to isLoggedIn && userInfo.locations[0].street_name
-
-    // if (isLoggedIn && Object.keys(userInfo).length) {
-    //   return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
-    // } else if (!isLoggedIn) {
-    //   return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
-    // } else if (isLoggedIn && !userInfo.locations[0].street_name) {
-    //   return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
-    // }
 
     if (Object.keys(userInfo).length > 0 && isLoggedIn && !userInfo.locations[0].street_name) {
       return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)} />
@@ -59,23 +50,6 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
           </SearchSubDiv>
         </SearchDiv>
         <AddBtn onClick={() => setAddItemModal(true)}>Add Item +</AddBtn>
-        {/* <LocationDiv>
-        <LocationSubDiv>
-          <Label>Zipcode</Label>
-          <ZipInput placeholder='Enter zipcode...'></ZipInput>
-        </LocationSubDiv>
-        <LocationSubDiv>
-          <Label>Radius</Label>
-          <RadiusSelect>
-            <option>1 mile</option>
-            <option>2 miles</option>
-            <option>5 miles</option>
-            <option>10 miles</option>
-            <option>20 miles</option>
-            <option>40 miles</option>
-          </RadiusSelect>
-        </LocationSubDiv>
-      </LocationDiv> */}
       <CheckboxDiv>
         <Label>Category</Label>
         <Checkboxes>

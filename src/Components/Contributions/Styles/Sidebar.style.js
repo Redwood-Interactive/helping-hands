@@ -29,7 +29,7 @@ export const AddBtn = styled.div`
   position: relative;
   font-size: ${props => props.font};
   cursor: pointer;
-  background-color: #f7f7f7;
+  transition: 0.2s ease-in;
   &:hover {
     background-color: #e5eae5;
   }
