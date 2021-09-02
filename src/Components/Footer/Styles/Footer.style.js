@@ -4,26 +4,27 @@ export const FooterContainer = styled.div`
   position: relative;
   left: 0;
   bottom: 0;
-  height: 200px;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   background-color: #bf5700;
   padding: 40px;
+  justify-content: center;
 `;
 
 export const LinksContainer = styled.div`
-display: flex;
-justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const FooterSection = styled.div`
 margin-right: 55px;
 display: flex;
 flex-direction: column;
-white-space: nowrap
-
+/* white-space: nowrap; */
+width: 300px;
+margin-bottom: 25px;
 `;
 
 export const StyledAnchor = styled.a`
