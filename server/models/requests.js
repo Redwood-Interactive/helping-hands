@@ -40,14 +40,15 @@ module.exports = {
         category,
         available
       ) VALUES (
-        ${user_id},
-        '${title}',
-        '${r_description}',
-        '${category}',
+        ($1),
+        ($2),
+        ($3),
+        ($4),
         'true'
       );
     `;
-    return db.query(query)
+    var values = [user_id, title, r_description, category]
+    return db.query(query, values)
       .then((data) => {
         return data
       })

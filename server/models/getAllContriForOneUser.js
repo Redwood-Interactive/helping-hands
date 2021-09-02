@@ -21,7 +21,6 @@ module.exports = {
   },
   removeContri: (contriID) => {
     var query = `UPDATE contributions SET available = false WHERE id = ${contriID}`;
-
     return db.query(query)
     .then((data) => {
       return data;
