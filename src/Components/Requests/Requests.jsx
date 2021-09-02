@@ -42,7 +42,7 @@ const Requests = ({ isLoggedIn, userInfo }) => {
 
   return (
     <ContributionsContainer>
-      <ContributionTitle>Requests</ContributionTitle>
+      {/* <ContributionTitle>Requests</ContributionTitle> */}
       <ContainerDiv>
         <Sidebar setSearchQuery={setSearchQuery} handleSubmitSearch={handleSubmitSearch} setCategories={setCategories} categories={categories} isLoggedIn={isLoggedIn} userInfo={userInfo}/>
         {isLoaded ? <Items data={data} userinfo={userInfo} queriedSearch={queriedSearch} categories={categories}/>: null}
