@@ -28,7 +28,6 @@ const Items = (props) => {
   useEffect(() => {
     if (props.data) {
       setNewData(props.data);
-      console.log(props.data)
     }
   }, [props.data])
 
