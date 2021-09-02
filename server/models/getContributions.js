@@ -1,5 +1,4 @@
 const db = require('../../database/index.js');
-const {presetName, cloudName} = require('../../config.js')
 
 
 module.exports = {
