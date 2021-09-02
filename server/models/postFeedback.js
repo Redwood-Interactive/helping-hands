@@ -9,7 +9,7 @@ module.exports = {
 
     return db.query(query.text, query.values)
       .then(() => {
-        return 'feedback posted!';
+        return
       })
       .catch((err) => {
         console.log(err);
