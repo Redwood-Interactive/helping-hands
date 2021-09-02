@@ -14,7 +14,6 @@ const Feedback = (props) => {
     e.preventDefault()
     apiCalls.postFeedback(feedback)
       .then((data) => {
-        console.log(data)
         setFeedback('')
       })
       .catch((err) => {

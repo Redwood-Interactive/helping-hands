@@ -22,7 +22,7 @@ const StatsBlock = (props) => {
             setNumContributions('' + results.data[0].count);
 
             var counters = document.querySelectorAll('.stats-block-number');
-            var speed = 1000;
+            var speed = 200;
             counters.forEach(counter => {
               const updateCount = () => {
                 const target = +counter.getAttribute('value');
@@ -60,15 +60,15 @@ const StatsBlock = (props) => {
         <StatsBlockTray>
           <StatsBlockCounter>
             <h3>Users Active</h3>
-            <StatsBlockNumber value={numUsers} className='stats-block-number'>0</StatsBlockNumber>
+            {numUsers > 200 ? <StatsBlockNumber value={numUsers} className='stats-block-number'>0</StatsBlockNumber> : <StatsBlockNumber>{numUsers}</StatsBlockNumber>}
           </StatsBlockCounter>
           <StatsBlockCounter>
             <h3>Contributions Made</h3>
-            <StatsBlockNumber value={numContributions} className='stats-block-number'>0</StatsBlockNumber>
+            {numContributions > 200 ? <StatsBlockNumber value={numContributions} className='stats-block-number'>0</StatsBlockNumber> : <StatsBlockNumber>{numContributions}</StatsBlockNumber>}
           </StatsBlockCounter>
           <StatsBlockCounter>
             <h3>Requests Served</h3>
-            <StatsBlockNumber value={numRequests} className='stats-block-number'>0</StatsBlockNumber>
+            {numRequests > 200 ? <StatsBlockNumber value={numRequests} className='stats-block-number'>0</StatsBlockNumber> : <StatsBlockNumber>{numRequests}</StatsBlockNumber>}
           </StatsBlockCounter>
         </StatsBlockTray>
       </StatsBlockSection>
