@@ -82,7 +82,6 @@ const AddItemModal = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-
       <Modal.Body>
         <FormContainer>
           <Form noValidate validated={validated} onSubmit={submitContribution}>
@@ -149,7 +148,7 @@ const AddItemModal = (props) => {
               <MainAddress>
                 <Form.Group className="mb-3" controlId="MainAddress">
                   <Form.Label>Main Address</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].street_name} disabled />
+                  <Form.Control type="text" defaultValue={streetName} disabled />
                 </Form.Group>
 
               </MainAddress>
@@ -157,21 +156,21 @@ const AddItemModal = (props) => {
               <City>
                 <Form.Group className="mb-3" controlId="City">
                   <Form.Label>City</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].city} disabled />
+                  <Form.Control type="text" defaultValue={city} disabled />
                 </Form.Group>
               </City>
 
               <State>
                 <Form.Group className="mb-3" controlId="State">
                   <Form.Label>State</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].state} disabled />
+                  <Form.Control type="text" defaultValue={state} disabled />
                 </Form.Group>
               </State>
 
               <ZipCode>
                 <Form.Group className="mb-3" controlId="ZipCode">
                   <Form.Label>Zip Code</Form.Label>
-                  <Form.Control type="text" defaultValue={props.userInfo.locations[0].zipcode} disabled />
+                  <Form.Control type="text" defaultValue={zipCode} disabled />
                 </Form.Group>
               </ZipCode>
             </MidHalf>

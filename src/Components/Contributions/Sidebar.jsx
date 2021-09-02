@@ -34,7 +34,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
 
     // change this back to isLoggedIn && userInfo.locations[0].street_name
 
-    if (Object.keys(userInfo).length && isLoggedIn && userInfo.locations[0].street_name) {
+    if (Object.keys(userInfo).length && isLoggedIn) {
       return <AddItemModal show={addItemModal} onHide={() => setAddItemModal(false)} userInfo={userInfo} setAddItemModal={setAddItemModal}/>
     } else if (!isLoggedIn) {
       return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />
