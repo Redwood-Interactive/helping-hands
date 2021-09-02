@@ -127,9 +127,11 @@ const Settings = ({ userInfo, isLoggedIn, getUpdatedUser}) => {
     if (!validator.isEmail(email)) {
       return false;
     }
+
     if (!validator.isPostalCode(zipcode)) {
       return false;
     }
+    
     if (!validator.isMobilePhone(phone)) {
       return false;
     }
