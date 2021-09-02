@@ -17,7 +17,7 @@ const AddItemModal = (props) => {
   const [free, setFree] = useState(true);
   const [imageLocation, setLocalImageLocation] = useState('');
   const [newImageUrl, setnewImageUrl] = useState('');
-  const [validated, setValidated] = useState(true);
+  const [validated, setValidated] = useState(false);
 
   useEffect(() => {
     if (props.userInfo.locations) {
@@ -36,7 +36,6 @@ const AddItemModal = (props) => {
       setValidated(false)
       e.stopPropagation();
     } else {
-      setValidated(true);
       const formData = new FormData();
       formData.append('file', imageLocation);
       formData.append('upload_preset', presetName.presetName);
@@ -72,6 +71,7 @@ const AddItemModal = (props) => {
           console.log('there was an err :(', err);
         })
     }
+    setValidated(true);
   }
 
 
@@ -118,6 +118,9 @@ const AddItemModal = (props) => {
                     <option value='Toy'>Toy</option>
                     <option value='Miscellaneous'>Miscellaneous</option>
                   </Form.Select>
+                  <Form.Control.Feedback type='invalid'>
+                    no bueno!
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
@@ -128,6 +131,9 @@ const AddItemModal = (props) => {
                     <option value="Like new">Like new</option>
                     <option value="Used">Used</option>
                   </Form.Select>
+                  <Form.Control.Feedback type='invalid'>
+                    no bueno!
+                  </Form.Control.Feedback>
                 </Form.Group>
 
               </LeftSide>
@@ -146,6 +152,7 @@ const AddItemModal = (props) => {
                   <Form.Label>Main Address</Form.Label>
                   <Form.Control type="text" defaultValue={props.userInfo.locations[0].street_name} disabled />
                 </Form.Group>
+
               </MainAddress>
 
               <City>
@@ -175,6 +182,9 @@ const AddItemModal = (props) => {
                 <Form.Label>Description</Form.Label>
                 <Form.Control as="textarea" type="Description" placeholder="Description" style={{ height: '100px' }} required onChange={(e) => setDescription(e.target.value)} />
               </Form.Group>
+              <Form.Control.Feedback type='invalid'>
+                no bueno!
+              </Form.Control.Feedback>
             </LowerHalf>
 
             <Button variant="primary" type="submit" style={{ float: 'right' }}>
