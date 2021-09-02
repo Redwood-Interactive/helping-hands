@@ -5,7 +5,7 @@ const ItemsDetail = ({ title, description, category, location, iconclass, user, 
   var phone;
   if (user.phone) {
     phone = user.phone.toString();
-    phone = '(' + phone.slice(0, 3) + ') ' + phone.slice(3, 7) + '-' + phone.slice(7);
+    phone = '(' + phone.slice(0, 3) + ') ' + phone.slice(3, 6) + '-' + phone.slice(6);
   }
 
   const email = () => {

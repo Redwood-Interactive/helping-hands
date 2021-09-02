@@ -20,10 +20,6 @@ router.get('/getAllReqForOneUser', getReqForOneUser.get);
 
 router.post('/getcontributions', getContributions.post);
 
-// router.get('/requests', requests.get);
-
-// router.post('/requestPostOne', requests.post);
-
 router.get('/getAllUsers', getAllUsers.get);
 
 router.get('/getAllReqCount', getAllReqCount.get);
@@ -37,8 +33,6 @@ router.post('/requestsAll', requests.post)
 router.put('/removeContri', getContriForOneUser.put);
 
 router.put('/removeReq', getReqForOneUser.put);
-
-
 
 //AUTHENTICATION
 router.get('/user', getUser.get);
@@ -56,9 +50,6 @@ router.get('/logout', (req, res) => {
   req.logOut();
   res.redirect('/');
 });
-
-
-
 
 router.post('/feedback', postFeedback.post);
 
