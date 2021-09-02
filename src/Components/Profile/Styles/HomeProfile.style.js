@@ -67,7 +67,7 @@ export const Active = styled.div`
 
 export const Fulfilled = styled.div`
   padding-left: 5px;
-  color: red;
+  color: black;
   font-weight: bold;
 `;
 
