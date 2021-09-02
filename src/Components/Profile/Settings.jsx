@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Link, useLocation, Redirect } from 'react-router-dom';
-import { ProfileIcon, FormItem, FormRow, InputContainer, DropdownMenu, ImageRow, SettingRow, SmallRow, Img, ImageEdit, Edit, Submit } from './Styles/Settings.style.js'
+import { Menu, ProfileIcon, FormItem, FormRow, InputContainer, DropdownMenu, ImageRow, SettingRow, SmallRow, Img, ImageEdit, Edit, Submit } from './Styles/Settings.style.js'
 
 const states = [
   "AK",

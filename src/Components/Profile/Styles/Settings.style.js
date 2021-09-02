@@ -1,6 +1,7 @@
 import Image from 'react-bootstrap/Image';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 export const InputContainer = styled.div`
@@ -47,10 +48,6 @@ height: 40px;
 
 export const Submit = styled(Button)`
 width: 80px;
-`;
-
-export const ProfileIcon = styled.div`
-color: black
 `;
 
 export const ImageRow = styled.div`
