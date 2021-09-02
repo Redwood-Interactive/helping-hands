@@ -29,7 +29,7 @@ const Sidebar = ({ isLoggedIn, userInfo, setSearchQuery, handleSubmitSearch, cat
     //   return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)}/>
     // }
 
-    if (isLoggedIn && !userInfo.locations[0].street_name) {
+    if (Object.keys(userInfo).length > 0 && isLoggedIn && !userInfo.locations[0].street_name) {
       return <LocationPage show={addItemModal} onHide={() => setAddItemModal(false)} />
     } else if (!isLoggedIn) {
       return <LoginPage show={addItemModal} onHide={() => setAddItemModal(false)} />

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const NavbarContainer = styled.div`
   width: 100%;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
