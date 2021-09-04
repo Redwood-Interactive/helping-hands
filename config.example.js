@@ -21,3 +21,11 @@ module.exports.optionsG = {
 module.exports.session = {
   cookieKey: 'anything you want'
 }
+
+module.exports.presetName = {
+  presetName: 'cloudinary preset name'
+};
+
+module.exports.cloudName = {
+  cloudName: 'cloudinary username'
+};
