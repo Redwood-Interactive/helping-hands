@@ -1,2 +1,7 @@
 /node_modules
-/public/bundle.js
+config.js
+package-lock.json
+.VSCodeCounter
+bundle.js
+src_Components*
+vendors-node*
